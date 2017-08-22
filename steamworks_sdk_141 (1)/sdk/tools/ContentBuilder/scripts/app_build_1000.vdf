@@ -1,7 +1,7 @@
 "appbuild"
 {
 	"appid"	"686040"
-	"desc" "Your build description here" // description for this build
+	"desc" "Demo Version used for playtesting" // description for this build
 	"buildoutput" "..\output\" // build output folder for .log, .csm & .csd files, relative to location of this file
 	"contentroot" "..\content\" // root content folder, relative to location of this file
 	"setlive"	"" // branch to set live after successful build, non if empty
@@ -10,6 +10,6 @@
 	
 	"depots"
 	{
-		"686041" "depot_build_1001.vdf"
+		"686042" "depot_build_1001.vdf"
 	}
 }

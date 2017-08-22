@@ -11,3 +11,104 @@ fig file for account ID 114344507
 [2017-08-21 13:41:29] 	Base list: 0 ()
 [2017-08-21 13:41:29] 	No custom list
 [2017-08-21 13:41:29] 	No enabled features
+
+
+[2017-08-22 09:47:34] Validating parental settings
+[2017-08-22 09:47:34] Settings dump:
+[2017-08-22 09:47:34] 	Account ID: 114344507
+[2017-08-22 09:47:34] 	Enabled: false
+[2017-08-22 09:47:34] 	Base list: 0 ()
+[2017-08-22 09:47:34] 	No custom list
+[2017-08-22 09:47:34] 	No enabled features
+
+
+[2017-08-22 09:48:52] Validating parental settings
+[2017-08-22 09:48:52] Settings dump:
+[2017-08-22 09:48:52] 	Account ID: 114344507
+[2017-08-22 09:48:52] 	Enabled: false
+[2017-08-22 09:48:52] 	Base list: 0 ()
+[2017-08-22 09:48:52] 	No custom list
+[2017-08-22 09:48:52] 	No enabled features
+
+
+[2017-08-22 09:49:32] Validating parental settings
+[2017-08-22 09:49:32] Settings dump:
+[2017-08-22 09:49:32] 	Account ID: 114344507
+[2017-08-22 09:49:32] 	Enabled: false
+[2017-08-22 09:49:32] 	Base list: 0 ()
+[2017-08-22 09:49:32] 	No custom list
+[2017-08-22 09:49:32] 	No enabled features
+
+
+[2017-08-22 09:52:57] Validating parental settings
+[2017-08-22 09:52:57] Settings dump:
+[2017-08-22 09:52:57] 	Account ID: 114344507
+[2017-08-22 09:52:57] 	Enabled: false
+[2017-08-22 09:52:57] 	Base list: 0 ()
+[2017-08-22 09:52:57] 	No custom list
+[2017-08-22 09:52:57] 	No enabled features
+
+
+[2017-08-22 10:18:53] Validating parental settings
+[2017-08-22 10:18:53] Settings dump:
+[2017-08-22 10:18:53] 	Account ID: 114344507
+[2017-08-22 10:18:53] 	Enabled: false
+[2017-08-22 10:18:53] 	Base list: 0 ()
+[2017-08-22 10:18:53] 	No custom list
+[2017-08-22 10:18:53] 	No enabled features
+
+
+[2017-08-22 10:50:18] Validating parental settings
+[2017-08-22 10:50:18] Settings dump:
+[2017-08-22 10:50:18] 	Account ID: 114344507
+[2017-08-22 10:50:18] 	Enabled: false
+[2017-08-22 10:50:18] 	Base list: 0 ()
+[2017-08-22 10:50:18] 	No custom list
+[2017-08-22 10:50:18] 	No enabled features
+
+
+[2017-08-22 10:50:36] Validating parental settings
+[2017-08-22 10:50:36] Settings dump:
+[2017-08-22 10:50:36] 	Account ID: 114344507
+[2017-08-22 10:50:36] 	Enabled: false
+[2017-08-22 10:50:36] 	Base list: 0 ()
+[2017-08-22 10:50:36] 	No custom list
+[2017-08-22 10:50:36] 	No enabled features
+
+
+[2017-08-22 12:00:23] Validating parental settings
+[2017-08-22 12:00:23] Settings dump:
+[2017-08-22 12:00:23] 	Account ID: 114344507
+[2017-08-22 12:00:23] 	Base list: 0 ()
+[2017-08-22 12:00:23] 	No custom list
+[2017-08-22 12:00:23] 	No enabled features
+
+
+[2017-08-22 12:02:37] Validating parental settings
+[2017-08-22 12:02:37] Settings dump:
+[2017-08-22 12:02:37] 	Account ID: 114344507
+[2017-08-22 12:02:37] 	Base list: 0 ()
+[2017-08-22 12:02:37] 	No custom list
+[2017-08-22 12:02:37] 	No enabled features
+
+
+[2017-08-22 14:56:16] Validating parental settings
+[2017-08-22 14:56:16] Settings dump:
+[2017-08-22 14:56:16] 	Account ID: 114344507
+[2017-08-22 14:56:16] 	Enabled: false
+[2017-08-22 14:56:16] 	Base list: 0 ()
+[2017-08-22 14:56:16] 	No custom list
+[2017-08-22 14:56:16] 	No enabled features
+[2017-08-22 14:58:44] 	Enabled: false
+[2017-08-22 14:58:44] 	Base list: 0 ()
+[2017-08-22 14:58:44] 	No custom list
+[2017-08-22 14:58:44] 	No enabled features
+
+
+[2017-08-22 15:01:15] Validating parental settings
+[2017-08-22 15:01:15] Settings dump:
+[2017-08-22 15:01:15] 	Account ID: 114344507
+[2017-08-22 15:01:15] 	Enabled: false
+[2017-08-22 15:01:15] 	Base list: 0 ()
+[2017-08-22 15:01:15] 	No custom list
+[2017-08-22 15:01:15] 	No enabled features

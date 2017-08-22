@@ -27,3 +27,139 @@
 [2017-08-21 13:41:30] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
 [2017-08-21 13:41:30] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
 [2017-08-21 13:41:31] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+
+
+[2017-08-22 09:47:33] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 09:47:33] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 09:47:33] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 09:47:33] Loaded store 'userlocal' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf' successfully
+[2017-08-22 09:47:33] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 09:47:33] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 09:47:34] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 09:47:35] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 09:47:35] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+
+
+[2017-08-22 09:48:50] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 09:48:50] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 09:48:51] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 09:48:51] Loaded store 'userlocal' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf' successfully
+[2017-08-22 09:48:51] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 09:48:52] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 09:48:52] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 09:48:53] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+
+
+[2017-08-22 09:49:31] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 09:49:31] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 09:49:31] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 09:49:31] Loaded store 'userlocal' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf' successfully
+[2017-08-22 09:49:32] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 09:49:32] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 09:49:33] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 09:49:33] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+
+
+[2017-08-22 09:50:09] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 09:50:09] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+
+
+[2017-08-22 09:52:55] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 09:52:55] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 09:52:55] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 09:52:55] Loaded store 'userlocal' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf' successfully
+[2017-08-22 09:52:56] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 09:52:57] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 09:52:57] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+
+
+[2017-08-22 10:18:51] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 10:18:51] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 10:18:51] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 10:18:51] Loaded store 'userlocal' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf' successfully
+[2017-08-22 10:18:52] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 10:18:52] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 10:18:53] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 10:18:53] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 10:18:54] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 10:18:55] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+
+
+[2017-08-22 10:50:17] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 10:50:17] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 10:50:17] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 10:50:17] Loaded store 'userlocal' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf' successfully
+[2017-08-22 10:50:17] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 10:50:17] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 10:50:19] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 10:50:19] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 10:50:20] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+
+
+[2017-08-22 10:50:35] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 10:50:35] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 10:50:35] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 10:50:35] Loaded store 'userlocal' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf' successfully
+[2017-08-22 10:50:36] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 10:50:36] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 10:50:37] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 10:50:37] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 10:50:37] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 10:50:38] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 10:50:42] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+
+
+[2017-08-22 12:00:22] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 12:00:22] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 12:00:22] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 12:00:22] Loaded store 'userlocal' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf' successfully
+[2017-08-22 12:00:22] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 12:00:22] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 12:00:23] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 12:00:24] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 12:00:24] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 12:00:25] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+
+
+[2017-08-22 12:02:36] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 12:02:36] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 12:02:36] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 12:02:36] Loaded store 'userlocal' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf' successfully
+[2017-08-22 12:02:37] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 12:02:37] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 12:02:38] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 12:02:38] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+
+
+[2017-08-22 14:56:14] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 14:56:14] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 14:56:14] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 14:56:14] Loaded store 'userlocal' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf' successfully
+[2017-08-22 14:56:15] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 14:56:15] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 14:56:16] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 14:56:16] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 14:56:17] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 14:56:17] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+
+
+[2017-08-22 14:58:43] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 14:58:43] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 14:58:43] Loaded store 'userlocal' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf' successfully
+[2017-08-22 14:58:43] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 14:58:44] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 14:58:44] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 14:58:45] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 14:58:46] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+
+
+[2017-08-22 15:01:14] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 15:01:14] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 15:01:15] Loaded store 'install' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2017-08-22 15:01:15] Loaded store 'userlocal' from 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf' successfully
+[2017-08-22 15:01:15] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 15:01:15] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 15:01:16] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 15:01:16] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'
+[2017-08-22 15:01:16] Flushed store 'install' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2017-08-22 15:01:21] Flushed store 'userlocal' to 'C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\userdata\114344507\config\localconfig.vdf'

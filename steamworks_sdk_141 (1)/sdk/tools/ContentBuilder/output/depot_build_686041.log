@@ -1,13 +1,23 @@
-[2017-08-21 13:41:30]: Starting build for depot 686041, content path is "C:\\Users\\Storm Hughes\\Documents\\GitHub\\ReallyGoodBattle\\steamworks_sdk_141 (1)\\sdk\\tools\\ContentBuilder\\content"
-[2017-08-21 13:41:30]: Building file listing for depot 686041 ...
-[2017-08-21 13:41:30]: Found 0 files for mapping: C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\content  -> .
-[2017-08-21 13:41:30]: Adding empty folder for empty depot 686041
-[2017-08-21 13:41:30]: Building depot 686041, no baseline manifest
-[2017-08-21 13:41:30]: Found 0 new chunks (0 old ones existed) for depot 686041, took 0 minutes, 0 seconds
+[2017-08-22 14:56:16]: Starting build for depot 686041, content path is "C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\content"
+[2017-08-22 14:56:16]: Building file listing for depot 686041 ...
+[2017-08-22 14:56:16]: Found 10 files for mapping: C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\content * -> .
+[2017-08-22 14:56:17]: Found 10 files (9 MB) for depot 686041
+[2017-08-22 14:56:17]: Building depot 686041, baseline manifest 5801495511192746036 (1 files)
+[2017-08-22 14:56:17]: Found 15 new chunks (0 old ones existed) for depot 686041, took 0 minutes, 0 seconds
 
-[2017-08-21 13:41:30]: Changes to baseline manifest:
-[2017-08-21 13:41:30]: Added  : "EmptySteamDepot" 0 kB ,Flags: 64
-[2017-08-21 13:41:30]: Summary: 1 files added, 0 files changed, 0 files removed
-[2017-08-21 13:41:30]: Warning! Failed to open chunk store file C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\output\\686041_depotcache_0.csd
-[2017-08-21 13:41:30]: Uploading new manifest (409 bytes).
-[2017-08-21 13:41:31]: Success! New manifestID 5801495511192746036 created and 0 new chunks uploaded.
+[2017-08-22 14:56:17]: Changes to baseline manifest:
+[2017-08-22 14:56:17]: Added  : "D3DX9_43.dll" 1952 kB 
+[2017-08-22 14:56:17]: Added  : "data.win" 2287 kB 
+[2017-08-22 14:56:17]: Added  : "options.ini" 1 kB 
+[2017-08-22 14:56:17]: Added  : "ReallyGoodBattle.exe" 4040 kB 
+[2017-08-22 14:56:17]: Added  : "Song1.ogg" 549 kB 
+[2017-08-22 14:56:17]: Added  : "Song2.ogg" 549 kB 
+[2017-08-22 14:56:17]: Added  : "Song3.ogg" 549 kB 
+[2017-08-22 14:56:17]: Added  : "splash.png" 20 kB 
+[2017-08-22 14:56:17]: Added  : "steam_api.dll" 220 kB 
+[2017-08-22 14:56:17]: Added  : "your game content lives here.txt" 0 kB 
+[2017-08-22 14:56:17]: Removed: EmptySteamDepot (0 kB)
+[2017-08-22 14:56:17]: Summary: 10 files added, 0 files changed, 1 files removed
+[2017-08-22 14:56:17]: Local content server sync complete, 15 files checked, 0 files updated.
+[2017-08-22 14:56:17]: Uploading new manifest (1741 bytes).
+[2017-08-22 14:56:18]: Success! Previous manifestID 543211873684229312 reused, no chunks uploaded.

@@ -63,3 +63,145 @@
 [2017-08-21 13:41:28] Performing checksum verification of executable files
 [2017-08-21 13:41:28] Verification complete
 [2017-08-21 13:41:31] Shutdown
+
+
+[2017-08-22 09:47:32] Startup - updater built May 30 2017 09:31:34
+[2017-08-22 09:47:32] Checking for update on startup
+[2017-08-22 09:47:32] Checking for available updates...
+[2017-08-22 09:47:33] Download skipped: /client/steam_cmd_win32 version 1496167025, installed version 1496167025
+[2017-08-22 09:47:33] Nothing to do
+[2017-08-22 09:47:33] Verifying installation...
+[2017-08-22 09:47:33] Performing checksum verification of executable files
+[2017-08-22 09:47:33] Verification complete
+[2017-08-22 09:47:35] Shutdown
+
+
+[2017-08-22 09:48:50] Startup - updater built May 30 2017 09:31:34
+[2017-08-22 09:48:50] Checking for update on startup
+[2017-08-22 09:48:50] Checking for available updates...
+[2017-08-22 09:48:50] Download skipped: /client/steam_cmd_win32 version 1496167025, installed version 1496167025
+[2017-08-22 09:48:50] Nothing to do
+[2017-08-22 09:48:50] Verifying installation...
+[2017-08-22 09:48:50] Performing checksum verification of executable files
+[2017-08-22 09:48:50] Verification complete
+[2017-08-22 09:48:53] Shutdown
+
+
+[2017-08-22 09:49:30] Startup - updater built May 30 2017 09:31:34
+[2017-08-22 09:49:30] Checking for update on startup
+[2017-08-22 09:49:30] Checking for available updates...
+[2017-08-22 09:49:31] Download skipped: /client/steam_cmd_win32 version 1496167025, installed version 1496167025
+[2017-08-22 09:49:31] Nothing to do
+[2017-08-22 09:49:31] Verifying installation...
+[2017-08-22 09:49:31] Performing checksum verification of executable files
+[2017-08-22 09:49:31] Verification complete
+[2017-08-22 09:49:33] Shutdown
+
+
+[2017-08-22 09:50:08] Startup - updater built May 30 2017 09:31:34
+[2017-08-22 09:50:08] Checking for update on startup
+[2017-08-22 09:50:08] Checking for available updates...
+[2017-08-22 09:50:09] Download skipped: /client/steam_cmd_win32 version 1496167025, installed version 1496167025
+[2017-08-22 09:50:09] Nothing to do
+[2017-08-22 09:50:09] Verifying installation...
+[2017-08-22 09:50:09] Performing checksum verification of executable files
+[2017-08-22 09:50:09] Verification complete
+
+
+[2017-08-22 09:52:55] Startup - updater built May 30 2017 09:31:34
+[2017-08-22 09:52:55] Checking for update on startup
+[2017-08-22 09:52:55] Checking for available updates...
+[2017-08-22 09:52:55] Download skipped: /client/steam_cmd_win32 version 1496167025, installed version 1496167025
+[2017-08-22 09:52:55] Nothing to do
+[2017-08-22 09:52:55] Verifying installation...
+[2017-08-22 09:52:55] Performing checksum verification of executable files
+[2017-08-22 09:52:55] Verification complete
+[2017-08-22 09:52:58] Shutdown
+
+
+[2017-08-22 10:18:51] Startup - updater built May 30 2017 09:31:34
+[2017-08-22 10:18:51] Checking for update on startup
+[2017-08-22 10:18:51] Checking for available updates...
+[2017-08-22 10:18:51] Download skipped: /client/steam_cmd_win32 version 1496167025, installed version 1496167025
+[2017-08-22 10:18:51] Nothing to do
+[2017-08-22 10:18:51] Verifying installation...
+[2017-08-22 10:18:51] Performing checksum verification of executable files
+[2017-08-22 10:18:51] Verification complete
+[2017-08-22 10:18:57] Shutdown
+
+
+[2017-08-22 10:50:16] Startup - updater built May 30 2017 09:31:34
+[2017-08-22 10:50:16] Checking for update on startup
+[2017-08-22 10:50:16] Checking for available updates...
+[2017-08-22 10:50:17] Download skipped: /client/steam_cmd_win32 version 1496167025, installed version 1496167025
+[2017-08-22 10:50:17] Nothing to do
+[2017-08-22 10:50:17] Verifying installation...
+[2017-08-22 10:50:17] Performing checksum verification of executable files
+[2017-08-22 10:50:17] Verification complete
+[2017-08-22 10:50:21] Shutdown
+
+
+[2017-08-22 10:50:34] Startup - updater built May 30 2017 09:31:34
+[2017-08-22 10:50:35] Checking for update on startup
+[2017-08-22 10:50:35] Checking for available updates...
+[2017-08-22 10:50:35] Download skipped: /client/steam_cmd_win32 version 1496167025, installed version 1496167025
+[2017-08-22 10:50:35] Nothing to do
+[2017-08-22 10:50:35] Verifying installation...
+[2017-08-22 10:50:35] Performing checksum verification of executable files
+[2017-08-22 10:50:35] Verification complete
+[2017-08-22 10:52:16] Shutdown
+
+
+[2017-08-22 12:00:19] Startup - updater built May 30 2017 09:31:34
+[2017-08-22 12:00:19] Checking for update on startup
+[2017-08-22 12:00:19] Checking for available updates...
+[2017-08-22 12:00:22] Download skipped: /client/steam_cmd_win32 version 1496167025, installed version 1496167025
+[2017-08-22 12:00:22] Nothing to do
+[2017-08-22 12:00:22] Verifying installation...
+[2017-08-22 12:00:22] Performing checksum verification of executable files
+[2017-08-22 12:00:22] Verification complete
+[2017-08-22 12:00:25] Shutdown
+
+
+[2017-08-22 12:02:35] Startup - updater built May 30 2017 09:31:34
+[2017-08-22 12:02:36] Checking for update on startup
+[2017-08-22 12:02:36] Checking for available updates...
+[2017-08-22 12:02:36] Download skipped: /client/steam_cmd_win32 version 1496167025, installed version 1496167025
+[2017-08-22 12:02:36] Nothing to do
+[2017-08-22 12:02:36] Verifying installation...
+[2017-08-22 12:02:36] Performing checksum verification of executable files
+[2017-08-22 12:02:36] Verification complete
+[2017-08-22 12:02:38] Shutdown
+
+
+[2017-08-22 14:56:12] Startup - updater built May 30 2017 09:31:34
+[2017-08-22 14:56:12] Checking for update on startup
+[2017-08-22 14:56:12] Checking for available updates...
+[2017-08-22 14:56:13] Download skipped: /client/steam_cmd_win32 version 1496167025, installed version 1496167025
+[2017-08-22 14:56:13] Nothing to do
+[2017-08-22 14:56:13] Verifying installation...
+[2017-08-22 14:56:13] Performing checksum verification of executable files
+[2017-08-22 14:56:14] Verification complete
+[2017-08-22 14:56:18] Shutdown
+
+
+[2017-08-22 14:58:42] Startup - updater built May 30 2017 09:31:34
+[2017-08-22 14:58:42] Checking for update on startup
+[2017-08-22 14:58:42] Checking for available updates...
+[2017-08-22 14:58:43] Download skipped: /client/steam_cmd_win32 version 1496167025, installed version 1496167025
+[2017-08-22 14:58:43] Nothing to do
+[2017-08-22 14:58:43] Verifying installation...
+[2017-08-22 14:58:43] Performing checksum verification of executable files
+[2017-08-22 14:58:43] Verification complete
+[2017-08-22 14:58:48] Shutdown
+
+
+[2017-08-22 15:01:14] Startup - updater built May 30 2017 09:31:34
+[2017-08-22 15:01:14] Checking for update on startup
+[2017-08-22 15:01:14] Checking for available updates...
+[2017-08-22 15:01:14] Download skipped: /client/steam_cmd_win32 version 1496167025, installed version 1496167025
+[2017-08-22 15:01:14] Nothing to do
+[2017-08-22 15:01:14] Verifying installation...
+[2017-08-22 15:01:14] Performing checksum verification of executable files
+[2017-08-22 15:01:14] Verification complete
+[2017-08-22 15:01:22] Shutdown
