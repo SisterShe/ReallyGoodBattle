@@ -1,0 +1,13 @@
+[2017-08-21 13:41:30]: Starting build for depot 686041, content path is "C:\\Users\\Storm Hughes\\Documents\\GitHub\\ReallyGoodBattle\\steamworks_sdk_141 (1)\\sdk\\tools\\ContentBuilder\\content"
+[2017-08-21 13:41:30]: Building file listing for depot 686041 ...
+[2017-08-21 13:41:30]: Found 0 files for mapping: C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\content  -> .
+[2017-08-21 13:41:30]: Adding empty folder for empty depot 686041
+[2017-08-21 13:41:30]: Building depot 686041, no baseline manifest
+[2017-08-21 13:41:30]: Found 0 new chunks (0 old ones existed) for depot 686041, took 0 minutes, 0 seconds
+
+[2017-08-21 13:41:30]: Changes to baseline manifest:
+[2017-08-21 13:41:30]: Added  : "EmptySteamDepot" 0 kB ,Flags: 64
+[2017-08-21 13:41:30]: Summary: 1 files added, 0 files changed, 0 files removed
+[2017-08-21 13:41:30]: Warning! Failed to open chunk store file C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\output\\686041_depotcache_0.csd
+[2017-08-21 13:41:30]: Uploading new manifest (409 bytes).
+[2017-08-21 13:41:31]: Success! New manifestID 5801495511192746036 created and 0 new chunks uploaded.

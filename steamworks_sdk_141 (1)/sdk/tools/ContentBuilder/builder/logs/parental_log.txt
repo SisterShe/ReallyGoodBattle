@@ -1,0 +1,13 @@
+
+
+[2017-08-21 13:38:55] Got parental settings for account ID 114344507
+fig file for account ID 114344507
+
+
+[2017-08-21 13:41:29] Validating parental settings
+[2017-08-21 13:41:29] Settings dump:
+[2017-08-21 13:41:29] 	Account ID: 114344507
+[2017-08-21 13:41:29] 	Enabled: false
+[2017-08-21 13:41:29] 	Base list: 0 ()
+[2017-08-21 13:41:29] 	No custom list
+[2017-08-21 13:41:29] 	No enabled features

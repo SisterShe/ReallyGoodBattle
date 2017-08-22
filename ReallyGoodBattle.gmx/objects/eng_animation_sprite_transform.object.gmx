@@ -34,13 +34,13 @@ subimg = noone;
 duration = noone;
 tween = noone;
 event = noone;
-xvalues[] = noone;
-yvalues[] = noone;
+xvalues[0] = noone;
+yvalues[0] = noone;
 
 //Instance Variables
 image_alpha = 1;
-xresult[] = noone;
-yresult[] = noone;
+xresult[0] = noone;
+yresult[0] = noone;
 step = 0;
 </string>
           </argument>

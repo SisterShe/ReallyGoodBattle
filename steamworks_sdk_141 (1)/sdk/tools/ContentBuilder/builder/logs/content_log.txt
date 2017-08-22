@@ -1,0 +1,9 @@
+
+
+[2017-08-21 13:33:18] Loaded 0 apps from install folder "C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\steamapps\appmanifest_*.acf".
+
+
+[2017-08-21 13:38:29] Loaded 0 apps from install folder "C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\steamapps\appmanifest_*.acf".
+
+
+[2017-08-21 13:41:28] Loaded 0 apps from install folder "C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\steamapps\appmanifest_*.acf".
