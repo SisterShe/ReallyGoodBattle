@@ -173,11 +173,83 @@ if (Blue &gt;= 255) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (ShrineVal &gt;= room_speed * 3) 
+            <string>///Determines if shrine is captured.
+
+//Check that the timer have passed.
+if (ShrineVal &gt;= room_speed * 3) 
 {
-        other.charge += 1; 
-        instance_create(random_range(32,room_width-32),random_range(32,room_height-32),ShrineChoice_obj);
-        instance_destroy(); 
+    //Adds laser to player.
+    other.charge += 1; 
+    
+    //Creates new shrine and destroys current.
+    instance_create(random_range(32,room_width-32),random_range(32,room_height-32),ShrineChoice_obj);
+    instance_destroy(); 
+    
+    //Check if point capture gamemode.
+    if (global.gamemode = "Captures to Win")
+    {
+        //Detects capturing player.
+        var player_instance = other;
+        var i = 0;
+        switch (other.object_index)
+        {
+            case Player1_obj:
+            i = 0;
+            break;
+            
+            case Player2_obj:
+            i = 1;
+            break;
+            
+            case Player3_obj:
+            i = 2;
+            break;
+            
+            case Player4_obj:
+            i = 3;
+            break;
+        }
+        
+        //Runs code from score controller.
+        with (obj_score_controller)
+        {
+            //Updates player score.
+            var player_score = ds_list_find_value(scores, i);
+            player_score += 1;
+            ds_list_replace(scores, i, player_score);     
+            event_user(0); //Updates highest score player.
+            
+            //Check for victory.
+            if (player_score &gt;= global.score_max)
+            {
+                //Updates player game score.
+                var game_score = ds_list_find_value(games, i);
+                game_score += 1;
+                ds_list_replace(games, i, game_score);   
+                event_user(1); //Checks if player is winner.
+                
+                //Start slowmotion tween.
+                instance_create(x, y, obj_tween_slowmotion);
+                instance_create(other.x,other.y,BlackOut_obj); 
+                
+                //Scorescreen alarm.
+                alarm[0] = 30;
+                
+                //Disables pause.
+                with (obj_pause_controller)
+                {
+                    disabled = true;
+                }
+            }
+            else
+            {
+                //Plays popup animation for score.
+                animation_text_popup(-100, 1, 0.02, fnt_joystix_16, fa_center,
+                fa_top, player_instance.x, player_instance.y, string(player_score), 100, 100,
+                room_seconds(2), 50, 90, c_white, c_white);
+            }
+        }   
+    }
 } 
 </string>
           </argument>

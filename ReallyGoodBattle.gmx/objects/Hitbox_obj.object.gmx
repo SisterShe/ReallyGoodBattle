@@ -150,96 +150,261 @@ if (instance_exists(creator))
     //Detects collision with enemy.
     if (other.can_behit = true)
     {
+        //Check if not the creator.
         if (other != creator) 
         {
             //Kills Player.
+            var player_hit_instance = other;
             other.hspeed = 0; 
             other.vspeed = 0; 
-            other.x += random_range(3,-3); 
-            other.y += random_range(3,-3); 
+            //other.x += random_range(3,-3); 
+            //other.y += random_range(3,-3); 
             other.alarm[3] = 8; //Death Timer
             other.can_attack = false; //Disable this to have players kill each-other.
             other.can_behit = false;
             
+            //Check if point capture gamemode.
+            if (global.gamemode = "Captures to Win")
+            {
+                exit;
+            }
+            
             //Slows down room.
             room_speed = 16; 
             
-            //Detects creator player.
+            //Dunno what these are.
             creator.Combo += 1; 
             creator.SpawnLine = true; 
-            var i = 0;
-            switch (creator.object_index)
+            
+            //Check for gamemode.
+            if (global.gamemode = "Player Lives")
             {
-                case Player1_obj:
-                i = 0;
-                break;
+                //Detects creator player.
+                var i = 0;
+                switch (other.object_index)
+                {
+                    case Player1_obj:
+                    i = 0;
+                    break;
+                    
+                    case Player2_obj:
+                    i = 1;
+                    break;
+                    
+                    case Player3_obj:
+                    i = 2;
+                    break;
+                    
+                    case Player4_obj:
+                    i = 3;
+                    break;
+                }
                 
-                case Player2_obj:
-                i = 1;
-                break;
-                
-                case Player3_obj:
-                i = 2;
-                break;
-                
-                case Player4_obj:
-                i = 3;
-                break;
+                //Detects creator player.
+                var p = 0;
+                switch (creator.object_index)
+                {
+                    case Player1_obj:
+                    p = 0;
+                    break;
+                    
+                    case Player2_obj:
+                    p = 1;
+                    break;
+                    
+                    case Player3_obj:
+                    p = 2;
+                    break;
+                    
+                    case Player4_obj:
+                    p = 3;
+                    break;
+                }
+            }
+            else
+            {
+                //Detects creator player.
+                var i = 0;
+                switch (creator.object_index)
+                {
+                    case Player1_obj:
+                    i = 0;
+                    break;
+                    
+                    case Player2_obj:
+                    i = 1;
+                    break;
+                    
+                    case Player3_obj:
+                    i = 2;
+                    break;
+                    
+                    case Player4_obj:
+                    i = 3;
+                    break;
+                }
             }
             
             //Runs code from controller.
             with (obj_score_controller)
             {
-                //Updates player score.
-                var player_score = ds_list_find_value(scores, i);
-                player_score += 1;
-                ds_list_replace(scores, i, player_score);     
-                event_user(0); //Updates highest score player.
-                
-                //Check for victory.
-                if (player_score &gt;= global.score_max)
+                //Check for gamemode.
+                if (global.gamemode = "Player Lives")
                 {
-                    //Updates player game score.
-                    var game_score = ds_list_find_value(games, i);
-                    game_score += 1;
-                    ds_list_replace(games, i, game_score);   
-                    event_user(1); //Checks if player is winner.
+                    //Updates player score.
+                    var player_score = ds_list_find_value(scores, i);
+                    player_score -= 1;
+                    ds_list_replace(scores, i, player_score);     
+                    event_user(0); //Updates highest score player.
                     
-                    //Start slowmotion tween.
-                    instance_create(x, y, obj_tween_slowmotion);
-                    instance_create(other.x,other.y,BlackOut_obj); 
-                    
-                    //Scorescreen alarm.
-                    alarm[0] = 30;
-                    
-                    //Disables pause.
-                    with (obj_pause_controller)
+                    //Check for victory, by determining if only remaining player.
+                    var victory = true;
+                    for (var j = 0; j &lt; 3; j++)
                     {
-                        disabled = true;
+                        //Switch to avoid stupid old hardcoded systems.
+                        switch (j)
+                        {
+                            //Check if player 1 is playing.
+                            case 0:
+                            if (GameMaster_obj.Player1Active or global.player1_ai)
+                            {
+                                //Check if player 1 have remaining lives.
+                                if (ds_list_find_value(scores, j) &gt; 0)
+                                {
+                                    //Check that player 1 is not creator.
+                                    if (other.creator.object_index != Player1_obj)
+                                    {
+                                        victory = false;
+                                    }
+                                }
+                            }
+                            break;
+                              
+                            //Check if player 2 is playing.
+                            case 1:
+                            if (GameMaster_obj.Player2Active or global.player2_ai)
+                            {
+                                //Check if player 2 have remaining lives.
+                                if (ds_list_find_value(scores, j) &gt; 0)
+                                {
+                                    //Check that player 2 is not creator.
+                                    if (other.creator.object_index != Player2_obj)
+                                    {
+                                        victory = false;
+                                    }
+                                }
+                            }
+                            break;
+                            
+                            //Check if player 3 is playing.
+                            case 2:
+                            if (GameMaster_obj.Player3Active or global.player3_ai)
+                            {
+                                //Check if player 3 have remaining lives.
+                                if (ds_list_find_value(scores, j) &gt; 0)
+                                {
+                                    //Check that player 3 is not creator.
+                                    if (other.creator.object_index != Player3_obj)
+                                    {
+                                        victory = false;
+                                    }
+                                }
+                            }
+                            break;
+                            
+                            //Check if player 4 is playing.
+                            case 3:
+                            if (GameMaster_obj.Player4Active or global.player4_ai)
+                            {
+                                //Check if player 4 have remaining lives.
+                                if (ds_list_find_value(scores, j) &gt; 0)
+                                {
+                                    //Check that player 4 is not creator.
+                                    if (other.creator.object_index != Player4_obj)
+                                    {
+                                        victory = false;
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    
+                    //Check if player have won.
+                    if (victory)
+                    {
+                        //Updates player game score.
+                        var game_score = ds_list_find_value(games, p);
+                        game_score += 1;
+                        ds_list_replace(games, p, game_score);   
+                        event_user(1); //Checks if player is winner.
+                        
+                        //Start slowmotion tween.
+                        instance_create(x, y, obj_tween_slowmotion);
+                        instance_create(other.x,other.y,BlackOut_obj); 
+                        
+                        //Scorescreen alarm.
+                        alarm[0] = 30;
+                        
+                        //Disables pause.
+                        with (obj_pause_controller)
+                        {
+                            disabled = true;
+                        }
+                    }
+                    else
+                    {
+                        //Plays popup animation for lives.
+                        animation_text_popup(-100, 1, 0.02, fnt_joystix_16, fa_center,
+                        fa_top, player_hit_instance.x, player_hit_instance.y, string(player_score), 100, 100,
+                        room_seconds(2), 50, 90, c_white, c_white);
                     }
                 }
                 else
                 {
-                    //Plays popup animation for score.
-                    animation_text_popup(-100, 1, 0.02, fnt_joystix_16, fa_center,
-                    fa_top, other.creator.x, other.creator.y, string(player_score), 100, 100,
-                    room_seconds(2), 50, 90, c_white, c_white);
+                    //Updates player score.
+                    var player_score = ds_list_find_value(scores, i);
+                    player_score += 1;
+                    ds_list_replace(scores, i, player_score);     
+                    event_user(0); //Updates highest score player.
+                    
+                    //Check for victory.
+                    if (player_score &gt;= global.score_max)
+                    {
+                        //Updates player game score.
+                        var game_score = ds_list_find_value(games, i);
+                        game_score += 1;
+                        ds_list_replace(games, i, game_score);   
+                        event_user(1); //Checks if player is winner.
+                        
+                        //Start slowmotion tween.
+                        instance_create(x, y, obj_tween_slowmotion);
+                        instance_create(other.x,other.y,BlackOut_obj); 
+                        
+                        //Scorescreen alarm.
+                        alarm[0] = 30;
+                        
+                        //Disables pause.
+                        with (obj_pause_controller)
+                        {
+                            disabled = true;
+                        }
+                    }
+                    else
+                    {
+                        //Plays popup animation for score.
+                        animation_text_popup(-100, 1, 0.02, fnt_joystix_16, fa_center,
+                        fa_top, other.creator.x, other.creator.y, string(player_score), 100, 100,
+                        room_seconds(2), 50, 90, c_white, c_white);
+                    }
                 }
-                
-                //Redundancy?
-                /*
-                if (player_score == global.score_max)
-                {
-                    room_speed = 1; 
-        
-                    //Pauses game and plays victory after short alarm.
-                    //alarm[0] = 10;
-                }
-                */
             }
         }
     }
 }
+
+/* Shakes the players if they are invunerable and hit, causing them to bne stuck
+   Disabled for now.
 
 //Updates position.
 other.x += random_range(3,-3); 

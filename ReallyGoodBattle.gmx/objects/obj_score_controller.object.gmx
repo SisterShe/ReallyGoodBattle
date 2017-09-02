@@ -37,9 +37,19 @@ draw_skip = false;
 
 //Score List
 scores = ds_list_create();
-repeat (4)
+if (global.gamemode = "Player Lives")
 {
-    ds_list_add(scores, 0);
+    repeat (4)
+    {
+        ds_list_add(scores, global.score_max);
+    }
+}
+else
+{
+    repeat (4)
+    {
+        ds_list_add(scores, 0);
+    }
 }
 highest_score = 0;
 highest_score_index = 0;
@@ -284,6 +294,9 @@ for (var i = 0; i &lt; ds_list_size(scores); i++)
         highest_score_index = score_index;
     }
 }
+
+
+
 </string>
           </argument>
         </arguments>
@@ -361,9 +374,19 @@ else if (room != rm_pause and !obj_pause_controller.input_alarm)
     
     //Score List
     scores = ds_list_create();
-    repeat (4)
+    if (global.gamemode = "Player Lives")
     {
-        ds_list_add(scores, 0);
+        repeat (4)
+        {
+            ds_list_add(scores, global.score_max);
+        }
+    }
+    else
+    {
+        repeat (4)
+        {
+            ds_list_add(scores, 0);
+        }
     }
     highest_score = 0;
     highest_score_index = 0;
@@ -401,271 +424,547 @@ else if (room != rm_pause and !obj_pause_controller.input_alarm)
 //Check if game master exists.
 if (!instance_exists(GameMaster_obj)) exit;
 
-//Check if score should be drawn.
-if (draw_score)
+//Check if gamemode is kills or captures.
+if (global.gamemode = "Kills to Win" or global.gamemode = "Captures to Win")
 {
-    //Draws black rectangle across screen.
-    draw_set_alpha(alpha);
-    draw_set_color(c_black);
-    draw_rectangle(0, 0, room_width, room_height, false);
-    draw_set_alpha(1);
-    
-    //Setup Drawing
-    draw_setup(c_white, fnt_joystix_8, fa_center, fa_top, false);
-    
-    //Draws scoreboard.
-    var xx = room_width / 2;
-    var yy = 25;
-    var sep = 25;
-    draw_text(xx, yy, "Scoreboard");
-    yy += sep * 2;
-    
-    //Reorders players based on performance.
-    var queue = ds_priority_create();
-    for (var i = 0; i &lt; ds_list_size(games); i++)
+    //Check if score should be drawn.
+    if (draw_score)
     {
-        var priority = ds_list_find_value(games, i);
-        var value = "Player " + string(i+1) + ": " + string(priority) + "/" + string(global.games_max);
-        ds_priority_add(queue, value, priority);
-    }
-    
-    //Draws players and scores.
-    var first = true;
-    repeat (i)
-    {
-        var text = ds_priority_delete_max(queue);
-        if (first)
+        //Draws black rectangle across screen.
+        draw_set_alpha(alpha);
+        draw_set_color(c_black);
+        draw_rectangle(0, 0, room_width, room_height, false);
+        draw_set_alpha(1);
+        
+        //Setup Drawing
+        draw_setup(c_white, fnt_joystix_8, fa_center, fa_top, false);
+        
+        //Draws scoreboard.
+        var xx = room_width / 2;
+        var yy = 25;
+        var sep = 25;
+        draw_text(xx, yy, "Scoreboard");
+        yy += sep * 2;
+        
+        //Reorders players based on performance.
+        var queue = ds_priority_create();
+        for (var i = 0; i &lt; ds_list_size(games); i++)
         {
-            //Checks if game over.
-            if (game_over)
-            {
-                text += " (Winner)";
-            }
-            first = false;
-        }
-        else
-        {
-            //Checks if game over.
-            if (game_over)
-            {
-                text += " (Loser)";
-            }
+            var priority = ds_list_find_value(games, i);
+            var value = "Player " + string(i+1) + ": " + string(priority) + "/" + string(global.games_max);
+            ds_priority_add(queue, value, priority);
         }
         
-        //TODO: Fix later maybe. Dynamic colors instead of hardcoded in game master.
-        var color = c_white;
-        var player_text = string_copy(text, 0, 8);
-        switch (player_text)
+        //Draws players and scores.
+        var first = true;
+        repeat (i)
         {
-            case "Player 1":
-            color = make_color_rgb(GameMaster_obj.Player1Red,
-            GameMaster_obj.Player1Green,
-            GameMaster_obj.Player1Blue);
-            break;
+            var text = ds_priority_delete_max(queue);
+            if (first)
+            {
+                //Checks if game over.
+                if (game_over)
+                {
+                    text += " (Winner)";
+                }
+                first = false;
+            }
+            else
+            {
+                //Checks if game over.
+                if (game_over)
+                {
+                    text += " (Loser)";
+                }
+            }
             
-            case "Player 2":
-            color = make_color_rgb(GameMaster_obj.Player2Red,
-            GameMaster_obj.Player2Green,
-            GameMaster_obj.Player2Blue);
-            break;
-            
-            case "Player 3":
-            color = make_color_rgb(GameMaster_obj.Player3Red,
-            GameMaster_obj.Player3Green,
-            GameMaster_obj.Player3Blue);
-            break;
-            
-            case "Player 4":
-            color = make_color_rgb(GameMaster_obj.Player4Red,
-            GameMaster_obj.Player4Green,
-            GameMaster_obj.Player4Blue);
-            break;
+            //TODO: Fix later maybe. Dynamic colors instead of hardcoded in game master.
+            var color = c_white;
+            var player_text = string_copy(text, 0, 8);
+            switch (player_text)
+            {
+                case "Player 1":
+                color = make_color_rgb(GameMaster_obj.Player1Red,
+                GameMaster_obj.Player1Green,
+                GameMaster_obj.Player1Blue);
+                break;
+                
+                case "Player 2":
+                color = make_color_rgb(GameMaster_obj.Player2Red,
+                GameMaster_obj.Player2Green,
+                GameMaster_obj.Player2Blue);
+                break;
+                
+                case "Player 3":
+                color = make_color_rgb(GameMaster_obj.Player3Red,
+                GameMaster_obj.Player3Green,
+                GameMaster_obj.Player3Blue);
+                break;
+                
+                case "Player 4":
+                color = make_color_rgb(GameMaster_obj.Player4Red,
+                GameMaster_obj.Player4Green,
+                GameMaster_obj.Player4Blue);
+                break;
+            }
+            draw_set_color(color);
+            draw_text(xx, yy, text);
+            yy += sep;
         }
-        draw_set_color(color);
-        draw_text(xx, yy, text);
-        yy += sep;
+        
+        //Clean-Up Leaks
+        ds_priority_destroy(queue);
+        
+        //Draws press start to exit.
+        if (draw_skip)
+        {
+            yy += sep * 2;
+            draw_set_color(c_white);
+            if (game_over)
+            {
+                //Check if gamepad is connected.
+                if (gamepad_is_connected(0))
+                {
+                    draw_text(xx, yy, "Press Start to End");
+                }
+                else
+                {
+                    draw_text(xx, yy, "Press Escape to End");
+                }
+            }
+            else
+            {
+                //Check if gamepad is connected.
+                if (gamepad_is_connected(0))
+                {
+                    draw_text(xx, yy, "Press Start to Continue");
+                }
+                else
+                {
+                    draw_text(xx, yy, "Press Escape to Continue");
+                }
+            }
+        }
     }
     
-    //Clean-Up Leaks
-    ds_priority_destroy(queue);
-    
-    //Draws press start to exit.
-    if (draw_skip)
-    {
-        yy += sep * 2;
-        draw_set_color(c_white);
-        if (game_over)
+    //Draws HUD for games.
+    else
+    {        
+        //Setup default variables.
+        draw_setup(c_white, fnt_joystix_8, fa_center, fa_top, false);
+        var thickness = 2;
+        var yy = 6;
+        
+        //Determine number of connected players.
+        var players = 0;
+        with (GameMaster_obj)
         {
-            //Check if gamepad is connected.
-            if (gamepad_is_connected(0))
-            {
-                draw_text(xx, yy, "Press Start to End");
-            }
-            else
-            {
-                draw_text(xx, yy, "Press Escape to End");
-            }
+            if (Player1Active or global.player1_ai) players++;
+            if (Player2Active or global.player2_ai) players++;
+            if (Player3Active or global.player3_ai) players++;
+            if (Player4Active or global.player4_ai) players++;
         }
-        else
+        
+        //Draws rectangle at top.
+        draw_set_alpha(0.3);
+        draw_set_color(c_black);
+        draw_rectangle(0, 0, room_width, yy, false);
+        draw_set_alpha(1);
+        
+        //Draws games for player 1.
+        if (GameMaster_obj.Player1Active or global.player1_ai)
         {
-            //Check if gamepad is connected.
-            if (gamepad_is_connected(0))
+            switch (players)
             {
-                draw_text(xx, yy, "Press Start to Continue");
+                case 1: 
+                var xx = room_width/2; 
+                break;
+                 
+                case 2: 
+                var xx = room_width/2 - room_width/4;
+                break;
+                
+                case 3: 
+                var xx = 40;
+                break;
+                
+                case 4: 
+                var xx = 20;
+                break;
             }
-            else
+            var color = make_color_rgb(GameMaster_obj.Player1Red, GameMaster_obj.Player1Green, GameMaster_obj.Player1Blue);
+            var player_score = ds_list_find_value(scores, 0);
+            var total_score = global.score_max;
+            var text = string(player_score) + "/" + string(total_score);    
+            draw_set_color(color);
+            draw_text_outline(text, thickness, xx, yy);
+        }
+        
+        //Draws games for player 2.
+        if (GameMaster_obj.Player2Active or global.player2_ai)
+        {
+            switch (players)
             {
-                draw_text(xx, yy, "Press Escape to Continue");
+                case 1: 
+                var xx = room_width/2; 
+                break;
+                 
+                case 2: 
+                var xx = room_width/2 + room_width/4;
+                break;
+                
+                case 3: 
+                var xx = room_width/2;
+                break;
+                
+                case 4: 
+                var xx = room_width/2 - room_width/6;
+                break;
             }
+            var color = make_color_rgb(GameMaster_obj.Player2Red, GameMaster_obj.Player2Green, GameMaster_obj.Player2Blue);
+            var player_score = ds_list_find_value(scores, 1);
+            var total_score = global.score_max;
+            var text = string(player_score) + "/" + string(total_score);
+            draw_set_color(color);
+            draw_text_outline(text, thickness, xx, yy);
+        }
+        
+        //Draws games for player 3.
+        if (GameMaster_obj.Player3Active or global.player3_ai)
+        {
+            switch (players)
+            {
+                case 1: 
+                var xx = room_width/2; 
+                break;
+                 
+                case 2: 
+                var xx = room_width/2 + room_width/4;
+                break;
+                
+                case 3: 
+                if (GameMaster_obj.Player2Active or global.player2_ai)
+                {
+                    var xx = room_width - 40;
+                }
+                else
+                {
+                    var xx = room_width/2;
+                }
+                break;
+                
+                case 4: 
+                var xx = room_width/2 + room_width/6;
+                break;
+            }
+            var color = make_color_rgb(GameMaster_obj.Player3Red, GameMaster_obj.Player3Green, GameMaster_obj.Player3Blue);
+            var player_score = ds_list_find_value(scores, 2);
+            var total_score = global.score_max;
+            var text = string(player_score) + "/" + string(total_score);
+            draw_set_color(color);
+            draw_text_outline(text, thickness, xx, yy);
+        }
+        
+        //Draws games for player 4.
+        if (GameMaster_obj.Player4Active or global.player4_ai)
+        {
+            switch (players)
+            {
+                case 1: 
+                var xx = room_width/2; 
+                break;
+                 
+                case 2: 
+                var xx = room_width/2 + room_width/4;
+                break;
+                
+                case 3: 
+                var xx = room_width - 40;
+                break;
+                
+                case 4: 
+                var xx = room_width - 20;
+                break;
+            }
+            var color = make_color_rgb(GameMaster_obj.Player4Red, GameMaster_obj.Player4Green, GameMaster_obj.Player4Blue);
+            var player_score = ds_list_find_value(scores, 3);
+            var total_score = global.score_max;
+            var text = string(player_score) + "/" + string(total_score);
+            draw_set_color(color);
+            draw_text_outline(text, thickness, xx, yy);
         }
     }
 }
 
-//Draws HUD for games.
-else
-{        
-    //Setup default variables.
-    draw_setup(c_white, fnt_joystix_8, fa_center, fa_top, false);
-    var thickness = 2;
-    var yy = 6;
-    
-    //Determine number of connected players.
-    var players = 0;
-    with (GameMaster_obj)
+//Draws lives instead of points.
+else if (global.gamemode = "Player Lives")
+{
+    //Check if score should be drawn.
+    if (draw_score)
     {
-        if (Player1Active or global.player1_ai) players++;
-        if (Player2Active or global.player2_ai) players++;
-        if (Player3Active or global.player3_ai) players++;
-        if (Player4Active or global.player4_ai) players++;
-    }
-    
-    //Draws rectangle at top.
-    draw_set_alpha(0.3);
-    draw_set_color(c_black);
-    draw_rectangle(0, 0, room_width, yy, false);
-    draw_set_alpha(1);
-    
-    //Draws games for player 1.
-    if (GameMaster_obj.Player1Active or global.player1_ai)
-    {
-        switch (players)
+        //Draws black rectangle across screen.
+        draw_set_alpha(alpha);
+        draw_set_color(c_black);
+        draw_rectangle(0, 0, room_width, room_height, false);
+        draw_set_alpha(1);
+        
+        //Setup Drawing
+        draw_setup(c_white, fnt_joystix_8, fa_center, fa_top, false);
+        
+        //Draws scoreboard.
+        var xx = room_width / 2;
+        var yy = 25;
+        var sep = 25;
+        draw_text(xx, yy, "Scoreboard");
+        yy += sep * 2;
+        
+        //Reorders players based on performance.
+        var queue = ds_priority_create();
+        for (var i = 0; i &lt; ds_list_size(games); i++)
         {
-            case 1: 
-            var xx = room_width/2; 
-            break;
-             
-            case 2: 
-            var xx = room_width/2 - room_width/4;
-            break;
-            
-            case 3: 
-            var xx = 40;
-            break;
-            
-            case 4: 
-            var xx = 20;
-            break;
+            var priority = ds_list_find_value(games, i);
+            var value = "Player " + string(i+1) + ": " + string(priority) + "/" + string(global.games_max);
+            ds_priority_add(queue, value, priority);
         }
-        var color = make_color_rgb(GameMaster_obj.Player1Red, GameMaster_obj.Player1Green, GameMaster_obj.Player1Blue);
-        var player_score = ds_list_find_value(scores, 0);
-        var total_score = global.score_max;
-        var text = string(player_score) + "/" + string(total_score);    
-        draw_set_color(color);
-        draw_text_outline(text, thickness, xx, yy);
-    }
-    
-    //Draws games for player 2.
-    if (GameMaster_obj.Player2Active or global.player2_ai)
-    {
-        switch (players)
+        
+        //Draws players and scores.
+        var first = true;
+        repeat (i)
         {
-            case 1: 
-            var xx = room_width/2; 
-            break;
-             
-            case 2: 
-            var xx = room_width/2 + room_width/4;
-            break;
-            
-            case 3: 
-            var xx = room_width/2;
-            break;
-            
-            case 4: 
-            var xx = room_width/2 - room_width/6;
-            break;
-        }
-        var color = make_color_rgb(GameMaster_obj.Player2Red, GameMaster_obj.Player2Green, GameMaster_obj.Player2Blue);
-        var player_score = ds_list_find_value(scores, 1);
-        var total_score = global.score_max;
-        var text = string(player_score) + "/" + string(total_score);
-        draw_set_color(color);
-        draw_text_outline(text, thickness, xx, yy);
-    }
-    
-    //Draws games for player 3.
-    if (GameMaster_obj.Player3Active or global.player3_ai)
-    {
-        switch (players)
-        {
-            case 1: 
-            var xx = room_width/2; 
-            break;
-             
-            case 2: 
-            var xx = room_width/2 + room_width/4;
-            break;
-            
-            case 3: 
-            if (GameMaster_obj.Player2Active or global.player2_ai)
+            var text = ds_priority_delete_max(queue);
+            if (first)
             {
-                var xx = room_width - 40;
+                //Checks if game over.
+                if (game_over)
+                {
+                    text += " (Winner)";
+                }
+                first = false;
             }
             else
             {
-                var xx = room_width/2;
+                //Checks if game over.
+                if (game_over)
+                {
+                    text += " (Loser)";
+                }
             }
-            break;
             
-            case 4: 
-            var xx = room_width/2 + room_width/6;
-            break;
+            //TODO: Fix later maybe. Dynamic colors instead of hardcoded in game master.
+            var color = c_white;
+            var player_text = string_copy(text, 0, 8);
+            switch (player_text)
+            {
+                case "Player 1":
+                color = make_color_rgb(GameMaster_obj.Player1Red,
+                GameMaster_obj.Player1Green,
+                GameMaster_obj.Player1Blue);
+                break;
+                
+                case "Player 2":
+                color = make_color_rgb(GameMaster_obj.Player2Red,
+                GameMaster_obj.Player2Green,
+                GameMaster_obj.Player2Blue);
+                break;
+                
+                case "Player 3":
+                color = make_color_rgb(GameMaster_obj.Player3Red,
+                GameMaster_obj.Player3Green,
+                GameMaster_obj.Player3Blue);
+                break;
+                
+                case "Player 4":
+                color = make_color_rgb(GameMaster_obj.Player4Red,
+                GameMaster_obj.Player4Green,
+                GameMaster_obj.Player4Blue);
+                break;
+            }
+            draw_set_color(color);
+            draw_text(xx, yy, text);
+            yy += sep;
         }
-        var color = make_color_rgb(GameMaster_obj.Player3Red, GameMaster_obj.Player3Green, GameMaster_obj.Player3Blue);
-        var player_score = ds_list_find_value(scores, 2);
-        var total_score = global.score_max;
-        var text = string(player_score) + "/" + string(total_score);
-        draw_set_color(color);
-        draw_text_outline(text, thickness, xx, yy);
+        
+        //Clean-Up Leaks
+        ds_priority_destroy(queue);
+        
+        //Draws press start to exit.
+        if (draw_skip)
+        {
+            yy += sep * 2;
+            draw_set_color(c_white);
+            if (game_over)
+            {
+                //Check if gamepad is connected.
+                if (gamepad_is_connected(0))
+                {
+                    draw_text(xx, yy, "Press Start to End");
+                }
+                else
+                {
+                    draw_text(xx, yy, "Press Escape to End");
+                }
+            }
+            else
+            {
+                //Check if gamepad is connected.
+                if (gamepad_is_connected(0))
+                {
+                    draw_text(xx, yy, "Press Start to Continue");
+                }
+                else
+                {
+                    draw_text(xx, yy, "Press Escape to Continue");
+                }
+            }
+        }
     }
     
-    //Draws games for player 4.
-    if (GameMaster_obj.Player4Active or global.player4_ai)
-    {
-        switch (players)
+    //Draws HUD for lives.
+    else
+    {        
+        //Setup default variables.
+        draw_setup(c_white, fnt_joystix_8, fa_center, fa_top, false);
+        var thickness = 2;
+        var yy = 6;
+        
+        //Determine number of connected players.
+        var players = 0;
+        with (GameMaster_obj)
         {
-            case 1: 
-            var xx = room_width/2; 
-            break;
-             
-            case 2: 
-            var xx = room_width/2 + room_width/4;
-            break;
-            
-            case 3: 
-            var xx = room_width - 40;
-            break;
-            
-            case 4: 
-            var xx = room_width - 20;
-            break;
+            if (Player1Active or global.player1_ai) players++;
+            if (Player2Active or global.player2_ai) players++;
+            if (Player3Active or global.player3_ai) players++;
+            if (Player4Active or global.player4_ai) players++;
         }
-        var color = make_color_rgb(GameMaster_obj.Player4Red, GameMaster_obj.Player4Green, GameMaster_obj.Player4Blue);
-        var player_score = ds_list_find_value(scores, 3);
-        var total_score = global.score_max;
-        var text = string(player_score) + "/" + string(total_score);
-        draw_set_color(color);
-        draw_text_outline(text, thickness, xx, yy);
+        
+        //Draws rectangle at top.
+        draw_set_alpha(0.3);
+        draw_set_color(c_black);
+        draw_rectangle(0, 0, room_width, yy, false);
+        draw_set_alpha(1);
+        
+        //Draws games for player 1.
+        if (GameMaster_obj.Player1Active or global.player1_ai)
+        {
+            switch (players)
+            {
+                case 1: 
+                var xx = room_width/2; 
+                break;
+                 
+                case 2: 
+                var xx = room_width/2 - room_width/4;
+                break;
+                
+                case 3: 
+                var xx = 40;
+                break;
+                
+                case 4: 
+                var xx = 20;
+                break;
+            }
+            var color = make_color_rgb(GameMaster_obj.Player1Red, GameMaster_obj.Player1Green, GameMaster_obj.Player1Blue);
+            var player_score = ds_list_find_value(scores, 0);
+            var total_score = global.score_max;
+            var text = string(player_score) + "/" + string(total_score);    
+            draw_set_color(color);
+            draw_text_outline(text, thickness, xx, yy);
+        }
+        
+        //Draws games for player 2.
+        if (GameMaster_obj.Player2Active or global.player2_ai)
+        {
+            switch (players)
+            {
+                case 1: 
+                var xx = room_width/2; 
+                break;
+                 
+                case 2: 
+                var xx = room_width/2 + room_width/4;
+                break;
+                
+                case 3: 
+                var xx = room_width/2;
+                break;
+                
+                case 4: 
+                var xx = room_width/2 - room_width/6;
+                break;
+            }
+            var color = make_color_rgb(GameMaster_obj.Player2Red, GameMaster_obj.Player2Green, GameMaster_obj.Player2Blue);
+            var player_score = ds_list_find_value(scores, 1);
+            var total_score = global.score_max;
+            var text = string(player_score) + "/" + string(total_score);
+            draw_set_color(color);
+            draw_text_outline(text, thickness, xx, yy);
+        }
+        
+        //Draws games for player 3.
+        if (GameMaster_obj.Player3Active or global.player3_ai)
+        {
+            switch (players)
+            {
+                case 1: 
+                var xx = room_width/2; 
+                break;
+                 
+                case 2: 
+                var xx = room_width/2 + room_width/4;
+                break;
+                
+                case 3: 
+                if (GameMaster_obj.Player2Active or global.player2_ai)
+                {
+                    var xx = room_width - 40;
+                }
+                else
+                {
+                    var xx = room_width/2;
+                }
+                break;
+                
+                case 4: 
+                var xx = room_width/2 + room_width/6;
+                break;
+            }
+            var color = make_color_rgb(GameMaster_obj.Player3Red, GameMaster_obj.Player3Green, GameMaster_obj.Player3Blue);
+            var player_score = ds_list_find_value(scores, 2);
+            var total_score = global.score_max;
+            var text = string(player_score) + "/" + string(total_score);
+            draw_set_color(color);
+            draw_text_outline(text, thickness, xx, yy);
+        }
+        
+        //Draws games for player 4.
+        if (GameMaster_obj.Player4Active or global.player4_ai)
+        {
+            switch (players)
+            {
+                case 1: 
+                var xx = room_width/2; 
+                break;
+                 
+                case 2: 
+                var xx = room_width/2 + room_width/4;
+                break;
+                
+                case 3: 
+                var xx = room_width - 40;
+                break;
+                
+                case 4: 
+                var xx = room_width - 20;
+                break;
+            }
+            var color = make_color_rgb(GameMaster_obj.Player4Red, GameMaster_obj.Player4Green, GameMaster_obj.Player4Blue);
+            var player_score = ds_list_find_value(scores, 3);
+            var total_score = global.score_max;
+            var text = string(player_score) + "/" + string(total_score);
+            draw_set_color(color);
+            draw_text_outline(text, thickness, xx, yy);
+        }
     }
 }
 </string>

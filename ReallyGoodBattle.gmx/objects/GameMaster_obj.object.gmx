@@ -91,8 +91,22 @@ pause_room = false;
           <argument>
             <kind>1</kind>
             <string>///Respawn Player 4
-instance_create(Player4Spawn_obj.x,Player4Spawn_obj.y,Player4_obj);
-Player4Respawn = true;
+
+//Check for gamemode.
+if (global.gamemode = "Player Lives")
+{
+    //Check if player is alive.
+    if (ds_list_find_value(obj_score_controller.scores, 3) &gt; 0)
+    {
+        instance_create(Player4Spawn_obj.x,Player4Spawn_obj.y,Player4_obj);
+        Player4Respawn = true;
+    }
+}
+else
+{
+    instance_create(Player4Spawn_obj.x,Player4Spawn_obj.y,Player4_obj);
+    Player4Respawn = true;
+}
 </string>
           </argument>
         </arguments>
@@ -116,8 +130,22 @@ Player4Respawn = true;
           <argument>
             <kind>1</kind>
             <string>///Respawn Player 3
-instance_create(Player3Spawn_obj.x,Player3Spawn_obj.y,Player3_obj);
-Player3Respawn = true;
+
+//Check for gamemode.
+if (global.gamemode = "Player Lives")
+{
+    //Check if player is alive.
+    if (ds_list_find_value(obj_score_controller.scores, 2) &gt; 0)
+    {
+        instance_create(Player3Spawn_obj.x,Player3Spawn_obj.y,Player3_obj);
+        Player3Respawn = true;
+    }
+}
+else
+{
+    instance_create(Player3Spawn_obj.x,Player3Spawn_obj.y,Player3_obj);
+    Player3Respawn = true;
+}
 </string>
           </argument>
         </arguments>
@@ -141,8 +169,22 @@ Player3Respawn = true;
           <argument>
             <kind>1</kind>
             <string>///Respawn Player 2
-instance_create(Player2Spawn_obj.x,Player2Spawn_obj.y,Player2_obj);
-Player2Respawn = true;
+
+//Check for gamemode.
+if (global.gamemode = "Player Lives")
+{
+    //Check if player is alive.
+    if (ds_list_find_value(obj_score_controller.scores, 1) &gt; 0)
+    {
+        instance_create(Player2Spawn_obj.x,Player2Spawn_obj.y,Player2_obj);
+        Player2Respawn = true;
+    }
+}
+else
+{
+    instance_create(Player2Spawn_obj.x,Player2Spawn_obj.y,Player2_obj);
+    Player2Respawn = true;
+}
 </string>
           </argument>
         </arguments>
@@ -166,8 +208,22 @@ Player2Respawn = true;
           <argument>
             <kind>1</kind>
             <string>///Respawn Player 1
-instance_create(Player1Spawn_obj.x,Player1Spawn_obj.y,Player1_obj);
-Player1Respawn = true;
+
+//Check for gamemode.
+if (global.gamemode = "Player Lives")
+{
+    //Check if player is alive.
+    if (ds_list_find_value(obj_score_controller.scores, 0) &gt; 0)
+    {
+        instance_create(Player1Spawn_obj.x,Player1Spawn_obj.y,Player1_obj);
+        Player1Respawn = true;
+    }
+}
+else
+{
+    instance_create(Player1Spawn_obj.x,Player1Spawn_obj.y,Player1_obj);
+    Player1Respawn = true;
+}
 </string>
           </argument>
         </arguments>
