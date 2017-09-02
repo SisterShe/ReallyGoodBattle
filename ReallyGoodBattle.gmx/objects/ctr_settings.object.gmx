@@ -221,6 +221,7 @@ global.sfxvolume = 1;
 //Gameplay
 global.score_label = noone;
 global.game_label = noone;
+global.gamemode = "Kills to Win";
 global.score_max = 3;
 global.games_max = 3;
 global.pause = false;

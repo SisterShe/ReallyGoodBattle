@@ -446,6 +446,11 @@
           <script>scripts\del_input_start_gamesetup.gml</script>
           <script>scripts\del_input_tab_update.gml</script>
         </scripts>
+        <scripts name="GamemodeMenu">
+          <script>scripts\del_btn_gamemode_up.gml</script>
+          <script>scripts\del_btn_gamemode_down.gml</script>
+          <script>scripts\del_input_start_gamemode.gml</script>
+        </scripts>
       </scripts>
     </scripts>
   </scripts>
@@ -698,6 +703,7 @@
       <room>rooms\rm_mainmenu</room>
       <room>rooms\rm_options</room>
       <room>rooms\rm_keybindings</room>
+      <room>rooms\rm_gamemode</room>
       <room>rooms\rm_levelselect</room>
       <room>rooms\rm_gamesetup</room>
     </rooms>

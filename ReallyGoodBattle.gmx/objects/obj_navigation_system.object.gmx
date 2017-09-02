@@ -331,7 +331,16 @@ repeat (ds_list_size(widgets))
           <argument>
             <kind>1</kind>
             <string>///Enables navigation system.
-widget_navigation_select(id, stored_selection);
+
+//Check if stored selection exists.
+if (stored_selection != noone)
+{
+    widget_navigation_select(id, stored_selection);
+}
+else
+{
+    widget_navigation_select(id, ds_list_find_value(widgets, 0));
+}
 disabled = false;
 </string>
           </argument>
