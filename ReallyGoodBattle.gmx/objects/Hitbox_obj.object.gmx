@@ -158,7 +158,7 @@ if (instance_exists(creator))
             other.x += random_range(3,-3); 
             other.y += random_range(3,-3); 
             other.alarm[3] = 8; //Death Timer
-            //other.can_attack = false;
+            other.can_attack = false; //Disable this to have players kill each-other.
             other.can_behit = false;
             
             //Slows down room.

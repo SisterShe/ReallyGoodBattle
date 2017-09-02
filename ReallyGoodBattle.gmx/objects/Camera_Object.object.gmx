@@ -63,9 +63,9 @@ and window_get_width() != global.gameWidth*global.zoom
 and !window_get_fullscreen())
 
 {
-    window_set_size(global.gameWidth*global.zoom, global.gameHeight*global.zoom)
-    surface_resize(application_surface, global.gameWidth,global.gameHeight);
-    display_reset(0,false); 
+    //window_set_size(global.gameWidth*global.zoom, global.gameHeight*global.zoom)
+    //surface_resize(application_surface, global.gameWidth,global.gameHeight);
+    //display_reset(0,false); 
 }
 </string>
           </argument>
