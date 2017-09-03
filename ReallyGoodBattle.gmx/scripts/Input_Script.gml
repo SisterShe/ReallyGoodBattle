@@ -49,6 +49,7 @@ right_key = keyboard_check(right_key_keyboard);
 up_key =  keyboard_check(up_key_keyboard);
 down_key =  keyboard_check(down_key_keyboard);
 jump_key = keyboard_check(jump_key1_keyboard) or keyboard_check(jump_key2_keyboard);
+jump_key_pressed = keyboard_check_pressed(jump_key1_keyboard) or keyboard_check_pressed(jump_key2_keyboard);
 jump_key_released = keyboard_check_released(jump_key1_keyboard) or keyboard_check_released(jump_key2_keyboard);
 attack_key_held = keyboard_check(attack_key1_keyboard) or mouse_check_button(attack_key2_keyboard); 
 attack_key_released = keyboard_check_released(attack_key1_keyboard)or mouse_check_button_released(attack_key2_keyboard);
