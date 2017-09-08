@@ -36,7 +36,7 @@ input = "None";
 
 //Lockon Player
 lockon = noone;
-lockon_duration = room_seconds(3);
+lockon_duration = room_seconds(5);
 
 //Default Input
 default_input = noone;
@@ -1021,7 +1021,7 @@ if (player.mState = up_mState or player.mState = down_mState)
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="12">
+    <event eventtype="7" enumb="24">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -1038,444 +1038,7 @@ if (player.mState = up_mState or player.mState = down_mState)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Pathfinding Algorithm
-
-/*
-    The following is the AI pathfinding algorithm, it uses to generate a
-    path or series of inputs from current location to target destination.
-    
-    It uses an A* algorithm to generate a path for the map. It then uses this path
-    to create input points to adjacent points in a 9 cell grid around the player.
-    
-    It checks the current movement state of the player, and executes the input to get
-    it to the next cell.
-    
-    
-    TODO:
-    Modify A* algorithm to have a maximum jump distance, before finding another path.
-    
-    
-*/ 
-
-//Creates the Grid for level.
-var cell_size = 16;
-var mp_grid = mp_grid_create(0, 0, room_width/cell_size, room_height/cell_size, cell_size, cell_size);
-mp_grid_add_instances(mp_grid, CollisionUnit_obj, false);
-
-//Finds and creates the shortest path.
-var path = path_add();
-mp_grid_astar(grid, path, player.x, player.y, lockon.x, lockon.y, 
-0, 0, room_width/cell_size, room_height/cell_size, cell_size, cell_size);
-
-//Creates point and determines angle.
-var point_x = path_get_point_x(path, 1);
-var point_y = path_get_point_y(path, 1);
-var angle = point_direction(player.x, player.y, point_x, point_y);
-
-//Determines Movement State
-switch (player.mState)
-{
-    //Up State
-    case up_mState:
-    {
-        //Right Angle
-        if ((angle &gt;= 337.5 and angle &lt;= 360) or (angle &gt;= 0 and angle &lt;= 22.5))
-        {
-            input = choose("Right");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Right Angle
-        if (angle &gt;= 22.5 and angle &lt;= 67.5)
-        {
-            input = choose("Jump Right");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Angle
-        if (angle &gt;= 67.5 and angle &lt;= 112.5)
-        {
-            input = choose("Jump");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Left Angle
-        if (angle &gt;= 112.5 and angle &lt;= 157.5)
-        {
-            input = choose("Jump Left");
-            event_user(1);
-            exit;
-        }
-        
-        //Left Angle
-        if (angle &gt;= 157.5 and angle &lt;= 202.5)
-        {
-            input = choose("Left");
-            event_user(1);
-            exit;
-        }
-        
-        //Left Down Angle
-        if (angle &gt;= 202.5 and angle &lt;= 247.5)
-        {
-            input = choose("Left");
-            event_user(1);
-            exit;
-        }
-        
-        //Down Angle
-        if (angle &gt;= 247.5 and angle &lt;= 292.5)
-        {
-            input = choose("None");
-            event_user(1);
-            exit;
-        }
-        
-        //Down Right Angle
-        if (angle &gt;= 292.5 and angle &lt;= 337.5)
-        {
-            input = choose("Right");
-            event_user(1);
-            exit;
-        }
-    }
-    break;
-    
-    //Down State
-    case down_mState:
-    {
-        //Right Angle
-        if ((angle &gt;= 337.5 and angle &lt;= 360) or (angle &gt;= 0 and angle &lt;= 22.5))
-        {
-            input = choose("Right");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Right Angle
-        if (angle &gt;= 22.5 and angle &lt;= 67.5)
-        {
-            input = choose("Right");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Angle
-        if (angle &gt;= 67.5 and angle &lt;= 112.5)
-        {
-            input = choose("None");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Left Angle
-        if (angle &gt;= 112.5 and angle &lt;= 157.5)
-        {
-            input = choose("Left");
-            event_user(1);
-            exit;
-        }
-        
-        //Left Angle
-        if (angle &gt;= 157.5 and angle &lt;= 202.5)
-        {
-            input = choose("Left");
-            event_user(1);
-            exit;
-        }
-        
-        //Left Down Angle
-        if (angle &gt;= 202.5 and angle &lt;= 247.5)
-        {
-            input = choose("Jump Left");
-            event_user(1);
-            exit;
-        }
-        
-        //Down Angle
-        if (angle &gt;= 247.5 and angle &lt;= 292.5)
-        {
-            input = choose("Jump");
-            event_user(1);
-            exit;
-        }
-        
-        //Down Right Angle
-        if (angle &gt;= 292.5 and angle &lt;= 337.5)
-        {
-            input = choose("Jump Right");
-            event_user(1);
-            exit;
-        }
-    }
-    break; 
-    
-    //Left State
-    case left_mState:
-    {
-        //Right Angle
-        if ((angle &gt;= 337.5 and angle &lt;= 360) or (angle &gt;= 0 and angle &lt;= 22.5))
-        {
-            input = choose("Jump");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Right Angle
-        if (angle &gt;= 22.5 and angle &lt;= 67.5)
-        {
-            input = choose("Jump Up");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Angle
-        if (angle &gt;= 67.5 and angle &lt;= 112.5)
-        {
-            input = choose("Up");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Left Angle
-        if (angle &gt;= 112.5 and angle &lt;= 157.5)
-        {
-            input = choose("Up");
-            event_user(1);
-            exit;
-        }
-        
-        //Left Angle
-        if (angle &gt;= 157.5 and angle &lt;= 202.5)
-        {
-            input = choose("None");
-            event_user(1);
-            exit;
-        }
-        
-        //Left Down Angle
-        if (angle &gt;= 202.5 and angle &lt;= 247.5)
-        {
-            input = choose("Down");
-            event_user(1);
-            exit;
-        }
-        
-        //Down Angle
-        if (angle &gt;= 247.5 and angle &lt;= 292.5)
-        {
-            input = choose("Down");
-            event_user(1);
-            exit;
-        }
-        
-        //Down Right Angle
-        if (angle &gt;= 292.5 and angle &lt;= 337.5)
-        {
-            input = choose("Jump Down");
-            event_user(1);
-            exit;
-        }
-    }    
-    break;
-    
-    //Right State
-    case right_mState:
-    {
-        //Right Angle
-        if ((angle &gt;= 337.5 and angle &lt;= 360) or (angle &gt;= 0 and angle &lt;= 22.5))
-        {
-            input = choose("None");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Right Angle
-        if (angle &gt;= 22.5 and angle &lt;= 67.5)
-        {
-            input = choose("Up");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Angle
-        if (angle &gt;= 67.5 and angle &lt;= 112.5)
-        {
-            input = choose("Up");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Left Angle
-        if (angle &gt;= 112.5 and angle &lt;= 157.5)
-        {
-            input = choose("Jump Up");
-            event_user(1);
-            exit;
-        }
-        
-        //Left Angle
-        if (angle &gt;= 157.5 and angle &lt;= 202.5)
-        {
-            input = choose("Jump");
-            event_user(1);
-            exit;
-        }
-        
-        //Left Down Angle
-        if (angle &gt;= 202.5 and angle &lt;= 247.5)
-        {
-            input = choose("Jump Down");
-            event_user(1);
-            exit;
-        }
-        
-        //Down Angle
-        if (angle &gt;= 247.5 and angle &lt;= 292.5)
-        {
-            input = choose("Down");
-            event_user(1);
-            exit;
-        }
-        
-        //Down Right Angle
-        if (angle &gt;= 292.5 and angle &lt;= 337.5)
-        {
-            input = choose("Down");
-            event_user(1);
-            exit;
-        }
-    }
-    break;
-    
-    //Airborne State
-    case airborne_state:
-    {
-        //Right Angle
-        if ((angle &gt;= 337.5 and angle &lt;= 360) or (angle &gt;= 0 and angle &lt;= 22.5))
-        {
-            input = choose("Right");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Right Angle
-        if (angle &gt;= 22.5 and angle &lt;= 67.5)
-        {
-            input = choose("Jump Right");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Angle
-        if (angle &gt;= 67.5 and angle &lt;= 112.5)
-        {
-            input = choose("Jump");
-            event_user(1);
-            exit;
-        }
-        
-        //Up Left Angle
-        if (angle &gt;= 112.5 and angle &lt;= 157.5)
-        {
-            input = choose("Jump Left");
-            event_user(1);
-            exit;
-        }
-        
-        //Left Angle
-        if (angle &gt;= 157.5 and angle &lt;= 202.5)
-        {
-            input = choose("Left");
-            event_user(1);
-            exit;
-        }
-        
-        //Left Down Angle
-        if (angle &gt;= 202.5 and angle &lt;= 247.5)
-        {
-            input = choose("Left");
-            event_user(1);
-            exit;
-        }
-        
-        //Down Angle
-        if (angle &gt;= 247.5 and angle &lt;= 292.5)
-        {
-            input = choose("Down");
-            event_user(1);
-            exit;
-        }
-        
-        //Down Right Angle
-        if (angle &gt;= 292.5 and angle &lt;= 337.5)
-        {
-            input = choose("Right");
-            event_user(1);
-            exit;
-        }
-    }
-    break;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="11">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Execute Input
-
-//Menu Exit
-if (room = rm_gamesetup) exit;
-
-//Runs code from player.
-with (player)
-{
-    //Executes input script.
-    AI_Input_Simulation(other.input);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Determine Input
+            <string>///AI Backup 08-Sep-2017
 
 /*
     The ai determines its input based on an hiercy of checks. For example if player is nearby,
@@ -1490,11 +1053,19 @@ with (player)
     Check for player above if have laser.
     Check for laser powerup, unless already have laser.
     Check for jump area.
+    
+    Check for lockon target.
+    
     Check for player in a horizontal line.
     Check for player in a vertical line.
     Check for shrine in a horizontal line.
     Check for shrine in a vertical line.
     
+    Default Input.
+    
+    
+    
+    Check for Lockon Target
     
     
     
@@ -1514,7 +1085,9 @@ with (player)
     
     
     
-    
+    //Airborne State
+    case airborne_state:
+    {
     
     
     
@@ -1957,6 +1530,59 @@ if (target != noone and target != player)
             }
         }
         break;
+        
+        //Airborne State
+        case airborne_state:      
+        {
+            //Attack Up
+            with (player)
+            {
+                var target2 = collision_line(x, y, x, y-75, Player_Parent, false, true);
+            }
+            if (target2 != noone and target2 != player)
+            {
+                input = choose("Laser Up");
+                event_user(1);
+                exit;
+            }
+            
+            //Attack Down
+            with (player)
+            {
+                var target2 = collision_line(x, y, x, y+75, Player_Parent, false, true);
+            }
+            if (target2 != noone and target2 != player)
+            {
+                input = choose("Laser Down");
+                event_user(1);
+                exit;
+            }
+            
+            //Attack Left
+            with (player)
+            {
+                var target2 = collision_line(x, y, x-75, y, Player_Parent, false, true);
+            }
+            if (target2 != noone and target2 != player)
+            {
+                input = choose("Laser Left");
+                event_user(1);
+                exit;
+            }
+            
+            //Attack Right
+            with (player)
+            {
+                var target2 = collision_line(x, y, x+75, y, Player_Parent, false, true);
+            }
+            if (target2 != noone and target2 != player)
+            {
+                input = choose("Laser Right");
+                event_user(1);
+                exit;
+            }
+        }        
+        break;
     }
     
     //Chick if player is standing on ground.
@@ -2205,6 +1831,18 @@ if (target != noone)
     exit;
 }
 
+
+//Check if lockon target exists.
+if (lockon != noone and instance_exists(lockon))
+{
+    //Executes pathfinding towards lockon target.
+    event_user(2);
+    exit;
+}
+
+
+//TODO: Fix laser and stuff later, sorta rewrite this thingie, cuz it smellssss...
+
 //Check if player is in horizontal line.
 with (player)
 {
@@ -2326,6 +1964,10 @@ with (player)
 }
 if (target != noone and target != player)
 {
+    //Sets the target as lockon for short duration, if line collision is lost.
+    lockon = target;
+    alarm[0] = lockon_duration;
+    
     //Check if shrine is above player.
     switch (player.mState)
     {
@@ -2440,6 +2082,10 @@ with (player)
 }
 if (target != noone and target != player)
 {
+    //Sets the target as lockon for short duration, if line collision is lost.
+    lockon = target;
+    alarm[0] = lockon_duration;
+    
     //Check if shrine is above player.
     switch (player.mState)
     {
@@ -2589,6 +2235,1818 @@ if (player.mState = up_mState or player.mState = down_mState)
         exit;
     }
 }
+
+
+
+
+
+
+/*
+
+//Default movement.
+if (default_input != noone)
+{
+    //Check if movement matches mState.
+    if ((default_input = "Left" or default_input = "Right") and (player.mState = down_mState or player.mState = up_mState))
+    {
+        //Executes default input.
+        input = default_input;
+        event_user(1);
+        exit;
+    }
+    
+    //Check if movement matches mState.
+    if ((default_input = "Up" or default_input = "Down") and (player.mState = left_mState or player.mState = right_mState))
+    {
+        //Executes default input.
+        input = default_input;
+        event_user(1);
+        exit;
+    }
+}
+else
+{
+    //Chick if player is standing on ground.
+    if (player.mState = down_mState)
+    {
+        //Sets default input.
+        default_input = choose("Left", "Right");
+    }
+    
+    //Chick if player is standing on right wall.
+    if (player.mState = right_mState)
+    {
+        //Sets default input.
+        default_input = choose("Up", "Down");
+    }
+    
+    //Chick if player is standing on ceiling.
+    if (player.mState = up_mState)
+    {
+        //Sets default input.
+        default_input = choose("Left", "Right");
+    }
+    
+    //Chick if player is standing on left wall.
+    if (player.mState = left_mState)
+    {
+        //Sets default input.
+        default_input = choose("Up", "Down");
+    }
+    
+    //Executes default input.
+    alarm[1] = default_input_duration;
+    input = default_input;
+    event_user(1);
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="12">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Pathfinding Algorithm
+
+/*
+    The following is the AI pathfinding algorithm, it uses to generate a
+    path or series of inputs from current location to target destination.
+    
+    It first creates a grid for the level, check for collision areas that are
+    unwalkable. It then uses an A* algorithm to generate a path for the map. It uses this path
+    to create input points to adjacent points in a 9 cell grid around the player.
+    
+    It checks the current movement state of the player, and executes the input to get
+    it to the next cell, based on current orientation. 
+    
+    This allows it to perfectly move from location A to B within the map.    
+    
+    
+    
+    
+    
+    TODO:
+    Close as possible to player target?
+    NOT most optimal way with the jump limit based on orientation. Jump is easy enough to implement, if it is possible,
+    however with changing orientation it becomes wwaaaaayyyyyhhhehehehggffffhhhhh more complex........
+    
+*/ 
+
+//Creates the Grid for level.
+var cell_size = 16;
+var mp_grid = mp_grid_create(0, 0, room_width/cell_size, room_height/cell_size, cell_size, cell_size);
+mp_grid_add_instances(mp_grid, CollisionUnit_obj, false);
+
+//Adds jump limits to the grid, based on orientation.
+var jump_height = 200;
+switch (player.mState)
+{
+    //Up State
+    case up_mState:
+    {
+        mp_grid_add_rectangle(mp_grid, 0, 0, room_width, player.y-jump_height);
+    }
+    break;
+    
+    //Down State
+    case down_mState:
+    {
+        mp_grid_add_rectangle(mp_grid, 0, room_height, room_width, player.y+jump_height);
+    }
+    break;
+    
+    //Left State
+    case left_mState:
+    {
+        mp_grid_add_rectangle(mp_grid, player.x+jump_height, 0, room_width, room_height);
+    }
+    break;
+    
+    //Right State
+    case right_mState:
+    {
+        mp_grid_add_rectangle(mp_grid, player.x-jump_height, 0, 0, room_height);
+    }
+    break;
+}
+
+//Finds and creates the shortest path.
+var path = path_add();
+var success = mp_grid_astar(mp_grid, path, player.x, player.y, lockon.x, lockon.y, 
+0, 0, room_width/cell_size, room_height/cell_size, cell_size, cell_size);
+
+//Check if pathfinding was unsuccessful.
+if (!success) 
+{
+    //Default vertical movement.
+    if (player.mState = left_mState or player.mState = right_mState)
+    {
+        //Check if default input exists.
+        if (default_input != noone)
+        {
+            //Executes default input.
+            input = default_input;
+            event_user(1);
+            exit;
+        }
+        else
+        {
+            //Sets default input.
+            default_input = choose("Down", "Up");
+            alarm[1] = default_input_duration;
+            input = default_input;
+            event_user(1);
+            exit;
+        }
+    }
+    
+    //Default horizontal movement.
+    if (player.mState = up_mState or player.mState = down_mState)
+    {
+        //Check if default input exists.
+        if (default_input != noone)
+        {
+            input = default_input;
+            event_user(1);
+            exit;
+        }
+        else
+        {
+            //Sets default input.
+            default_input = choose("Left", "Right");
+            alarm[1] = default_input_duration;
+            input = default_input;
+            event_user(1);
+            exit;
+        }
+    }
+}
+
+//Creates point and determines angle.
+var point_x = path_get_point_x(path, 1);
+var point_y = path_get_point_y(path, 1);
+var angle = point_direction(player.x, player.y, point_x, point_y);
+
+//Determines Movement State
+switch (player.mState)
+{
+    //Up State
+    case up_mState:
+    {
+        //Right Angle
+        if ((angle &gt;= 337.5 and angle &lt;= 360) or (angle &gt;= 0 and angle &lt;= 22.5))
+        {
+            input = choose("Right");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Right Angle
+        if (angle &gt;= 22.5 and angle &lt;= 67.5)
+        {
+            input = choose("Jump Right");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Angle
+        if (angle &gt;= 67.5 and angle &lt;= 112.5)
+        {
+            input = choose("Jump");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Left Angle
+        if (angle &gt;= 112.5 and angle &lt;= 157.5)
+        {
+            input = choose("Jump Left");
+            event_user(1);
+            exit;
+        }
+        
+        //Left Angle
+        if (angle &gt;= 157.5 and angle &lt;= 202.5)
+        {
+            input = choose("Left");
+            event_user(1);
+            exit;
+        }
+        
+        //Left Down Angle
+        if (angle &gt;= 202.5 and angle &lt;= 247.5)
+        {
+            input = choose("Left");
+            event_user(1);
+            exit;
+        }
+        
+        //Down Angle
+        if (angle &gt;= 247.5 and angle &lt;= 292.5)
+        {
+            input = choose("None");
+            event_user(1);
+            exit;
+        }
+        
+        //Down Right Angle
+        if (angle &gt;= 292.5 and angle &lt;= 337.5)
+        {
+            input = choose("Right");
+            event_user(1);
+            exit;
+        }
+    }
+    break;
+    
+    //Down State
+    case down_mState:
+    {
+        //Right Angle
+        if ((angle &gt;= 337.5 and angle &lt;= 360) or (angle &gt;= 0 and angle &lt;= 22.5))
+        {
+            input = choose("Right");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Right Angle
+        if (angle &gt;= 22.5 and angle &lt;= 67.5)
+        {
+            input = choose("Right");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Angle
+        if (angle &gt;= 67.5 and angle &lt;= 112.5)
+        {
+            input = choose("None");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Left Angle
+        if (angle &gt;= 112.5 and angle &lt;= 157.5)
+        {
+            input = choose("Left");
+            event_user(1);
+            exit;
+        }
+        
+        //Left Angle
+        if (angle &gt;= 157.5 and angle &lt;= 202.5)
+        {
+            input = choose("Left");
+            event_user(1);
+            exit;
+        }
+        
+        //Left Down Angle
+        if (angle &gt;= 202.5 and angle &lt;= 247.5)
+        {
+            input = choose("Jump Left");
+            event_user(1);
+            exit;
+        }
+        
+        //Down Angle
+        if (angle &gt;= 247.5 and angle &lt;= 292.5)
+        {
+            input = choose("Jump");
+            event_user(1);
+            exit;
+        }
+        
+        //Down Right Angle
+        if (angle &gt;= 292.5 and angle &lt;= 337.5)
+        {
+            input = choose("Jump Right");
+            event_user(1);
+            exit;
+        }
+    }
+    break; 
+    
+    //Left State
+    case left_mState:
+    {
+        //Right Angle
+        if ((angle &gt;= 337.5 and angle &lt;= 360) or (angle &gt;= 0 and angle &lt;= 22.5))
+        {
+            input = choose("Jump");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Right Angle
+        if (angle &gt;= 22.5 and angle &lt;= 67.5)
+        {
+            input = choose("Jump Up");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Angle
+        if (angle &gt;= 67.5 and angle &lt;= 112.5)
+        {
+            input = choose("Up");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Left Angle
+        if (angle &gt;= 112.5 and angle &lt;= 157.5)
+        {
+            input = choose("Up");
+            event_user(1);
+            exit;
+        }
+        
+        //Left Angle
+        if (angle &gt;= 157.5 and angle &lt;= 202.5)
+        {
+            input = choose("None");
+            event_user(1);
+            exit;
+        }
+        
+        //Left Down Angle
+        if (angle &gt;= 202.5 and angle &lt;= 247.5)
+        {
+            input = choose("Down");
+            event_user(1);
+            exit;
+        }
+        
+        //Down Angle
+        if (angle &gt;= 247.5 and angle &lt;= 292.5)
+        {
+            input = choose("Down");
+            event_user(1);
+            exit;
+        }
+        
+        //Down Right Angle
+        if (angle &gt;= 292.5 and angle &lt;= 337.5)
+        {
+            input = choose("Jump Down");
+            event_user(1);
+            exit;
+        }
+    }    
+    break;
+    
+    //Right State
+    case right_mState:
+    {
+        //Right Angle
+        if ((angle &gt;= 337.5 and angle &lt;= 360) or (angle &gt;= 0 and angle &lt;= 22.5))
+        {
+            input = choose("None");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Right Angle
+        if (angle &gt;= 22.5 and angle &lt;= 67.5)
+        {
+            input = choose("Up");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Angle
+        if (angle &gt;= 67.5 and angle &lt;= 112.5)
+        {
+            input = choose("Up");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Left Angle
+        if (angle &gt;= 112.5 and angle &lt;= 157.5)
+        {
+            input = choose("Jump Up");
+            event_user(1);
+            exit;
+        }
+        
+        //Left Angle
+        if (angle &gt;= 157.5 and angle &lt;= 202.5)
+        {
+            input = choose("Jump");
+            event_user(1);
+            exit;
+        }
+        
+        //Left Down Angle
+        if (angle &gt;= 202.5 and angle &lt;= 247.5)
+        {
+            input = choose("Jump Down");
+            event_user(1);
+            exit;
+        }
+        
+        //Down Angle
+        if (angle &gt;= 247.5 and angle &lt;= 292.5)
+        {
+            input = choose("Down");
+            event_user(1);
+            exit;
+        }
+        
+        //Down Right Angle
+        if (angle &gt;= 292.5 and angle &lt;= 337.5)
+        {
+            input = choose("Down");
+            event_user(1);
+            exit;
+        }
+    }
+    break;
+    
+    //Airborne State
+    case airborne_state:
+    {
+        //Right Angle
+        if ((angle &gt;= 337.5 and angle &lt;= 360) or (angle &gt;= 0 and angle &lt;= 22.5))
+        {
+            input = choose("Right");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Right Angle
+        if (angle &gt;= 22.5 and angle &lt;= 67.5)
+        {
+            input = choose("Jump Right");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Angle
+        if (angle &gt;= 67.5 and angle &lt;= 112.5)
+        {
+            input = choose("Jump");
+            event_user(1);
+            exit;
+        }
+        
+        //Up Left Angle
+        if (angle &gt;= 112.5 and angle &lt;= 157.5)
+        {
+            input = choose("Jump Left");
+            event_user(1);
+            exit;
+        }
+        
+        //Left Angle
+        if (angle &gt;= 157.5 and angle &lt;= 202.5)
+        {
+            input = choose("Left");
+            event_user(1);
+            exit;
+        }
+        
+        //Left Down Angle
+        if (angle &gt;= 202.5 and angle &lt;= 247.5)
+        {
+            input = choose("Left");
+            event_user(1);
+            exit;
+        }
+        
+        //Down Angle
+        if (angle &gt;= 247.5 and angle &lt;= 292.5)
+        {
+            input = choose("Down");
+            event_user(1);
+            exit;
+        }
+        
+        //Down Right Angle
+        if (angle &gt;= 292.5 and angle &lt;= 337.5)
+        {
+            input = choose("Right");
+            event_user(1);
+            exit;
+        }
+    }
+    break;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Execute Input
+
+//Menu Exit
+if (room = rm_gamesetup) exit;
+
+//Runs code from player.
+with (player)
+{
+    //Executes input script.
+    AI_Input_Simulation(other.input);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Determine Input
+
+/*
+    The ai determines its input based on an hiercy of checks. For example if player is nearby,
+    it attacks, if a player is in line, it moves towards them, if on shrine it stands still, etc.
+
+    - AI Hiearchy
+    Check for long jump.
+    Check for laser dodge line.
+    Check for laser avoid line.
+    Check for hitbox nearby.
+    Check for player nearby.
+    Check for player above if have laser.
+    Check for laser powerup, unless already have laser.
+    Check for jump area.
+    
+    Check for lockon target.
+    
+    Check for player in a horizontal line.
+    Check for player in a vertical line.
+    Check for shrine in a horizontal line.
+    Check for shrine in a vertical line.
+    
+    Default Input.
+    
+    
+    
+    Check for Lockon Target
+    
+    
+    
+    
+    
+    
+    A-Star Grid
+    
+    
+    
+    
+    Lockon A Target
+    Either shrine or player, dun matter.
+    When target is locked on, the default movement is towards the logon target if still alive.
+    
+    Movement Grid
+    
+    
+    
+    //Airborne State
+    case airborne_state:
+    {
+    
+    
+    
+    what is most optimal default input?
+    run in the direction of the nearest player.
+    seems simple enough.
+    
+    
+    
+    Q: navigation maps to make jumping and that sort of navigation easier?
+    
+    
+    
+    TODO:
+    Implement corner jump mechanic.
+    * Determine direction when you are running into
+    
+    
+    Default.
+    
+    
+    
+    
+    
+    
+*/
+
+//Menu Exit
+if (room = rm_gamesetup) exit;
+
+//Pause Exit.
+if (obj_score_controller.can_skip or obj_score_controller.skipping)
+{
+    //Does nothing.
+    input = choose("None");
+    event_user(1);
+    exit;
+}
+
+//Check for long jump.
+if (long_jump)
+{
+    //Continues current jump.
+    input = choose("Jump");
+    event_user(1);
+    exit;
+}
+
+//Check if target with laser is in a horizontal line.
+with (player)
+{
+    var target = collision_line(0, y, room_width, y, Player_Parent, false, true);
+}
+if (target != noone and target != player)
+{     
+    //Check if target is have laser.
+    if (target.CanLazer and !player.CanLazer)
+    {
+        //Check if both players on ground.
+        if (player.mState = down_mState and (target.mState = down_mState or target.mState = left_mState or target.mState = right_mState))
+        {
+            //Check if there is a wall above.
+            with (player)
+            {
+                var target2 = collision_line(x, y, x, y+50, StealthCollisionUnit_obj, false, true);
+            }
+            if (target2 != noone)
+            {
+                //Check if existing dodge direction.
+                if (dodge_direction != noone)
+                {
+                    //Executes default input.
+                    input = dodge_direction;
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges in a random direction.
+                    alarm[3] = dodge_direction_reset;
+                    input = choose("Right", "Left");
+                    event_user(1);
+                    exit;
+                }
+            }
+            else
+            {
+                //Dodge laser by jumping.
+                long_jump = true;
+                alarm[4] = long_jump_timer;
+                input = choose("Jump");
+                event_user(1);
+                exit;
+            }
+        }
+        
+        //Check if both players on ceiling.
+        if (player.mState = up_mState and (target.mState = up_mState or target.mState = left_mState or target.mState = right_mState))
+        {
+            //Check if there is a wall below.
+            with (player)
+            {
+                var target2 = collision_line(x, y, x, y-50, StealthCollisionUnit_obj, false, true);
+            }
+            if (target2 != noone)
+            {
+                //Check if existing dodge direction.
+                if (dodge_direction != noone)
+                {
+                    //Executes default input.
+                    input = dodge_direction;
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges in a random direction.
+                    alarm[3] = dodge_direction_reset;
+                    input = choose("Right", "Left");
+                    event_user(1);
+                    exit;
+                }
+            }
+            else
+            {
+                //Dodge laser by jumping.
+                long_jump = true;
+                alarm[4] = long_jump_timer;
+                input = choose("Jump");
+                event_user(1);
+                exit;
+            }
+        }
+        
+        //Check if players on opposite sides.
+        if ((player.mState = up_mState and target.mState = down_mState) or (player.mState = down_mState and target.mState = up_mState))
+        {
+            //Check if there is a wall to the right.
+            with (player)
+            {
+                var target2 = collision_line(x, y, x+80, y, StealthCollisionUnit_obj, false, true);
+            }
+            if (target2 != noone)
+            {
+                //Dodge laser by moving left.
+                input = choose("Left");
+                event_user(1);
+                exit;
+            }
+            
+            //Check if there is a wall to the left.
+            with (player)
+            {
+                var target2 = collision_line(x, y, x-80, y, StealthCollisionUnit_obj, false, true);
+            }
+            if (target2 != noone)
+            {
+                //Dodge laser by moving left.
+                input = choose("Right");
+                event_user(1);
+                exit;
+            }
+            
+            //Check if existing dodge direction.
+            if (dodge_direction != noone)
+            {
+                //Executes default input.
+                input = dodge_direction;
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                //Dodges in a random direction.
+                alarm[3] = dodge_direction_reset;
+                input = choose("Right", "Left");
+                event_user(1);
+                exit;
+            }
+        } 
+    }
+}
+
+//Check if target with laser is in a vertical line.
+with (player)
+{
+    var target = collision_line(x, 0, x, room_height, Player_Parent, false, true);
+}
+if (target != noone and target != player)
+{ 
+    //Check if target is have laser.
+    if (target.CanLazer and !player.CanLazer)
+    {
+        //Check if both players on left wall.
+        if (player.mState = left_mState and (target.mState = left_mState or target.mState = up_mState or target.mState = down_mState))
+        {
+            //Check if there is a wall to the right.
+            with (player)
+            {
+                var target2 = collision_line(x, y, x+50, y, StealthCollisionUnit_obj, false, true);
+            }
+            if (target2 != noone)
+            {
+                //Check if existing dodge direction.
+                if (dodge_direction != noone)
+                {
+                    //Executes default input.
+                    input = dodge_direction;
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges in a random direction.
+                    alarm[3] = dodge_direction_reset;
+                    input = choose("Up", "Down");
+                    event_user(1);
+                    exit;
+                }
+            }
+            else
+            {
+                //Dodge laser by jumping.
+                long_jump = true;
+                alarm[4] = long_jump_timer;
+                input = choose("Jump");
+                event_user(1);
+                exit;
+            }
+        }
+        
+        //Check if both players on right wall.
+        if (player.mState = right_mState and (target.mState = right_mState or target.mState = up_mState or target.mState = down_mState))
+        {
+            //Check if there is a wall to the left.
+            with (player)
+            {
+                var target2 = collision_line(x, y, x-50, y, StealthCollisionUnit_obj, false, true);
+            }
+            if (target2 != noone)
+            {
+                //Check if existing dodge direction.
+                if (dodge_direction != noone)
+                {
+                    //Executes default input.
+                    input = dodge_direction;
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges in a random direction.
+                    alarm[3] = dodge_direction_reset;
+                    input = choose("Up", "Down");
+                    event_user(1);
+                    exit;
+                }
+            }
+            else
+            {
+                //Dodge laser by jumping.
+                long_jump = true;
+                alarm[4] = long_jump_timer;
+                input = choose("Jump");
+                event_user(1);
+                exit;
+            }
+        }
+        
+        //Check if players on opposite sides.
+        if ((player.mState = left_mState and target.mState = right_mState) or (player.mState = right_mState and target.mState = left_mState))
+        {
+            //Check if there is a wall above.
+            with (player)
+            {
+                var target2 = collision_line(x, y, x, y-80, StealthCollisionUnit_obj, false, true);
+            }
+            if (target2 != noone)
+            {
+                //Dodge laser by moving left.
+                input = choose("Down");
+                event_user(1);
+                exit;
+            }
+            
+            //Check if there is a wall below.
+            with (player)
+            {
+                var target2 = collision_line(x, y, x, y+80, StealthCollisionUnit_obj, false, true);
+            }
+            if (target2 != noone)
+            {
+                //Dodge laser by moving left.
+                input = choose("Up");
+                event_user(1);
+                exit;
+            }
+            
+            //Check if existing dodge direction.
+            if (dodge_direction != noone)
+            {
+                //Executes default input.
+                input = dodge_direction;
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                //Dodges in a random direction.
+                alarm[3] = dodge_direction_reset;
+                input = choose("Up", "Down");
+                event_user(1);
+                exit;
+            }
+        }
+    }
+}
+
+//Check if hitbox is nearby.
+with (player)
+{
+    var target = collision_circle(x, y, 75, Hitbox_obj, false, true);
+}
+if (target != noone and target.creator != player)
+{
+    //Jump
+    //input = choose("Jump");
+    //event_user(1);
+    //exit;
+    
+    //todo move opposite direction of the thinige majig. 
+}
+
+//Check if player is in attack range.
+with (player)
+{
+    var target = collision_circle(x, y, other.hitbox_radius, Player_Parent, false, true);
+}
+if (target != noone and target != player)
+{
+    //Check if target is above player.
+    switch (player.mState)
+    {
+        //Up State
+        case up_mState:
+        with (player)
+        {
+            var target2 = collision_line(x, y, x, y-75, Player_Parent, false, true);
+        }
+        if (target2 != noone and target2 != player)
+        {
+            input = choose("Laser Up", "Jump");
+            if (input = "Jump")
+            {
+                long_jump = true;
+                alarm[4] = long_jump_timer;
+                input = choose("Jump");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                event_user(1);
+                exit;
+            }
+        }
+        break;
+        
+        //Down State
+        case down_mState:
+        with (player)
+        {
+            var target2 = collision_line(x, y, x, y+75, Player_Parent, false, true);
+        }
+        if (target2 != noone and target2 != player)
+        {
+            input = choose("Laser Down", "Jump");
+            if (input = "Jump")
+            {
+                long_jump = true;
+                alarm[4] = long_jump_timer;
+                input = choose("Jump");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                event_user(1);
+                exit;
+            }
+        }
+        break;
+        
+        //Left State
+        case left_mState:
+        with (player)
+        {
+            var target2 = collision_line(x, y, x+75, y, Player_Parent, false, true);
+        }
+        if (target2 != noone and target2 != player)
+        {
+            input = choose("Laser Right", "Jump");
+            if (input = "Jump")
+            {
+                long_jump = true;
+                alarm[4] = long_jump_timer;
+                input = choose("Jump");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                event_user(1);
+                exit;
+            }
+        }
+        break;
+        
+        //Right State
+        case right_mState:
+        with (player)
+        {
+            var target2 = collision_line(x, y, x-75, y, Player_Parent, false, true);
+        }
+        if (target2 != noone and target2 != player)
+        {
+            input = choose("Laser Left", "Jump");
+            if (input = "Jump")
+            {
+                long_jump = true;
+                alarm[4] = long_jump_timer;
+                input = choose("Jump");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                event_user(1);
+                exit;
+            }
+        }
+        break;
+        
+        //Airborne State
+        case airborne_state:      
+        {
+            //Attack Up
+            with (player)
+            {
+                var target2 = collision_line(x, y, x, y-75, Player_Parent, false, true);
+            }
+            if (target2 != noone and target2 != player)
+            {
+                input = choose("Laser Up");
+                event_user(1);
+                exit;
+            }
+            
+            //Attack Down
+            with (player)
+            {
+                var target2 = collision_line(x, y, x, y+75, Player_Parent, false, true);
+            }
+            if (target2 != noone and target2 != player)
+            {
+                input = choose("Laser Down");
+                event_user(1);
+                exit;
+            }
+            
+            //Attack Left
+            with (player)
+            {
+                var target2 = collision_line(x, y, x-75, y, Player_Parent, false, true);
+            }
+            if (target2 != noone and target2 != player)
+            {
+                input = choose("Laser Left");
+                event_user(1);
+                exit;
+            }
+            
+            //Attack Right
+            with (player)
+            {
+                var target2 = collision_line(x, y, x+75, y, Player_Parent, false, true);
+            }
+            if (target2 != noone and target2 != player)
+            {
+                input = choose("Laser Right");
+                event_user(1);
+                exit;
+            }
+        }        
+        break;
+    }
+    
+    //Chick if player is standing on ground.
+    if (player.image_angle = 0)
+    {
+        //Check if player is facing the right direction.
+        if (player.image_xscale = 1)
+        {
+            //Check if target is in attack direction.
+            if (target.x &gt; player.x)
+            {
+                input = choose("Attack");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                input = choose("Left");
+                event_user(1);
+                exit;
+            }
+        }
+        else
+        {
+            //Check if target is in attack direction.
+            if (target.x &lt; player.x)
+            {
+                input = choose("Attack");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                input = choose("Right");
+                event_user(1);
+                exit;
+            }
+        }
+    }
+        
+    //Chick if player is standing on right wall.
+    if (player.image_angle = 90)
+    {
+        //Check if player is facing the upwards direction.
+        if (player.image_xscale = 1)
+        {
+            //Check if target is in attack direction.
+            if (target.y &lt; player.y)
+            {
+                input = choose("Attack");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                input = choose("Down");
+                event_user(1);
+                exit;
+            }
+        }
+        else
+        {
+            //Check if target is in attack direction.
+            if (target.y &gt; player.y)
+            {
+                input = choose("Attack");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                input = choose("Up");
+                event_user(1);
+                exit;
+            }
+        }
+    }
+
+    //Chick if player is standing on top wall.
+    if (player.image_angle = 180)
+    {
+        //Check if player is facing the left direction.
+        if (player.image_xscale = 1)
+        {
+            //Check if target is in attack direction.
+            if (target.x &lt; player.x)
+            {
+                input = choose("Attack");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                input = choose("Right");
+                event_user(1);
+                exit;
+            }
+        }
+        else
+        {
+            //Check if target is in attack direction.
+            if (target.x &gt; player.x)
+            {
+                input = choose("Attack");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                input = choose("Left");
+                event_user(1);
+                exit;
+            }
+        }
+    }
+    
+    //Chick if player is standing on left wall.
+    if (player.image_angle = 270)
+    {
+        //Check if player is facing the downwards direction.
+        if (player.image_xscale = -1)
+        {
+            //Check if target is in attack direction.
+            if (target.y &lt; player.y)
+            {
+                input = choose("Attack");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                input = choose("Up");
+                event_user(1);
+                exit;
+            }
+        }
+        else
+        {
+            //Check if target is in attack direction.
+            if (target.y &gt; player.y)
+            {
+                input = choose("Attack");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                input = choose("Down");
+                event_user(1);
+                exit;
+            }
+        }
+    }
+}
+
+//Check if player have laser.
+if (player.CanLazer)
+{
+    //Check for movement state, to determine if target is directly above.
+    switch (player.mState)
+    {
+        //Up State
+        case up_mState:
+        with (player)
+        {
+            var target = collision_line(x, y, x, 0, Player_Parent, false, true);
+        }
+        if (target != noone and target != player)
+        {
+            input = choose("Laser Up");
+            event_user(1);
+            exit;
+        }
+        break;
+        
+        //Down State
+        case down_mState:
+        with (player)
+        {
+            var target = collision_line(x, y, x, room_height, Player_Parent, false, true);
+        }
+        if (target != noone and target != player)
+        {
+            input = choose("Laser Down");
+            event_user(1);
+            exit;
+        }
+        break;
+        
+        //Left State
+        case left_mState:
+        with (player)
+        {
+            var target = collision_line(x, y, room_width, y, Player_Parent, false, true);
+        }
+        if (target != noone and target != player)
+        {
+            input = choose("Laser Right");
+            event_user(1);
+            exit;
+        }
+        break;
+        
+        //Right State
+        case right_mState:
+        with (player)
+        {
+            var target = collision_line(x, y, 0, y, Player_Parent, false, true);
+        }
+        if (target != noone and target != player)
+        {
+            input = choose("Laser Left");
+            event_user(1);
+            exit;
+        }
+        break;
+    } 
+}
+
+//Check if ai is in powerup area.
+with (player)
+{
+    var target = collision_point(x, y, SpeedShrine_obj, true, true);
+}
+if (target != noone)
+{
+    //Check if playr already have laser.
+    if (!player.CanLazer)
+    {
+        input = choose("None");
+        event_user(1);
+        exit;
+    }
+}
+
+//Check for collision with jump area.
+with (player)
+{
+    var target = collision_point(x, y, obj_ai_jumparea, false, true);
+}
+if (target != noone)
+{
+    input = choose("Jump", "Up", "Down", "Left", "Right");
+    default_input = noone;
+    event_user(1);
+    exit;
+}
+
+
+//Check if lockon target exists.
+if (lockon != noone and instance_exists(lockon))
+{
+    //Executes pathfinding towards lockon target.
+    event_user(2);
+    exit;
+}
+
+
+//TODO: Fix laser and stuff later, sorta rewrite this thingie, cuz it smellssss...
+
+//Check if player is in horizontal line.
+with (player)
+{
+    var target = collision_line(0, y, room_width, y, Player_Parent, false, true);
+}
+if (target != noone and target != player)
+{
+    //Sets the target as lockon for short duration, if line collision is lost.
+    lockon = target;
+    alarm[0] = lockon_duration;
+    
+    //Check if player is in same mState as target.
+    if ((player.mState = up_mState or player.mState = down_mState) and (target.mState = up_mState or target.mState = down_mState))
+    {
+        //Check if player have laser to fire.
+        if (player.CanLazer)
+        {
+            //Check if orientation is right.
+            if (player.image_xscale = 1)
+            {
+                //Check if target is in attack direction.
+                if (target.x &gt; player.x)
+                {
+                    input = choose("Attack");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }
+            }
+            
+            //Orientation is left.
+            else
+            {
+                //Check if target is in attack direction.
+                if (target.x &lt; player.x)
+                {
+                    input = choose("Attack");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }
+            }
+        }
+        
+        //Check if target is left or right.
+        if (target.x &gt; player.x)
+        {
+            input = choose("Right");
+            event_user(1);
+            exit;
+        }
+        else
+        {
+            input = choose("Left");
+            event_user(1);
+            exit;
+        }
+    }
+    else
+    {
+        //Check if player have laser to fire.
+        if (player.CanLazer)
+        {
+            input = choose("Attack");
+            event_user(1);
+            exit;
+        }
+        
+        //Check if player is horizontal movement state.
+        if ((player.mState = up_mState or player.mState = down_mState))
+        {
+            //Check if target is left or right.
+            if (target.x &gt; player.x)
+            {
+                input = choose("Right");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                input = choose("Left");
+                event_user(1);
+                exit;
+            }
+        }
+        else
+        {
+            //Check if target is left or right.
+            if (target.x &gt; player.x)
+            {
+                input = choose("Up");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                input = choose("Down");
+                event_user(1);
+                exit;
+            }
+        }
+    }
+}
+
+//Check if shrine is in horizontal line.
+with (player)
+{
+    var target = collision_line(0, y, room_width, y, SpeedShrine_obj, false, true);
+}
+if (target != noone and target != player)
+{
+    //Sets the target as lockon for short duration, if line collision is lost.
+    lockon = target;
+    alarm[0] = lockon_duration;
+    
+    //Check if shrine is above player.
+    switch (player.mState)
+    {
+        //Up State
+        case up_mState:
+        with (player)
+        {
+            var target2 = collision_line(x, y, x, y-75, SpeedShrine_obj, false, true);
+        }
+        if (target2 != noone and target2 != player)
+        {
+            //Long jump to shrine.
+            long_jump = true;
+            alarm[4] = long_jump_timer;
+            input = choose("Jump");
+            event_user(1);
+            exit;
+        }
+        break;
+        
+        //Down State
+        case down_mState:
+        with (player)
+        {
+            var target2 = collision_line(x, y, x, y+75, SpeedShrine_obj, false, true);
+        }
+        if (target2 != noone and target2 != player)
+        {
+            //Long jump to shrine.
+            long_jump = true;
+            alarm[4] = long_jump_timer;
+            input = choose("Jump");
+            event_user(1);
+            exit;
+        }
+        break;
+        
+        //Left State
+        case left_mState:
+        with (player)
+        {
+            var target2 = collision_line(x, y, x+75, y, SpeedShrine_obj, false, true);
+        }
+        if (target2 != noone and target2 != player)
+        {
+            //Long jump to shrine.
+            long_jump = true;
+            alarm[4] = long_jump_timer;
+            input = choose("Jump");
+            event_user(1);
+            exit;
+        }
+        break;
+        
+        //Right State
+        case right_mState:
+        with (player)
+        {
+            var target2 = collision_line(x, y, x-75, y, SpeedShrine_obj, false, true);
+        }
+        if (target2 != noone and target2 != player)
+        {
+            //Long jump to shrine.
+            long_jump = true;
+            alarm[4] = long_jump_timer;
+            input = choose("Jump");
+            event_user(1);
+            exit;
+        }
+        break;
+    }
+    
+    //Check if player is horizontal movement state.
+    if (player.mState = up_mState or player.mState = down_mState)
+    {
+        //Check if target is left or right.
+        if (target.x &gt; player.x)
+        {
+            input = choose("Right");
+            event_user(1);
+            exit;
+        }
+        else
+        {
+            input = choose("Left");
+            event_user(1);
+            exit;
+        }
+    }
+    else
+    {
+        //Check if target is left or right.
+        if (target.x &gt; player.x)
+        {
+            input = choose("Up");
+            event_user(1);
+            exit;
+        }
+        else
+        {
+            input = choose("Down");
+            event_user(1);
+            exit;
+        }
+    }
+}
+
+//Check if shrine is in vertical line.
+with (player)
+{
+    var target = collision_line(x, 0, x, room_height, SpeedShrine_obj, false, true);
+}
+if (target != noone and target != player)
+{
+    //Sets the target as lockon for short duration, if line collision is lost.
+    lockon = target;
+    alarm[0] = lockon_duration;
+    
+    //Check if shrine is above player.
+    switch (player.mState)
+    {
+        //Up State
+        case up_mState:
+        with (player)
+        {
+            var target2 = collision_line(x, y, x, y-75, SpeedShrine_obj, false, true);
+        }
+        if (target2 != noone and target2 != player)
+        {
+            //Long jump to shrine.
+            long_jump = true;
+            alarm[4] = long_jump_timer;
+            input = choose("Jump");
+            event_user(1);
+            exit;
+        }
+        break;
+        
+        //Down State
+        case down_mState:
+        with (player)
+        {
+            var target2 = collision_line(x, y, x, y+75, SpeedShrine_obj, false, true);
+        }
+        if (target2 != noone and target2 != player)
+        {
+            //Long jump to shrine.
+            long_jump = true;
+            alarm[4] = long_jump_timer;
+            input = choose("Jump");
+            event_user(1);
+            exit;
+        }
+        break;
+        
+        //Left State
+        case left_mState:
+        with (player)
+        {
+            var target2 = collision_line(x, y, x+75, y, SpeedShrine_obj, false, true);
+        }
+        if (target2 != noone and target2 != player)
+        {
+            //Long jump to shrine.
+            long_jump = true;
+            alarm[4] = long_jump_timer;
+            input = choose("Jump");
+            event_user(1);
+            exit;
+        }
+        break;
+        
+        //Right State
+        case right_mState:
+        with (player)
+        {
+            var target2 = collision_line(x, y, x-75, y, SpeedShrine_obj, false, true);
+        }
+        if (target2 != noone and target2 != player)
+        {
+            //Long jump to shrine.
+            long_jump = true;
+            alarm[4] = long_jump_timer;
+            input = choose("Jump");
+            event_user(1);
+            exit;
+        }
+        break;
+    }
+
+    //Check if player is vertical movement state.
+    if (player.mState = left_mState or player.mState = right_mState)
+    {
+        //Check if target is up or down.
+        if (target.y &gt; player.y)
+        {
+            input = choose("Down");
+            event_user(1);
+            exit;
+        }
+        else
+        {
+            input = choose("Up");
+            event_user(1);
+            exit;
+        }
+    }
+    else
+    {
+        //Check if target is up or down.
+        if (target.y &gt; player.y)
+        {
+            input = choose("Right");
+            event_user(1);
+            exit;
+        }
+        else
+        {
+            input = choose("Left");
+            event_user(1);
+            exit;
+        }
+    }
+}
+
+//Default vertical movement.
+if (player.mState = left_mState or player.mState = right_mState)
+{
+    //Check if default input exists.
+    if (default_input != noone)
+    {
+        //Executes default input.
+        input = default_input;
+        event_user(1);
+        exit;
+    }
+    else
+    {
+        //Sets default input.
+        default_input = choose("Down", "Up");
+        alarm[1] = default_input_duration;
+        input = default_input;
+        event_user(1);
+        exit;
+    }
+}
+
+//Default horizontal movement.
+if (player.mState = up_mState or player.mState = down_mState)
+{
+    //Check if default input exists.
+    if (default_input != noone)
+    {
+        input = default_input;
+        event_user(1);
+        exit;
+    }
+    else
+    {
+        //Sets default input.
+        default_input = choose("Left", "Right");
+        alarm[1] = default_input_duration;
+        input = default_input;
+        event_user(1);
+        exit;
+    }
+}
+
+
+
+
 
 
 /*
