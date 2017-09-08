@@ -66,6 +66,7 @@
         <sprite>sprites\PointTimer_spr</sprite>
         <sprite>sprites\PointArea_spr</sprite>
         <sprite>sprites\PointBorder_spr</sprite>
+        <sprite>sprites\spr_player_collision_mask</sprite>
       </sprites>
       <sprites name="Player1">
         <sprites name="StartScreen">

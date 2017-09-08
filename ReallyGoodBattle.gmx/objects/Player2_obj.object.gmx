@@ -6,7 +6,7 @@
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>Player_Parent</parentName>
-  <maskName>Player_mask</maskName>
+  <maskName>spr_player_collision_mask</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>

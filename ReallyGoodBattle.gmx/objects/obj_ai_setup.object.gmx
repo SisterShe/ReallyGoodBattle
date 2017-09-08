@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-
-if (input_check_pressed(0, ord("1")))
+            <string>if (input_check_pressed(0, ord("1")))
 {
     global.player1_ai = true; 
     draw_message("AI Player 1", fnt_joystix_8, c_white, 128, 80, room_seconds(1), 0.01);
