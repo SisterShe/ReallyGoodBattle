@@ -249,6 +249,7 @@ with (LazerBox)
           <argument>
             <kind>1</kind>
             <string>image_alpha = 1; 
+mask_index = spr_player_collision_mask;
 ///Handles Movement and Input
 
 //Check if player is AI.

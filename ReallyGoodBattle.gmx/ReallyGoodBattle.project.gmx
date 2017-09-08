@@ -577,6 +577,7 @@
         <object>objects\obj_ai_controller</object>
         <object>objects\obj_ai_jumparea</object>
         <object>objects\obj_ai_setup</object>
+        <object>objects\ctr_cursor_display</object>
       </objects>
     </objects>
     <objects name="System">

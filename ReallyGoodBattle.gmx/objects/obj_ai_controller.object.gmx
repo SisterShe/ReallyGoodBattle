@@ -40,7 +40,7 @@ lockon_duration = room_seconds(5);
 
 //Default Input
 default_input = noone;
-default_input_duration = room_seconds(2);
+default_input_duration = room_seconds(5);
 
 //Hitbox Radius
 hitbox_radius = irandom_range(40, 90);
@@ -1114,6 +1114,8 @@ if (player.mState = up_mState or player.mState = down_mState)
     
     
 */
+
+/*
 
 //Menu Exit
 if (room = rm_gamesetup) exit;
@@ -2334,18 +2336,6 @@ else
     
     It checks the current movement state of the player, and executes the input to get
     it to the next cell, based on current orientation. 
-    
-    This allows it to perfectly move from location A to B within the map.    
-    
-    
-    
-    
-    
-    TODO:
-    Close as possible to player target?
-    NOT most optimal way with the jump limit based on orientation. Jump is easy enough to implement, if it is possible,
-    however with changing orientation it becomes wwaaaaayyyyyhhhehehehggffffhhhhh more complex........
-    
 */ 
 
 //Creates the Grid for level.
@@ -2857,70 +2847,15 @@ with (player)
     Check for laser dodge line.
     Check for laser avoid line.
     Check for hitbox nearby.
-    Check for player nearby.
-    Check for player above if have laser.
-    Check for laser powerup, unless already have laser.
+    Check for player nearby to attack.
+    Check for player to attack with laser.
+    Check for laser powerup.
     Check for jump area.
-    
     Check for lockon target.
-    
-    Check for player in a horizontal line.
-    Check for player in a vertical line.
-    Check for shrine in a horizontal line.
-    Check for shrine in a vertical line.
-    
-    Default Input.
-    
-    
-    
-    Check for Lockon Target
-    
-    
-    
-    
-    
-    
-    A-Star Grid
-    
-    
-    
-    
-    Lockon A Target
-    Either shrine or player, dun matter.
-    When target is locked on, the default movement is towards the logon target if still alive.
-    
-    Movement Grid
-    
-    
-    
-    //Airborne State
-    case airborne_state:
-    {
-    
-    
-    
-    what is most optimal default input?
-    run in the direction of the nearest player.
-    seems simple enough.
-    
-    
-    
-    Q: navigation maps to make jumping and that sort of navigation easier?
-    
-    
-    
-    TODO:
-    Implement corner jump mechanic.
-    * Determine direction when you are running into
-    
-    
-    Default.
-    
-    
-    
-    
-    
-    
+    Check for lockon shrine that exists.
+    Check for lockon player that exists.
+    Check for default input.
+    Default input.
 */
 
 //Menu Exit
@@ -3227,6 +3162,15 @@ if (target != noone and target.creator != player)
     //exit;
     
     //todo move opposite direction of the thinige majig. 
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 //Check if player is in attack range.
@@ -3608,67 +3552,18 @@ if (player.CanLazer)
         }
         break;
     } 
-}
-
-//Check if ai is in powerup area.
-with (player)
-{
-    var target = collision_point(x, y, SpeedShrine_obj, true, true);
-}
-if (target != noone)
-{
-    //Check if playr already have laser.
-    if (!player.CanLazer)
-    {
-        input = choose("None");
-        event_user(1);
-        exit;
-    }
-}
-
-//Check for collision with jump area.
-with (player)
-{
-    var target = collision_point(x, y, obj_ai_jumparea, false, true);
-}
-if (target != noone)
-{
-    input = choose("Jump", "Up", "Down", "Left", "Right");
-    default_input = noone;
-    event_user(1);
-    exit;
-}
-
-
-//Check if lockon target exists.
-if (lockon != noone and instance_exists(lockon))
-{
-    //Executes pathfinding towards lockon target.
-    event_user(2);
-    exit;
-}
-
-
-//TODO: Fix laser and stuff later, sorta rewrite this thingie, cuz it smellssss...
-
-//Check if player is in horizontal line.
-with (player)
-{
-    var target = collision_line(0, y, room_width, y, Player_Parent, false, true);
-}
-if (target != noone and target != player)
-{
-    //Sets the target as lockon for short duration, if line collision is lost.
-    lockon = target;
-    alarm[0] = lockon_duration;
     
-    //Check if player is in same mState as target.
-    if ((player.mState = up_mState or player.mState = down_mState) and (target.mState = up_mState or target.mState = down_mState))
+    //Check if target in horizontal line.
+    with (player)
     {
-        //Check if player have laser to fire.
-        if (player.CanLazer)
+        var target = collision_line(0, y, room_width, y, Player_Parent, false, true);
+    }
+    if (target != noone and target != player)
+    {
+        //Chick if player is standing on ground.
+        if (player.image_angle = 0)
         {
-            //Check if orientation is right.
+            //Check if player is facing the right direction.
             if (player.image_xscale = 1)
             {
                 //Check if target is in attack direction.
@@ -3685,8 +3580,6 @@ if (target != noone and target != player)
                     exit;
                 }
             }
-            
-            //Orientation is left.
             else
             {
                 //Check if target is in attack direction.
@@ -3704,301 +3597,192 @@ if (target != noone and target != player)
                 }
             }
         }
-        
-        //Check if target is left or right.
-        if (target.x &gt; player.x)
+    
+        //Chick if player is standing on top wall.
+        if (player.image_angle = 180)
         {
-            input = choose("Right");
-            event_user(1);
-            exit;
-        }
-        else
-        {
-            input = choose("Left");
-            event_user(1);
-            exit;
-        }
-    }
-    else
-    {
-        //Check if player have laser to fire.
-        if (player.CanLazer)
-        {
-            input = choose("Attack");
-            event_user(1);
-            exit;
-        }
-        
-        //Check if player is horizontal movement state.
-        if ((player.mState = up_mState or player.mState = down_mState))
-        {
-            //Check if target is left or right.
-            if (target.x &gt; player.x)
+            //Check if player is facing the left direction.
+            if (player.image_xscale = 1)
             {
-                input = choose("Right");
-                event_user(1);
-                exit;
+                //Check if target is in attack direction.
+                if (target.x &lt; player.x)
+                {
+                    input = choose("Attack");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }
             }
             else
             {
-                input = choose("Left");
-                event_user(1);
-                exit;
+                //Check if target is in attack direction.
+                if (target.x &gt; player.x)
+                {
+                    input = choose("Attack");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }
             }
         }
-        else
+    }
+    
+    //Check if target in vertical line.
+    with (player)
+    {
+        var target = collision_line(x, 0, x, room_height, Player_Parent, false, true);
+    }
+    if (target != noone and target != player)
+    {
+        //Chick if player is standing on right wall.
+        if (player.image_angle = 90)
         {
-            //Check if target is left or right.
-            if (target.x &gt; player.x)
+            //Check if player is facing the upwards direction.
+            if (player.image_xscale = 1)
             {
-                input = choose("Up");
-                event_user(1);
-                exit;
+                //Check if target is in attack direction.
+                if (target.y &lt; player.y)
+                {
+                    input = choose("Attack");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
+                }
             }
             else
             {
-                input = choose("Down");
-                event_user(1);
-                exit;
+                //Check if target is in attack direction.
+                if (target.y &gt; player.y)
+                {
+                    input = choose("Attack");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }
             }
         }
-    }
+        
+        //Chick if player is standing on left wall.
+        if (player.image_angle = 270)
+        {
+            //Check if player is facing the downwards direction.
+            if (player.image_xscale = -1)
+            {
+                //Check if target is in attack direction.
+                if (target.y &lt; player.y)
+                {
+                    input = choose("Attack");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }
+            }
+            else
+            {
+                //Check if target is in attack direction.
+                if (target.y &gt; player.y)
+                {
+                    input = choose("Attack");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
+                }
+            }
+        }
+    } 
 }
 
-//Check if shrine is in horizontal line.
+//Check if ai is in powerup area.
 with (player)
 {
-    var target = collision_line(0, y, room_width, y, SpeedShrine_obj, false, true);
+    var target = collision_point(x, y, SpeedShrine_obj, true, true);
+}
+if (target != noone)
+{
+    input = choose("None");
+    event_user(1);
+    exit;
+}
+
+//Check for collision with jump area.
+with (player)
+{
+    var target = collision_point(x, y, obj_ai_jumparea, false, true);
+}
+if (target != noone)
+{
+    //TODO: Better corner jumpin, ye dig. Too much random not very gut yeah boi??
+    
+    
+    
+    
+    
+    input = choose("Jump", "Up", "Down", "Left", "Right");
+    default_input = noone;
+    event_user(1);
+    exit;
+}
+
+//Check if lockon target exists.
+if (lockon != noone and instance_exists(lockon))
+{
+    //Executes pathfinding towards lockon target.
+    event_user(2);
+    exit;
+}
+
+//Finds a shrine target to lockon to.
+with (player)
+{
+    var target = collision_rectangle(0, 0, room_width, room_height, SpeedShrine_obj, false, true);
 }
 if (target != noone and target != player)
 {
-    //Sets the target as lockon for short duration, if line collision is lost.
+    //Sets the lockon target.
     lockon = target;
     alarm[0] = lockon_duration;
-    
-    //Check if shrine is above player.
-    switch (player.mState)
-    {
-        //Up State
-        case up_mState:
-        with (player)
-        {
-            var target2 = collision_line(x, y, x, y-75, SpeedShrine_obj, false, true);
-        }
-        if (target2 != noone and target2 != player)
-        {
-            //Long jump to shrine.
-            long_jump = true;
-            alarm[4] = long_jump_timer;
-            input = choose("Jump");
-            event_user(1);
-            exit;
-        }
-        break;
-        
-        //Down State
-        case down_mState:
-        with (player)
-        {
-            var target2 = collision_line(x, y, x, y+75, SpeedShrine_obj, false, true);
-        }
-        if (target2 != noone and target2 != player)
-        {
-            //Long jump to shrine.
-            long_jump = true;
-            alarm[4] = long_jump_timer;
-            input = choose("Jump");
-            event_user(1);
-            exit;
-        }
-        break;
-        
-        //Left State
-        case left_mState:
-        with (player)
-        {
-            var target2 = collision_line(x, y, x+75, y, SpeedShrine_obj, false, true);
-        }
-        if (target2 != noone and target2 != player)
-        {
-            //Long jump to shrine.
-            long_jump = true;
-            alarm[4] = long_jump_timer;
-            input = choose("Jump");
-            event_user(1);
-            exit;
-        }
-        break;
-        
-        //Right State
-        case right_mState:
-        with (player)
-        {
-            var target2 = collision_line(x, y, x-75, y, SpeedShrine_obj, false, true);
-        }
-        if (target2 != noone and target2 != player)
-        {
-            //Long jump to shrine.
-            long_jump = true;
-            alarm[4] = long_jump_timer;
-            input = choose("Jump");
-            event_user(1);
-            exit;
-        }
-        break;
-    }
-    
-    //Check if player is horizontal movement state.
-    if (player.mState = up_mState or player.mState = down_mState)
-    {
-        //Check if target is left or right.
-        if (target.x &gt; player.x)
-        {
-            input = choose("Right");
-            event_user(1);
-            exit;
-        }
-        else
-        {
-            input = choose("Left");
-            event_user(1);
-            exit;
-        }
-    }
-    else
-    {
-        //Check if target is left or right.
-        if (target.x &gt; player.x)
-        {
-            input = choose("Up");
-            event_user(1);
-            exit;
-        }
-        else
-        {
-            input = choose("Down");
-            event_user(1);
-            exit;
-        }
-    }
 }
 
-//Check if shrine is in vertical line.
+//Finds a player target to lockon to.
 with (player)
 {
-    var target = collision_line(x, 0, x, room_height, SpeedShrine_obj, false, true);
+    var target = collision_rectangle(0, 0, room_width, room_height, Player_Parent, false, true);
 }
 if (target != noone and target != player)
 {
-    //Sets the target as lockon for short duration, if line collision is lost.
+    //Sets the lockon target.
     lockon = target;
     alarm[0] = lockon_duration;
-    
-    //Check if shrine is above player.
-    switch (player.mState)
-    {
-        //Up State
-        case up_mState:
-        with (player)
-        {
-            var target2 = collision_line(x, y, x, y-75, SpeedShrine_obj, false, true);
-        }
-        if (target2 != noone and target2 != player)
-        {
-            //Long jump to shrine.
-            long_jump = true;
-            alarm[4] = long_jump_timer;
-            input = choose("Jump");
-            event_user(1);
-            exit;
-        }
-        break;
-        
-        //Down State
-        case down_mState:
-        with (player)
-        {
-            var target2 = collision_line(x, y, x, y+75, SpeedShrine_obj, false, true);
-        }
-        if (target2 != noone and target2 != player)
-        {
-            //Long jump to shrine.
-            long_jump = true;
-            alarm[4] = long_jump_timer;
-            input = choose("Jump");
-            event_user(1);
-            exit;
-        }
-        break;
-        
-        //Left State
-        case left_mState:
-        with (player)
-        {
-            var target2 = collision_line(x, y, x+75, y, SpeedShrine_obj, false, true);
-        }
-        if (target2 != noone and target2 != player)
-        {
-            //Long jump to shrine.
-            long_jump = true;
-            alarm[4] = long_jump_timer;
-            input = choose("Jump");
-            event_user(1);
-            exit;
-        }
-        break;
-        
-        //Right State
-        case right_mState:
-        with (player)
-        {
-            var target2 = collision_line(x, y, x-75, y, SpeedShrine_obj, false, true);
-        }
-        if (target2 != noone and target2 != player)
-        {
-            //Long jump to shrine.
-            long_jump = true;
-            alarm[4] = long_jump_timer;
-            input = choose("Jump");
-            event_user(1);
-            exit;
-        }
-        break;
-    }
-
-    //Check if player is vertical movement state.
-    if (player.mState = left_mState or player.mState = right_mState)
-    {
-        //Check if target is up or down.
-        if (target.y &gt; player.y)
-        {
-            input = choose("Down");
-            event_user(1);
-            exit;
-        }
-        else
-        {
-            input = choose("Up");
-            event_user(1);
-            exit;
-        }
-    }
-    else
-    {
-        //Check if target is up or down.
-        if (target.y &gt; player.y)
-        {
-            input = choose("Right");
-            event_user(1);
-            exit;
-        }
-        else
-        {
-            input = choose("Left");
-            event_user(1);
-            exit;
-        }
-    }
 }
 
 //Default vertical movement.
@@ -4042,71 +3826,6 @@ if (player.mState = up_mState or player.mState = down_mState)
         event_user(1);
         exit;
     }
-}
-
-
-
-
-
-
-/*
-
-//Default movement.
-if (default_input != noone)
-{
-    //Check if movement matches mState.
-    if ((default_input = "Left" or default_input = "Right") and (player.mState = down_mState or player.mState = up_mState))
-    {
-        //Executes default input.
-        input = default_input;
-        event_user(1);
-        exit;
-    }
-    
-    //Check if movement matches mState.
-    if ((default_input = "Up" or default_input = "Down") and (player.mState = left_mState or player.mState = right_mState))
-    {
-        //Executes default input.
-        input = default_input;
-        event_user(1);
-        exit;
-    }
-}
-else
-{
-    //Chick if player is standing on ground.
-    if (player.mState = down_mState)
-    {
-        //Sets default input.
-        default_input = choose("Left", "Right");
-    }
-    
-    //Chick if player is standing on right wall.
-    if (player.mState = right_mState)
-    {
-        //Sets default input.
-        default_input = choose("Up", "Down");
-    }
-    
-    //Chick if player is standing on ceiling.
-    if (player.mState = up_mState)
-    {
-        //Sets default input.
-        default_input = choose("Left", "Right");
-    }
-    
-    //Chick if player is standing on left wall.
-    if (player.mState = left_mState)
-    {
-        //Sets default input.
-        default_input = choose("Up", "Down");
-    }
-    
-    //Executes default input.
-    alarm[1] = default_input_duration;
-    input = default_input;
-    event_user(1);
-    exit;
 }
 </string>
           </argument>

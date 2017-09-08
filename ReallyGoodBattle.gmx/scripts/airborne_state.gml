@@ -1,21 +1,27 @@
 ///airborne_state
+
+//Updates image speed.
 image_speed = .3;
 
+//Determines Player Sprite
+if (PlayerNum = 1) 
+{
+    sprite_index = Player_Airborne_spr; 
+} 
+if (PlayerNum = 2) 
+{
+    sprite_index = Player2_Airborne_spr; 
+} 
+if (PlayerNum = 3) 
+{
+    sprite_index = Player3_Airborne_spr; 
+} 
+if (PlayerNum = 4) 
+{
+    sprite_index = Player4_Airborne_spr; 
+} 
+ 
 
-if (PlayerNum = 1) {
-        sprite_index = Player_Airborne_spr; 
-    } 
-    if (PlayerNum = 2) {
-        sprite_index = Player2_Airborne_spr; 
-    } 
-     if (PlayerNum = 3) {
-        sprite_index = Player3_Airborne_spr; 
-    } 
-    if (PlayerNum = 4) {
-        sprite_index = Player4_Airborne_spr; 
-    } 
- 
- 
 if (image_angle = 0) {  
     vspeed = vspeed+0.25;  
     if (right_key_pressed and canDash = true) {

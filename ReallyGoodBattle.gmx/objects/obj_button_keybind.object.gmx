@@ -163,10 +163,12 @@ else
         if (position_meeting(mouse_x, mouse_y, self))
         {
             highlight = true;
+            selected = true;
         }
         else
         {
             highlight = false;
+            selected = false;
         }
     }
     else
@@ -207,7 +209,7 @@ else
     if ((selected and !mouse_enabled))
     {
         //Handles Input Interaction
-        if (input_check_pressed(0, gp_face1, vk_enter, ord("E")))
+        if (input_check_pressed(0, gp_face1, vk_enter, ord("E"), ord("F")))
         {
             event_user(0);
         }

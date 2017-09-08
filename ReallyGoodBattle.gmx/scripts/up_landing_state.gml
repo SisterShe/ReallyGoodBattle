@@ -1,49 +1,81 @@
 #define up_landing_state
- 
-if (PlayerNum = 1) {
-        sprite_index = Player_Landing_spr; 
-    } 
-if (PlayerNum = 2) {
-        sprite_index = Player2_Landing_spr; 
-    } 
-if (PlayerNum = 3) {
-        sprite_index = Player3_Landing_spr; 
-    } 
-if (PlayerNum = 4) {
-        sprite_index = Player4_Landing_spr; 
-    } 
+///up_landing_state();
+
+// Handles the up landing state.
+
+//Determine Player Sprite
+if (PlayerNum = 1) 
+{
+    sprite_index = Player_Landing_spr; 
+} 
+if (PlayerNum = 2) 
+{
+    sprite_index = Player2_Landing_spr; 
+} 
+if (PlayerNum = 3) 
+{
+    sprite_index = Player3_Landing_spr; 
+} 
+if (PlayerNum = 4) 
+{
+    sprite_index = Player4_Landing_spr; 
+} 
+//Updates image variables.
 image_speed = .55
 image_angle = 0; 
 image_xscale = 1; 
 image_yscale = 1; 
-if (right_key_pressed and canDash = true) {
+
+
+if (right_key_pressed and canDash = true) 
+{
     canDash = false; 
     hspeed += 3 ; 
-    
 }
-if (left_key_pressed and canDash = true) {
+if (left_key_pressed and canDash = true) 
+{
     canDash = false; 
     hspeed += -3 ; 
 }
-if (H_neutral) {
+if (H_neutral) 
+{
     canDash = true; 
 }
-if (move != 0) { //IF I am pushing Right or Left
+if (move != 0) 
+{ //IF I am pushing Right or Left
    // hspeed += move * 0.2 // this actually makes me movve
-   
-    
-} else {
-    hspeed = hspeed/1.7; //friction (this makes me stop)
-   
+       
+} 
+else 
+{
+    hspeed = hspeed/1.7; //friction (this makes me stop) 
 }
- if (hspeed >= 5) {hspeed = 4}  // this is a speed limit
-    if (hspeed <= -5) {hspeed = -4;} // this is a speed limi
-if (place_meeting(x, y+1, CollisionUnit_obj)) { //if Im going to touch the ground
-vspeed = 0; //this is redundant    
-canJump = 1;  //give me more jumps
-} else {mState = airborne_state;} //if I am not on the ground I should be in the airbore state, this does that. 
 
-if (jump_key and canJump = 1) { //if I have a jump, go ahead and do the jump
+if (hspeed >= 5) 
+{
+    hspeed = 4 // this is a speed limit
+}  
+
+if (hspeed <= -5)
+{
+    hspeed = -4; // this is a speed limi
+} 
+
+//if Im going to touch the ground
+if (place_meeting(x, y+1, CollisionUnit_obj)) 
+{ 
+    vspeed = 0; //this is redundant    
+    canJump = 1;  //give me more jumps
+} 
+else 
+{
+    //if I am not on the ground I should be in the airbore state, this does that. 
+    mState = airborne_state;
+} 
+
+if (jump_key and canJump = 1) 
+{ 
+    //if I have a jump, go ahead and do the jump
     canJump = 0;  //lose the jump
     image_index = 0; //prepare for new animation
     mState = crouch_state //go into the prejump state. 
@@ -52,15 +84,19 @@ if (jump_key and canJump = 1) { //if I have a jump, go ahead and do the jump
 Impact = (instance_create(x,y+8,Player_Llanding_obj));
 Impact.image_angle = image_angle; 
 Impact.image_xscale = (random_range(.75,1.5)); 
-if (image_index >= 7) {
- mState = up_mState; 
+if (image_index >= 7) 
+{
+    mState = up_mState; 
 } 
 
-if (!place_meeting(x,y+1,CollisionUnit_obj)) {
+if (!place_meeting(x,y+1,CollisionUnit_obj)) 
+{
     mState = airborne_state; 
 }
-if (place_meeting(x, y-1, CollisionUnit_obj)) { //if Im suck upside down
-mState = airborne_state; //if I am not on the ground I should be in the airbore state, this does that.
+if (place_meeting(x, y-1, CollisionUnit_obj)) 
+{ 
+    //if Im suck upside down
+    mState = airborne_state; //if I am not on the ground I should be in the airbore state, this does that.
 } 
 
 
