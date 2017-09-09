@@ -212,10 +212,6 @@ room_speed = 60;</code>
     <instance objName="StealthCollisionUnit_obj" x="0" y="128" name="inst_E86B5D17" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="StealthCollisionUnit_obj" x="0" y="144" name="inst_A19A6EFB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="StealthCollisionUnit_obj" x="0" y="160" name="inst_6F4FE0EB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ai_jumparea" x="16" y="240" name="inst_1BD2B0CB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ai_jumparea" x="16" y="32" name="inst_45BC0E08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ai_jumparea" x="480" y="32" name="inst_87AA4850" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ai_jumparea" x="480" y="240" name="inst_D7411DB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tile_FrontBrick" x="0" y="256" w="16" h="16" xo="48" yo="32" id="10001251" name="inst_47B55A15" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

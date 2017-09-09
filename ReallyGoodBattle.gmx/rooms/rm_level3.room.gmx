@@ -214,10 +214,6 @@ room_speed = 60;</code>
     <instance objName="Corner_obj" x="466" y="98" name="inst_F6F2B881" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="180"/>
     <instance objName="Corner_obj" x="466" y="226" name="inst_062164BD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="180"/>
     <instance objName="Corner_obj" x="98" y="98" name="inst_05B2686D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="180"/>
-    <instance objName="obj_ai_jumparea" x="16" y="256" name="inst_D2B3487D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ai_jumparea" x="16" y="16" name="inst_8F359065" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ai_jumparea" x="480" y="16" name="inst_2C59AD93" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ai_jumparea" x="480" y="256" name="inst_C337F296" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tile_FrontBrick" x="496" y="272" w="16" h="16" xo="80" yo="32" id="10001275" name="inst_3560B102" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
