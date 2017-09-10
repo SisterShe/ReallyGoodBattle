@@ -31,9 +31,9 @@
 RGB[0] = "Red";
 RGB[1] = "Green"; 
 RGB[2] = "Blue";
-Rval = round(random_range(0,255));
-Gval = round(random_range(0,255));
-Bval = round(random_range(0,255));
+Rval = GameMaster_obj.Player2Red;
+Gval = GameMaster_obj.Player2Green;
+Bval = GameMaster_obj.Player2Blue;
 space = 64; 
 mpos = 0;  //menu Position (which one is selected)
 input_delay = false; //Boolean delay for stick movement.

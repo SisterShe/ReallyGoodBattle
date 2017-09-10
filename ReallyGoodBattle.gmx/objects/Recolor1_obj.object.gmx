@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var rotate = 0; 
-rotate += 1;
-image_angle = rotate;
+            <string>image_angle += 1;
 image_blend = make_color_rgb(GameMaster_obj.Player1Blue,GameMaster_obj.Player1Red,GameMaster_obj.Player1Green);
  
  
@@ -53,9 +51,21 @@ image_blend = make_color_rgb(GameMaster_obj.Player1Blue,GameMaster_obj.Player1Re
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>GameMaster_obj.Player1Red = round(random_range(0,255)); 
+            <string>/*
+GameMaster_obj.Player1Red = round(random_range(0,255)); 
 GameMaster_obj.Player1Green = round(random_range(0,255));
 GameMaster_obj.Player1Blue = round(random_range(0,255));
+*/
+
+//Recreates color selection.
+instance_create(48,48,RGB1Controller_obj);
+
+//Destroy instances.
+suicide(Ready1Up_obj);
+suicide(Player1ReadyTexts);
+suicide(obj_sprite_selector_p1);
+suicide(Player1_obj);
+suicide();
 </string>
           </argument>
         </arguments>

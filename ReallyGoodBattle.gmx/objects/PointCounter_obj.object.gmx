@@ -58,9 +58,15 @@ iY = y;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_exists(creator)) {
-image_index = creator.ShrineVal/25.5;
-} else {
+            <string>if (instance_exists(creator)) 
+{
+    //image_index = creator.ShrineVal/25.5;
+    
+    image_index = creator.ShrineVal / (creator.capture_time / 7);
+    
+} 
+else 
+{
     instance_destroy(); 
 }
 

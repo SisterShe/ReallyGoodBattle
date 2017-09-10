@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var rotate = 0; 
-rotate += 1;
-image_angle = rotate;
+            <string>image_angle += 1;
 image_blend = make_color_rgb(GameMaster_obj.Player1Red,GameMaster_obj.Player1Green,GameMaster_obj.Player1Blue);
  
  

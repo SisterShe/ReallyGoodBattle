@@ -50,9 +50,21 @@ image_angle += 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>GameMaster_obj.Player2Red = round(random_range(0,255)); 
+            <string>/*
+GameMaster_obj.Player2Red = round(random_range(0,255)); 
 GameMaster_obj.Player2Green = round(random_range(0,255));
 GameMaster_obj.Player2Blue = round(random_range(0,255));
+*/
+
+//Recreates color selection.
+instance_create(304,48,RGB2Controller_obj);
+
+//Destroy instances.
+suicide(Ready2Up_obj);
+suicide(Player2ReadyTexts);
+suicide(obj_sprite_selector_p2);
+suicide(Player2_obj);
+suicide();
 </string>
           </argument>
         </arguments>

@@ -31,42 +31,42 @@
 Player1Score = 0;
 Player1Ready = 0; 
 Player1Active = 0;
-Player1Red = random_range(0, 255); 
-Player1Green = random_range(0, 255);
-Player1Blue = random_range(0, 255);
+Player1Red = 255;
+Player1Green = 50;
+Player1Blue = 50;
 Player1Respawn = true;
 
 //Player 2
 Player2Score = 0;
 Player2Ready = 0; 
 Player2Active = 0;
-Player2Red = random_range(0, 255); 
-Player2Green = random_range(0, 255);
-Player2Blue = random_range(0, 255);
+Player2Red = 50;
+Player2Green = 50;
+Player2Blue = 255;
 Player2Respawn = true;
 
 //Player 3
 Player3Score = 0;
 Player3Ready = 0; 
 Player3Active = 0;
-Player3Red = random_range(0, 255);
-Player3Green = random_range(0, 255);
-Player3Blue = random_range(0, 255);
+Player3Red = 50;
+Player3Green = 255;
+Player3Blue = 50;
 Player3Respawn = true;
 
 //Player 4
 Player4Score = 0;
 Player4Ready = 0; 
 Player4Active = 0;
-Player4Red = random_range(0, 255);
-Player4Green = random_range(0, 255);
-Player4Blue = random_range(0, 255);
+Player4Red = 255;
+Player4Green = 255;
+Player4Blue = 50;
 Player4Respawn = true;
 
 //Instance Variables
 ActivePlayers = 0;
 ReadyPlayers = 0; 
-RespawnTimer = room_seconds(2);
+RespawnTimer = room_seconds(1);
 pause_room = false;
 </string>
           </argument>

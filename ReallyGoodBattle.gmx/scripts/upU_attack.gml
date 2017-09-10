@@ -16,7 +16,7 @@ sprite_index = Player4_uAtk_spr;
 hspeed= 0; 
 if (charge >= 1) {
 image_speed = .15;
-room_speed = 30;
+//room_speed = 30;
 Line = instance_create(x,y,LazerLine); 
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
@@ -71,7 +71,7 @@ sprite_index = Player4_uAtk_spr;
 vspeed= 0;
 if (charge >= 1) { 
     image_speed = .15;
-    room_speed = 30;
+    //room_speed = 30;
     Line = instance_create(x,y,LazerLine); 
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
@@ -124,7 +124,7 @@ if ( charge >= 1 ) {
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle+90;
-    image_speed = .15; room_speed = 30;
+    image_speed = .15; //room_speed = 30;
 } else {image_seed = .25; room_speed = 60; }
 if (image_index >= 2 and image_index <= 4) {
    if (charge >= 1) {
@@ -167,7 +167,7 @@ if (charge >= 1) {
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle+90;
-    image_speed = .15; room_speed = 30;
+    image_speed = .15; //room_speed = 30;
 } else { image_speed = .25; room_speed = 60; }
 if (image_index >= 2 and image_index <= 4) {
     if (charge >= 1) {

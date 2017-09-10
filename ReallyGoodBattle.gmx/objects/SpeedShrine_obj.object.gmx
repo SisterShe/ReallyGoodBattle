@@ -25,25 +25,44 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_alpha = .3; 
+            <string>///Creation Code
+
+//Built-In Variables
+image_alpha = .3; 
+
+//Activation Delay Alarm
+alarm[0] = room_speed * 1.5; 
+
+//Instance Variables
 charge = 0; 
 Red = 255; 
 Blue = 255; 
 Green = 255; 
 DVal = 2; 
-Color = make_color_rgb(Red,Blue,Green);
+Color = make_color_rgb(Red, Blue, Green);
+default_color = c_white;
 ShrineVal = 0; 
 PlayerCount = 0; 
 Player1 = 0; 
 Player2 = 0;
 Player3 = 0;
 Player4 = 0;
+IsActive = false; 
+capture_time = room_speed * 3; //Seconds to capture.
+
+//Creation Tween Variables
+step = 0;
+total = room_speed * 3;
+start = 0;
+final = 1;
+
+//Children Instances
 clock = instance_create(x,y,PointCounter_obj);
 clock.creator = id;
 border = instance_create(x,y,PointBorder_obj); 
 border.creator = id;
-IsActive = false; 
-alarm[0] = room_speed * 3; 
+
+
  
 
 
@@ -69,7 +88,8 @@ alarm[0] = room_speed * 3;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>IsActive = true; 
+            <string>///Activates Shrine
+IsActive = true; 
 </string>
           </argument>
         </arguments>
@@ -92,65 +112,137 @@ alarm[0] = room_speed * 3;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (IsActive = true) {
-if (place_meeting(x,y,Player1_obj)) {
-    Player1 = 1; 
-    Red = GameMaster_obj.Player1Red;
-Green = GameMaster_obj.Player1Green;
-Blue = GameMaster_obj.Player1Blue;
-} else {Player1 = 0} 
-if (place_meeting(x,y,Player2_obj)) {
-    Player2 = 1; 
-    Red = GameMaster_obj.Player2Red;
-Green = GameMaster_obj.Player2Green;
-Blue = GameMaster_obj.Player2Blue;
-} else {Player2 = 0} 
-if (place_meeting(x,y,Player3_obj)) {
-    Player3 = 1; 
-    Red = GameMaster_obj.Player3Red;
-Green = GameMaster_obj.Player3Green;
-Blue = GameMaster_obj.Player3Blue;
-} else {Player3 = 0} 
-if (place_meeting(x,y,Player4_obj)) {
-    Player4 = 1; 
-    Red = GameMaster_obj.Player4Red;
-Green = GameMaster_obj.Player4Green;
-Blue = GameMaster_obj.Player4Blue;
-} else {Player4 = 0} 
+            <string>///Handles Capturing of Shrine
 
-
-PlayerCount = (Player1 + Player2 + Player3 + Player4);
-
-
-if (PlayerCount = 1) {
-    ShrineVal += 1; 
-} else {ShrineVal = ShrineVal /1.05;}
-
-//color 
-Color = make_color_rgb(Red,Green,Blue);
-
-image_blend = Color; 
-if (Red &lt; 255) {
-Red += DVal; 
+//Check if shrine is active.
+if (IsActive = true) 
+{    
+    //Check if player 1 is inside shrine.
+    if (place_meeting(x,y,Player1_obj)) 
+    {
+        Player1 = 1; 
+        Red = GameMaster_obj.Player1Red;
+        Green = GameMaster_obj.Player1Green;
+        Blue = GameMaster_obj.Player1Blue;
+    } 
+    else 
+    {
+        Player1 = 0;
+    } 
+    
+    //Check if player 2 is inside shrine.
+    if (place_meeting(x,y,Player2_obj)) 
+    {
+        Player2 = 1; 
+        Red = GameMaster_obj.Player2Red;
+        Green = GameMaster_obj.Player2Green;
+        Blue = GameMaster_obj.Player2Blue;
+    } 
+    else 
+    {
+        Player2 = 0;
+    } 
+    
+    //Check if player 3 is inside shrine.
+    if (place_meeting(x,y,Player3_obj)) 
+    {
+        Player3 = 1; 
+        Red = GameMaster_obj.Player3Red;
+        Green = GameMaster_obj.Player3Green;
+        Blue = GameMaster_obj.Player3Blue;
+    } 
+    else 
+    {
+        Player3 = 0;
+    } 
+    
+    //Check if player 4 is inside shrine.
+    if (place_meeting(x,y,Player4_obj)) 
+    {
+        Player4 = 1; 
+        Red = GameMaster_obj.Player4Red;
+        Green = GameMaster_obj.Player4Green;
+        Blue = GameMaster_obj.Player4Blue;
+    } 
+    else 
+    {
+        Player4 = 0
+    } 
+    
+    //Check how many players are inside the shrine.
+    PlayerCount = (Player1 + Player2 + Player3 + Player4);
+    
+    //Captures the shrine if only 1 player is inside.
+    if (PlayerCount = 1) 
+    {
+        ShrineVal += 1;
+        var final_color = make_color_rgb(Red, Green, Blue);
+        Color = merge_colour(final_color, default_color, (capture_time - ShrineVal) / capture_time);   
+    } 
+    else if (PlayerCount = 0)
+    {
+        //Uncaptures the shrine.
+        //ShrineVal = clamp(ShrineVal - 1, 0, capture_time);
+        Color = default_color; 
+    }
+    
+    
+    
+    //TODO: Update color between players.
+    /*   
+        2 Players
+        p1 + p2;
+        p1 + p3;
+        p1 + p4;
+        p2 + p3;
+        p2 + p4;
+        p3 + p4;
+        
+        3 Players
+        p1 + p2 + p3
+        p1 + p2 + p4
+        p1 + p3 + p4
+        p2 + p3 + p4
+        p3 + p4 + p2
+        p4 + p3 + p2 
+        
+        4 Players
+        p1 + p2 + p3 + p4
+    */
+    
+    
+    
+    //Updates the image blend.
+    image_blend = Color; 
+    
+    
+    /*
+    if (Red &lt; 255) 
+    {
+        Red += DVal; 
+    }
+    if (Red &gt;= 255) 
+    {
+        Red = 255; 
+    }
+    if (Green &lt; 255) 
+    {
+        Green += DVal; 
+    }
+    if (Green &gt;= 255) 
+    {
+        Green = 255; 
+    }
+    if (Blue &lt; 255) 
+    {
+        Blue += DVal; 
+    }
+    if (Blue &gt;= 255) 
+    {
+        Blue = 255; 
+    } 
+    */
 }
-if (Red &gt;= 255) {
-    Red = 255; 
-}
-if (Green &lt; 255) {
-    Green += DVal; 
-}
-if (Green &gt;= 255) {
-    Green = 255; 
-}
-if (Blue &lt; 255) {
-Blue += DVal; 
-}
-if (Blue &gt;= 255) {
-    Blue = 255; 
-
-} 
-}
-
 </string>
           </argument>
         </arguments>
@@ -176,7 +268,7 @@ if (Blue &gt;= 255) {
             <string>///Determines if shrine is captured.
 
 //Check that the timer have passed.
-if (ShrineVal &gt;= room_speed * 3) 
+if (ShrineVal &gt;= capture_time) 
 {
     //Adds laser to player.
     other.charge += 1; 

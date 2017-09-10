@@ -389,7 +389,12 @@
         <script>scripts\scr_score_lead.gml</script>
       </scripts>
       <scripts name="AI">
-        <script>scripts\AI_Input_Simulation.gml</script>
+        <scripts name="General">
+          <script>scripts\AI_Input_Simulation.gml</script>
+        </scripts>
+        <scripts name="Algorithm">
+          <script>scripts\AI_Dodge_Laser.gml</script>
+        </scripts>
       </scripts>
     </scripts>
     <scripts name="Delegate">

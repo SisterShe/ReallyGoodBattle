@@ -96,6 +96,7 @@ if (inactive) exit;
 //Check if owner can attack.
 if (!creator.can_attack) exit;
 
+/*
 //Updates the tiles color.
 if (instance_exists(creator)) 
 {
@@ -143,6 +144,7 @@ if (instance_exists(creator))
         }
     }
 }
+*/
 
 //Confirms collision.
 if (instance_exists(creator)) 
@@ -170,7 +172,7 @@ if (instance_exists(creator))
             }
             
             //Slows down room.
-            room_speed = 16; 
+            //room_speed = 16; 
             
             //Dunno what these are.
             creator.Combo += 1; 
