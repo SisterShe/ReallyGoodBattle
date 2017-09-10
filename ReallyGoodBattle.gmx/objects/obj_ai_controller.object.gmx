@@ -2591,8 +2591,8 @@ with (Player_Parent)
 {
     if (CanLazer and other.player != id)
     {
-        mp_grid_add_rectangle(mp_grid, 0, y -32, room_width, y + 32);
-        mp_grid_add_rectangle(mp_grid, x-32, y, x+32, room_height);
+        //mp_grid_add_rectangle(mp_grid, 0, y -32, room_width, y + 32);
+        //mp_grid_add_rectangle(mp_grid, x-32, y, x+32, room_height);
     }
 }
 
@@ -3125,6 +3125,14 @@ with (player)
     
     
     
+    #UP with clear left/right, go right.
+    if no clear right, go left.
+    only if the laser is vertical
+    
+    
+    
+    
+    
     
     
     #1: Long Jump
@@ -3139,6 +3147,37 @@ with (player)
     #10: Lockon Shrine
     #11: Lockon Player
     #12: Default None
+    
+    
+    
+    How to dodge laser:
+    
+    DODGE LASER:::
+    
+    
+    Check in horizontal line if collision with player that can laser.
+    Check if you can jump.
+    
+    
+    
+    idea:
+    
+    try remove laser dodge entirely.
+    
+    
+    
+    
+    
+    Problem:
+    I don't know if the laser is horizontal or vertical.
+    
+    
+    
+    
+    Check in horizontal line collision with a player that can fire a laser.
+    If there is no room above to jump, jump.
+    
+    
     
     
     
@@ -3166,6 +3205,154 @@ if (long_jump)
     exit;
 }
 
+//Check if there is a laser line on player.
+with (player)
+{
+    var target = collision_circle(x, y, 16, LazerLine, false, true);
+}
+if (target != noone)
+{
+    //Check for AI movement state.
+    switch (player.mState)
+    {
+        //Up State
+        case up_mState:
+        {
+            //Check if laser line is horizontal.
+            if (image_angle = 0 or image_angle = 180)
+            {
+                long_jump = true;
+                alarm[4] = long_jump_timer;
+                input = choose("Jump");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                //Check if there is wall to the right.
+                with (player)
+                {
+                    var target2 = collision_line(x, y, x+75, y, StealthCollisionUnit_obj, false, true);
+                }
+                if (target2 != noone and target2 != player)
+                {
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }  
+            }
+        }
+        
+        //Down State
+        case down_mState:
+        {
+            //Check if laser line is horizontal.
+            if (image_angle = 0 or image_angle = 180)
+            {
+                long_jump = true;
+                alarm[4] = long_jump_timer;
+                input = choose("Jump");
+                event_user(1);
+                exit;
+            }
+            else
+            {
+                //Check if there is wall to the right.
+                with (player)
+                {
+                    var target2 = collision_line(x, y, x+75, y, StealthCollisionUnit_obj, false, true);
+                }
+                if (target2 != noone and target2 != player)
+                {
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }  
+            }
+        }
+        
+        //Left State
+        case left_mState:
+        {
+            //Check if laser line is horizontal.
+            if (image_angle = 90 or image_angle = 270)
+            {
+                //Check if there is wall above.
+                with (player)
+                {
+                    var target2 = collision_line(x, y, x, y-75, StealthCollisionUnit_obj, false, true);
+                }
+                if (target2 != noone and target2 != player)
+                {
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }
+            }
+            else
+            {
+                long_jump = true;
+                alarm[4] = long_jump_timer;
+                input = choose("Jump");
+                event_user(1);
+                exit;
+            }
+        }
+        
+        //Right State
+        case right_mState:
+        {
+            //Check if laser line is horizontal.
+            if (image_angle = 90 or image_angle = 270)
+            {
+                //Check if there is wall above.
+                with (player)
+                {
+                    var target2 = collision_line(x, y, x, y-75, StealthCollisionUnit_obj, false, true);
+                }
+                if (target2 != noone and target2 != player)
+                {
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }
+            }
+            else
+            {
+                long_jump = true;
+                alarm[4] = long_jump_timer;
+                input = choose("Jump");
+                event_user(1);
+                exit;
+            }
+        }
+    }
+}
+
 //Check if target with laser is in a horizontal line.
 with (player)
 {
@@ -3185,48 +3372,104 @@ if (target != noone and target != player)
                 //Up State
                 case up_mState:
                 {
-                    input = choose("Jump");
-                    event_user(1);
-                    exit;
+                    //Check if target is to the right.
+                    if (target.x &gt; player.x)
+                    {
+                        //Check if dodge reset have already been done.
+                        if (!dodge_reset)
+                        {
+                            //Resets movement acceleration.
+                            dodge_reset = true;
+                            alarm[6] = dodge_reset_timer;
+                            input = choose("Down");
+                            event_user(1);
+                            exit;
+                        }
+                        else
+                        {
+                            //Dodges opposite direction.
+                            input = choose("Right");
+                            event_user(1);
+                            exit;
+                        }   
+                    }
+                    else
+                    {
+                        //Check if dodge reset have already been done.
+                        if (!dodge_reset)
+                        {
+                            //Resets movement acceleration.
+                            dodge_reset = true;
+                            alarm[6] = dodge_reset_timer;
+                            input = choose("Down");
+                            event_user(1);
+                            exit;
+                        }
+                        else
+                        {
+                            //Dodges opposite direction.
+                            input = choose("Left");
+                            event_user(1);
+                            exit;
+                        } 
+                    }
                 }
                 break;
                 
                 //Down State
                 case down_mState:
                 {
-                    input = choose("Jump");
-                    event_user(1);
-                    exit;
+                    //Check if target is to the right.
+                    if (target.x &gt; player.x)
+                    {
+                        //Check if dodge reset have already been done.
+                        if (!dodge_reset)
+                        {
+                            //Resets movement acceleration.
+                            dodge_reset = true;
+                            alarm[6] = dodge_reset_timer;
+                            input = choose("Up");
+                            event_user(1);
+                            exit;
+                        }
+                        else
+                        {
+                            //Dodges opposite direction.
+                            input = choose("Right");
+                            event_user(1);
+                            exit;
+                        } 
+                    }
+                    else
+                    {
+                        //Check if dodge reset have already been done.
+                        if (!dodge_reset)
+                        {
+                            //Resets movement acceleration.
+                            dodge_reset = true;
+                            alarm[6] = dodge_reset_timer;
+                            input = choose("Up");
+                            event_user(1);
+                            exit;
+                        }
+                        else
+                        {
+                            //Dodges opposite direction.
+                            input = choose("Left");
+                            event_user(1);
+                            exit;
+                        } 
+                    }
                 }
                 break;
-            }
-        }
-    }
-}
-
-//Check if target with laser is in a horizontal line.
-with (player)
-{
-    var target = collision_rectangle(0, y-64, room_width, y+64, Player_Parent, false, true);
-}
-if (target != noone and target != player)
-{     
-    //Check if target have laser and ai can't laser.
-    if (target.CanLazer and !player.CanLazer)
-    {
-        //Check that target is outside hitbox range.
-        if (point_distance(player.x, player.y, target.x, target.y) &gt; hitbox_radius)
-        {
-            //Check for AI movement state.
-            switch (player.mState)
-            {
+                
                 //Left State
                 case left_mState:
                 {
                     //Check if there is wall above.
                     with (player)
                     {
-                        var target2 = collision_line(x, y, x, y-32, StealthCollisionUnit_obj, false, true);
+                        var target2 = collision_line(x, y, x, y-75, StealthCollisionUnit_obj, false, true);
                     }
                     if (target2 != noone and target2 != player)
                     {
@@ -3246,7 +3489,7 @@ if (target != noone and target != player)
                             input = choose("Down");
                             event_user(1);
                             exit;
-                        }   
+                        } 
                     }
                     else
                     {
@@ -3266,7 +3509,7 @@ if (target != noone and target != player)
                             input = choose("Up");
                             event_user(1);
                             exit;
-                        }   
+                        } 
                     }  
                 }
                 break;
@@ -3277,7 +3520,7 @@ if (target != noone and target != player)
                     //Check if there is wall above.
                     with (player)
                     {
-                        var target2 = collision_line(x, y, x, y-32, StealthCollisionUnit_obj, false, true);
+                        var target2 = collision_line(x, y, x, y-75, StealthCollisionUnit_obj, false, true);
                     }
                     if (target2 != noone and target2 != player)
                     {
@@ -3297,7 +3540,7 @@ if (target != noone and target != player)
                             input = choose("Down");
                             event_user(1);
                             exit;
-                        }   
+                        } 
                     }
                     else
                     {
@@ -3317,31 +3560,27 @@ if (target != noone and target != player)
                             input = choose("Up");
                             event_user(1);
                             exit;
-                        }   
+                        } 
                     }  
                 }
                 break;
-                  
+                
                 //Airborne State
                 case airborne_state:
                 {
-                    //Check if there is wall above.
-                    with (player)
+                    //Check if target is to the right.
+                    if (target.y &gt; player.y)
                     {
-                        var target2 = collision_line(x, y, x, y-32, StealthCollisionUnit_obj, false, true);
-                    }
-                    if (target2 != noone and target2 != player)
-                    {
-                        input = choose("Jump Down");
+                        input = choose("Down");
                         event_user(1);
                         exit;
                     }
                     else
                     {
-                        input = choose("Jump Up");
+                        input = choose("Up");
                         event_user(1);
                         exit;
-                    }  
+                    }
                 }
                 break;
             }
@@ -3349,11 +3588,10 @@ if (target != noone and target != player)
     }
 }
 
-
 //Check if target with laser is in a vertical line.
 with (player)
 {
-    var target = collision_rectangle(x-64, 0, x+64, room_height, Player_Parent, false, true);
+    var target = collision_rectangle(x-32, 0, x+32, room_height, Player_Parent, false, true);
 }
 if (target != noone and target != player)
 { 
@@ -3372,7 +3610,7 @@ if (target != noone and target != player)
                     //Check if there is wall to the right.
                     with (player)
                     {
-                        var target2 = collision_line(x, y, x+32, y, StealthCollisionUnit_obj, false, true);
+                        var target2 = collision_line(x, y, x+75, y, StealthCollisionUnit_obj, false, true);
                     }
                     if (target2 != noone and target2 != player)
                     {
@@ -3392,7 +3630,7 @@ if (target != noone and target != player)
                             input = choose("Left");
                             event_user(1);
                             exit;
-                        }   
+                        } 
                     }
                     else
                     {
@@ -3412,7 +3650,7 @@ if (target != noone and target != player)
                             input = choose("Right");
                             event_user(1);
                             exit;
-                        }   
+                        } 
                     }  
                 }
                 break;
@@ -3423,7 +3661,7 @@ if (target != noone and target != player)
                     //Check if there is wall to the right.
                     with (player)
                     {
-                        var target2 = collision_line(x, y, x+32, y, StealthCollisionUnit_obj, false, true);
+                        var target2 = collision_line(x, y, x+75, y, StealthCollisionUnit_obj, false, true);
                     }
                     if (target2 != noone and target2 != player)
                     {
@@ -3443,7 +3681,7 @@ if (target != noone and target != player)
                             input = choose("Left");
                             event_user(1);
                             exit;
-                        }   
+                        } 
                     }
                     else
                     {
@@ -3463,70 +3701,121 @@ if (target != noone and target != player)
                             input = choose("Right");
                             event_user(1);
                             exit;
-                        }   
+                        } 
                     }  
                 }
                 break;
-            }
-        }
-    }
-}
                 
-
-//Check if target with laser is in a vertical line.
-with (player)
-{
-    var target = collision_rectangle(x-64, 0, x+64, room_height, Player_Parent, false, true);
-}
-if (target != noone and target != player)
-{ 
-    //Check if target have laser and ai can't laser.
-    if (target.CanLazer and !player.CanLazer)
-    {
-        //Check that target is outside hitbox range.
-        if (point_distance(player.x, player.y, target.x, target.y) &gt; hitbox_radius)
-        {
-            //Check for AI movement state.
-            switch (player.mState)
-            {
                 //Left State
                 case left_mState:
                 {
-                    input = choose("Jump");
-                    event_user(1);
-                    exit; 
+                    //Check if target is to the right.
+                    if (target.y &gt; player.y)
+                    {
+                        //Check if dodge reset have already been done.
+                        if (!dodge_reset)
+                        {
+                            //Resets movement acceleration.
+                            dodge_reset = true;
+                            alarm[6] = dodge_reset_timer;
+                            input = choose("Left");
+                            event_user(1);
+                            exit;
+                        }
+                        else
+                        {
+                            //Dodges opposite direction.
+                            input = choose("Down");
+                            event_user(1);
+                            exit;
+                        } 
+                    }
+                    else
+                    {
+                        //Check if dodge reset have already been done.
+                        if (!dodge_reset)
+                        {
+                            //Resets movement acceleration.
+                            dodge_reset = true;
+                            alarm[6] = dodge_reset_timer;
+                            input = choose("Left");
+                            event_user(1);
+                            exit;
+                        }
+                        else
+                        {
+                            //Dodges opposite direction.
+                            input = choose("Up");
+                            event_user(1);
+                            exit;
+                        } 
+                    }
                 }
                 break;
                 
                 //Right State
                 case right_mState:
                 {
-                    input = choose("Jump");
-                    event_user(1);
-                    exit;
+                    //Check if target is to the right.
+                    if (target.y &gt; player.y)
+                    {
+                        //Check if dodge reset have already been done.
+                        if (!dodge_reset)
+                        {
+                            //Resets movement acceleration.
+                            dodge_reset = true;
+                            alarm[6] = dodge_reset_timer;
+                            input = choose("Right");
+                            event_user(1);
+                            exit;
+                        }
+                        else
+                        {
+                            //Dodges opposite direction.
+                            input = choose("Down");
+                            event_user(1);
+                            exit;
+                        } 
+                    }
+                    else
+                    {
+                        //Check if dodge reset have already been done.
+                        if (!dodge_reset)
+                        {
+                            //Resets movement acceleration.
+                            dodge_reset = true;
+                            alarm[6] = dodge_reset_timer;
+                            input = choose("Right");
+                            event_user(1);
+                            exit;
+                        }
+                        else
+                        {
+                            //Dodges opposite direction.
+                            input = choose("Up");
+                            event_user(1);
+                            exit;
+                        } 
+                    }
                 }
                 break;
                 
                 //Airborne State
                 case airborne_state:
                 {
-                    //Check if there is wall to the right.
-                    with (player)
+                    //Check if target is to the right.
+                    if (target.x &gt; player.x)
                     {
-                        var target2 = collision_line(x, y, x+32, y, StealthCollisionUnit_obj, false, true);
-                    }
-                    if (target2 != noone and target2 != player)
-                    {
-                        input = choose("Jump Left");
+                        input = choose("Left");
                         event_user(1);
                         exit;
                     }
                     else
                     {
-                        input = choose("Jump Right");
+                        input = choose("Right");
                         event_user(1);
                         exit;
-                    }  
+                    }
                 }
                 break;
             }
@@ -3534,413 +3823,406 @@ if (target != noone and target != player)
     }
 }
 
-
-
-
-
-
-
 //Check if hitbox is nearby.
 with (player)
 {
     var target = collision_circle(x, y, other.dodge_radius, Hitbox_obj, false, true);
-    if (target = noone) 
-    var target = collision_circle(x, y, other.dodge_radius, LazerBox, false, true);
+    if (target = noone)
+    {
+        var target = collision_circle(x, y, other.dodge_radius, LazerBox, false, true);
+    }
 }
 if (target != noone and target.creator != player)
-{     
-    //Check if target in horizontal line.
-    with (player)
+{      
+    //Chick if player is standing on ground.
+    if (player.image_angle = 0)
     {
-        var target = collision_rectangle(0, y-16, room_width, y+16, Player_Parent, false, true);
-    }
-    if (target != noone and target != player)
-    {
-        //Chick if player is standing on ground.
-        if (player.image_angle = 0)
+        //Check if player is facing the right direction.
+        if (player.image_xscale = 1)
         {
-            //Check if player is facing the right direction.
-            if (player.image_xscale = 1)
+            //Check if target is in attack direction.
+            if (target.x &gt; player.x)
             {
-                //Check if target is in attack direction.
-                if (target.x &gt; player.x)
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
                 {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Down");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Left");
-                        event_user(1);
-                        exit;
-                    }   
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
                 }
                 else
                 {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Down");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Right");
-                        event_user(1);
-                        exit;
-                    }   
-                }
+                    //Dodges opposite direction.
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }   
             }
             else
             {
-                //Check if target is in attack direction.
-                if (target.x &lt; player.x)
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
                 {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Down");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Right");
-                        event_user(1);
-                        exit;
-                    }   
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
                 }
                 else
                 {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Down");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Left");
-                        event_user(1);
-                        exit;
-                    }   
-                }
+                    //Dodges opposite direction.
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }   
             }
         }
-    
-        //Chick if player is standing on top wall.
-        if (player.image_angle = 180)
+        else
         {
-            //Check if player is facing the left direction.
-            if (player.image_xscale = 1)
+            //Check if target is in attack direction.
+            if (target.x &lt; player.x)
             {
-                //Check if target is in attack direction.
-                if (target.x &lt; player.x)
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
                 {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Up");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Right");
-                        event_user(1);
-                        exit;
-                    } 
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
                 }
                 else
                 {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Up");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Left");
-                        event_user(1);
-                        exit;
-                    }   
-                }
+                    //Dodges opposite direction.
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }   
             }
             else
             {
-                //Check if target is in attack direction.
-                if (target.x &gt; player.x)
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
                 {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Up");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Left");
-                        event_user(1);
-                        exit;
-                    }   
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
                 }
                 else
                 {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Up");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Right");
-                        event_user(1);
-                        exit;
-                    }   
-                }
+                    //Dodges opposite direction.
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }   
             }
         }
     }
-    
-    //Check if target in vertical line.
-    with (player)
+
+    //Chick if player is standing on top wall.
+    if (player.image_angle = 180)
     {
-        var target = collision_line(x-16, 0, x+16, room_height, Player_Parent, false, true);
+        //Check if player is facing the left direction.
+        if (player.image_xscale = 1)
+        {
+            //Check if target is in attack direction.
+            if (target.x &lt; player.x)
+            {
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
+                {
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges opposite direction.
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                } 
+            }
+            else
+            {
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
+                {
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges opposite direction.
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }   
+            }
+        }
+        else
+        {
+            //Check if target is in attack direction.
+            if (target.x &gt; player.x)
+            {
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
+                {
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges opposite direction.
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }   
+            }
+            else
+            {
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
+                {
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges opposite direction.
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }   
+            }
+        }
     }
-    if (target != noone and target != player)
-    {
-        //Chick if player is standing on right wall.
-        if (player.image_angle = 90)
-        {
-            //Check if player is facing the upwards direction.
-            if (player.image_xscale = 1)
-            {
-                //Check if target is in attack direction.
-                if (target.y &lt; player.y)
-                {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Right");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Down");
-                        event_user(1);
-                        exit;
-                    }   
-                }
-                else
-                {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Right");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Up");
-                        event_user(1);
-                        exit;
-                    }   
-                }
-            }
-            else
-            {
-                //Check if target is in attack direction.
-                if (target.y &gt; player.y)
-                {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Right");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Up");
-                        event_user(1);
-                        exit;
-                    }   
-                }
-                else
-                {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Right");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Down");
-                        event_user(1);
-                        exit;
-                    }   
-                }
-            }
-        }
-        
-        //Chick if player is standing on left wall.
-        if (player.image_angle = 270)
-        {
-            //Check if player is facing the downwards direction.
-            if (player.image_xscale = -1)
-            {
-                //Check if target is in attack direction.
-                if (target.y &lt; player.y)
-                {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Left");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Up");
-                        event_user(1);
-                        exit;
-                    }   
-                }
-                else
-                {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Left");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Down");
-                        event_user(1);
-                        exit;
-                    }   
-                }
-            }
-            else
-            {
-                //Check if target is in attack direction.
-                if (target.y &gt; player.y)
-                {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Left");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Down");
-                        event_user(1);
-                        exit;
-                    }   
-                }
-                else
-                {
-                    //Check if dodge reset have already been done.
-                    if (!dodge_reset)
-                    {
-                        //Resets movement acceleration.
-                        dodge_reset = true;
-                        alarm[6] = dodge_reset_timer;
-                        input = choose("Left");
-                        event_user(1);
-                        exit;
-                    }
-                    else
-                    {
-                        //Dodges opposite direction.
-                        input = choose("Up");
-                        event_user(1);
-                        exit;
-                    }
-                }
-            }
-        }
-    }   
 }
+
+/*
+
+//Check if target in vertical line.
+with (player)
+{
+    var target = collision_line(x-16, 0, x+16, room_height, Player_Parent, false, true);
+}
+if (target != noone and target != player)
+{
+    //Chick if player is standing on right wall.
+    if (player.image_angle = 90)
+    {
+        //Check if player is facing the upwards direction.
+        if (player.image_xscale = 1)
+        {
+            //Check if target is in attack direction.
+            if (target.y &lt; player.y)
+            {
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
+                {
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges opposite direction.
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
+                }   
+            }
+            else
+            {
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
+                {
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges opposite direction.
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }   
+            }
+        }
+        else
+        {
+            //Check if target is in attack direction.
+            if (target.y &gt; player.y)
+            {
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
+                {
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges opposite direction.
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }   
+            }
+            else
+            {
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
+                {
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges opposite direction.
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
+                }   
+            }
+        }
+    }
+    
+    //Chick if player is standing on left wall.
+    if (player.image_angle = 270)
+    {
+        //Check if player is facing the downwards direction.
+        if (player.image_xscale = -1)
+        {
+            //Check if target is in attack direction.
+            if (target.y &lt; player.y)
+            {
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
+                {
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges opposite direction.
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }   
+            }
+            else
+            {
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
+                {
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges opposite direction.
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
+                }   
+            }
+        }
+        else
+        {
+            //Check if target is in attack direction.
+            if (target.y &gt; player.y)
+            {
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
+                {
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges opposite direction.
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
+                }   
+            }
+            else
+            {
+                //Check if dodge reset have already been done.
+                if (!dodge_reset)
+                {
+                    //Resets movement acceleration.
+                    dodge_reset = true;
+                    alarm[6] = dodge_reset_timer;
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    //Dodges opposite direction.
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }
+            }
+        }
+    }
+}
+
+*/
+
 
 //Check if player is in attack range.
 with (player)
@@ -4295,163 +4577,175 @@ if (target != noone and target != player)
     //Run opposite direction of player.
     //
     
-    //Chick if player is standing on ground.
-    if (player.image_angle = 0)
+    //Check to see if player is not inside a powerup.
+    with (player)
     {
-        //Check if player is facing the right direction.
-        if (player.image_xscale = 1)
-        {
-            //Check if target is in attack direction.
-            if (target.x &gt; player.x)
-            {
-                input = choose("Left");
-                event_user(1);
-                exit;
-            }
-            else
-            {
-                input = choose("Right");
-                event_user(1);
-                exit;
-            }
-        }
-        else
-        {
-            //Check if target is in attack direction.
-            if (target.x &lt; player.x)
-            {
-                input = choose("Right");
-                event_user(1);
-                exit;
-            }
-            else
-            {
-                input = choose("Left");
-                event_user(1);
-                exit;
-            }
-        }
+        var target2 = collision_point(x, y, SpeedShrine_obj, false, true);
     }
+    if (target2 = noone)
+    {
+        //Chick if player is standing on ground.
+        if (player.image_angle = 0)
+        {
+            //Check if player is facing the right direction.
+            if (player.image_xscale = 1)
+            {
+                //Check if target is in attack direction.
+                if (target.x &gt; player.x)
+                {
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }
+            }
+            else
+            {
+                //Check if target is in attack direction.
+                if (target.x &lt; player.x)
+                {
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }
+            }
+        }
+            
+        //Chick if player is standing on right wall.
+        if (player.image_angle = 90)
+        {
+            //Check if player is facing the upwards direction.
+            if (player.image_xscale = 1)
+            {
+                //Check if target is in attack direction.
+                if (target.y &lt; player.y)
+                {
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }
+            }
+            else
+            {
+                //Check if target is in attack direction.
+                if (target.y &gt; player.y)
+                {
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
+                }
+            }
+        }
+    
+        //Chick if player is standing on top wall.
+        if (player.image_angle = 180)
+        {
+            //Check if player is facing the left direction.
+            if (player.image_xscale = 1)
+            {
+                //Check if target is in attack direction.
+                if (target.x &lt; player.x)
+                {
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }
+            }
+            else
+            {
+                //Check if target is in attack direction.
+                if (target.x &gt; player.x)
+                {
+                    input = choose("Left");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Right");
+                    event_user(1);
+                    exit;
+                }
+            }   
+        }
         
-    //Chick if player is standing on right wall.
-    if (player.image_angle = 90)
-    {
-        //Check if player is facing the upwards direction.
-        if (player.image_xscale = 1)
+        //Chick if player is standing on left wall.
+        if (player.image_angle = 270)
         {
-            //Check if target is in attack direction.
-            if (target.y &lt; player.y)
+            //Check if player is facing the downwards direction.
+            if (player.image_xscale = -1)
             {
-                input = choose("Down");
-                event_user(1);
-                exit;
+                //Check if target is in attack direction.
+                if (target.y &lt; player.y)
+                {
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
+                }
             }
             else
             {
-                input = choose("Up");
-                event_user(1);
-                exit;
-            }
-        }
-        else
-        {
-            //Check if target is in attack direction.
-            if (target.y &gt; player.y)
-            {
-                input = choose("Up");
-                event_user(1);
-                exit;
-            }
-            else
-            {
-                input = choose("Down");
-                event_user(1);
-                exit;
-            }
+                //Check if target is in attack direction.
+                if (target.y &gt; player.y)
+                {
+                    input = choose("Down");
+                    event_user(1);
+                    exit;
+                }
+                else
+                {
+                    input = choose("Up");
+                    event_user(1);
+                    exit;
+                }
+            }   
         }
     }
-
-    //Chick if player is standing on top wall.
-    if (player.image_angle = 180)
+    else
     {
-        //Check if player is facing the left direction.
-        if (player.image_xscale = 1)
-        {
-            //Check if target is in attack direction.
-            if (target.x &lt; player.x)
-            {
-                input = choose("Right");
-                event_user(1);
-                exit;
-            }
-            else
-            {
-                input = choose("Left");
-                event_user(1);
-                exit;
-            }
-        }
-        else
-        {
-            //Check if target is in attack direction.
-            if (target.x &gt; player.x)
-            {
-                input = choose("Left");
-                event_user(1);
-                exit;
-            }
-            else
-            {
-                input = choose("Right");
-                event_user(1);
-                exit;
-            }
-        }   
+        input = choose("None");
+        event_user(1);
+        exit;
     }
-    
-    //Chick if player is standing on left wall.
-    if (player.image_angle = 270)
-    {
-        //Check if player is facing the downwards direction.
-        if (player.image_xscale = -1)
-        {
-            //Check if target is in attack direction.
-            if (target.y &lt; player.y)
-            {
-                input = choose("Up");
-                event_user(1);
-                exit;
-            }
-            else
-            {
-                input = choose("Down");
-                event_user(1);
-                exit;
-            }
-        }
-        else
-        {
-            //Check if target is in attack direction.
-            if (target.y &gt; player.y)
-            {
-                input = choose("Down");
-                event_user(1);
-                exit;
-            }
-            else
-            {
-                input = choose("Up");
-                event_user(1);
-                exit;
-            }
-        }   
-    }
-
-    
-    
-    
-    //NONE old option.
 }
+
+
+
 
 //Check if AI can laser target.
 if (player.CanLazer)
@@ -4476,7 +4770,7 @@ if (player.CanLazer)
         if (target != noone and target != player)
         {
             //Check if target movement is slow enough.
-            if (abs(target.hspd) &lt;= 0) //12.5% speed.
+            if (abs(target.hspeed) &lt;= 0) //12.5% speed.
             {
                 input = choose("Laser Up");
                 event_user(1);
@@ -4494,7 +4788,7 @@ if (player.CanLazer)
         if (target != noone and target != player)
         {
             //Check if target movement is slow enough.
-            if (abs(target.hspd) &lt;= 0) //25% speed.
+            if (abs(target.hspeed) &lt;= 0) //25% speed.
             {
                 input = choose("Laser Down");
                 event_user(1);
@@ -4512,7 +4806,7 @@ if (player.CanLazer)
         if (target != noone and target != player)
         {
             //Check if target movement is slow enough.
-            if (abs(target.vspd) &lt;= 0) //25% speed.
+            if (abs(target.vspeed) &lt;= 0) //25% speed.
             {
                 input = choose("Laser Right");
                 event_user(1);
@@ -4530,7 +4824,7 @@ if (player.CanLazer)
         if (target != noone and target != player)
         {
             //Check if target movement is slow enough.
-            if (abs(target.vspd) &lt;= 0) //25% speed.
+            if (abs(target.vspeed) &lt;= 0) //25% speed.
             {
                 input = choose("Laser Left");
                 event_user(1);
@@ -4559,7 +4853,7 @@ if (player.CanLazer)
                 if (target.x &gt; player.x)
                 {
                     //Check if target movement is slow enough.
-                    if (abs(target.vspd) &lt;= 0) //25% speed.
+                    if (abs(target.vspeed) &lt;= 0) //25% speed.
                     {
                         input = choose("Attack");
                         event_user(1);
@@ -4579,7 +4873,7 @@ if (player.CanLazer)
                 if (target.x &lt; player.x)
                 {
                     //Check if target movement is slow enough.
-                    if (abs(target.vspd) &lt;= 0) //25% speed.
+                    if (abs(target.vspeed) &lt;= 0) //25% speed.
                     {
                         input = choose("Attack");
                         event_user(1);
@@ -4605,7 +4899,7 @@ if (player.CanLazer)
                 if (target.x &lt; player.x)
                 {
                     //Check if target movement is slow enough.
-                    if (abs(target.vspd) &lt;= 0) //25% speed.
+                    if (abs(target.vspeed) &lt;= 0) //25% speed.
                     {
                         input = choose("Attack");
                         event_user(1);
@@ -4625,7 +4919,7 @@ if (player.CanLazer)
                 if (target.x &gt; player.x)
                 {
                     //Check if target movement is slow enough.
-                    if (abs(target.vspd) &lt;= 0) //25% speed.
+                    if (abs(target.vspeed) &lt;= 0) //25% speed.
                     {
                         input = choose("Attack");
                         event_user(1);
@@ -4659,7 +4953,7 @@ if (player.CanLazer)
                 if (target.y &lt; player.y)
                 {
                     //Check if target movement is slow enough.
-                    if (abs(target.hspd) &lt;= 0) //25% speed.
+                    if (abs(target.hspeed) &lt;= 0) //25% speed.
                     {
                         input = choose("Attack");
                         event_user(1);
@@ -4679,7 +4973,7 @@ if (player.CanLazer)
                 if (target.y &gt; player.y)
                 {
                     //Check if target movement is slow enough.
-                    if (abs(target.hspd) &lt;= 0) //25% speed.
+                    if (abs(target.hspeed) &lt;= 0) //25% speed.
                     {
                         input = choose("Attack");
                         event_user(1);
@@ -4705,7 +4999,7 @@ if (player.CanLazer)
                 if (target.y &lt; player.y)
                 {
                     //Check if target movement is slow enough.
-                    if (abs(target.hspd) &lt;= 0) //25% speed.
+                    if (abs(target.hspeed) &lt;= 0) //25% speed.
                     {
                         input = choose("Attack");
                         event_user(1);
@@ -4725,7 +5019,7 @@ if (player.CanLazer)
                 if (target.y &gt; player.y)
                 {
                     //Check if target movement is slow enough.
-                    if (abs(target.hspd) &lt;= 0) //25% speed.
+                    if (abs(target.hspeed) &lt;= 0) //25% speed.
                     {
                         input = choose("Attack");
                         event_user(1);
