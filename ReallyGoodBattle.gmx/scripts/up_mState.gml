@@ -55,9 +55,6 @@ if (jump_key and canJump = 1) { //if I have a jump, go ahead and do the jump
 
 if (attack_key_tap) { //if I push the attack button. 
     
-    audio_sound_pitch(WiffPunch_snd, random_range(1.5,2.5)); // play the punch noise
-    var sound = audio_play_sound(WiffPunch_snd,2,false); // play the punch noise
-    audio_sound_gain(sound, global.sfxvolume, 0);  // play the punch noise
     image_index = 0; //prerare for animation changes
     hspeed = image_xscale * spd/2; //this is the punch sliding. 
     fade = instance_create(x,y,Player_FistFade_obj);  // this is the effect that the punching leaves
@@ -67,9 +64,6 @@ if (attack_key_tap) { //if I push the attack button.
      
 }
 if (attack_key_tap and up_key) { // pushing attack while pushing up 
-    audio_sound_pitch(WiffPunch_snd, random_range(1.5,2.5));  //play the punch noise
-    var sound = audio_play_sound(WiffPunch_snd,2,false);  //play the punch noise
-    audio_sound_gain(sound, global.sfxvolume, 0);  //play the punch noise
     image_index = 0;   //prepare for animation changes
     fade = instance_create(x,y,Player_FistFade_obj); // this is the effect that the punching leaves
     fade.image_angle = image_angle+90; 
@@ -179,9 +173,7 @@ if (jump_key and canJump = 1) {
 }
 
 if (attack_key_tap) {
-    audio_sound_pitch(WiffPunch_snd, random_range(1.5,2.5));
-    var sound = audio_play_sound(WiffPunch_snd,2,false); 
-    audio_sound_gain(sound, global.sfxvolume, 0);
+
     vspeed= image_xscale * spd/2;
     image_index = 0; 
     fade = instance_create(x,y,Player_FistFade_obj); 
@@ -191,9 +183,7 @@ if (attack_key_tap) {
     
 }
 if (attack_key_tap and right_key) {
-    audio_sound_pitch(WiffPunch_snd, random_range(1.5,2.5));
-    var sound = audio_play_sound(WiffPunch_snd,2,false); 
-    audio_sound_gain(sound, global.sfxvolume, 0);
+
     image_index = 0;
     fade = instance_create(x,y,Player_FistFade_obj); 
     fade.image_angle = image_angle+90; 
@@ -298,9 +288,7 @@ if (jump_key and canJump = 1) {
 }
 
 if (attack_key_tap) {
-audio_sound_pitch(WiffPunch_snd, random_range(1.5,2.5));
-    var sound = audio_play_sound(WiffPunch_snd,2,false); 
-    audio_sound_gain(sound, global.sfxvolume, 0);
+
     hspeed= -image_xscale * spd/2;
     image_index = 0;
     fade = instance_create(x,y,Player_FistFade_obj); 
@@ -310,9 +298,7 @@ audio_sound_pitch(WiffPunch_snd, random_range(1.5,2.5));
     
 }
 if (attack_key_tap and down_key) {
-audio_sound_pitch(WiffPunch_snd, random_range(1.5,2.5));
-    var sound = audio_play_sound(WiffPunch_snd,2,false); 
-    audio_sound_gain(sound, global.sfxvolume, 0);
+
     image_index = 0;
     fade = instance_create(x,y,Player_FistFade_obj); 
     fade.image_angle = image_angle+90; 
@@ -413,9 +399,7 @@ if (jump_key and canJump = 1) {
     mState = crouch_state
 }
 if (attack_key_tap) {
-audio_sound_pitch(WiffPunch_snd, random_range(1.5,2.5));
-    var sound = audio_play_sound(WiffPunch_snd,2,false); 
-    audio_sound_gain(sound, global.sfxvolume, 0);
+
     vspeed= -image_xscale * spd/2;
     image_index = 0;
     fade = instance_create(x,y,Player_FistFade_obj); 
@@ -424,9 +408,7 @@ audio_sound_pitch(WiffPunch_snd, random_range(1.5,2.5));
     mState = rightN_attack; 
 }
 if (attack_key_tap and left_key) {
-audio_sound_pitch(WiffPunch_snd, random_range(1.5,2.5));
-    var sound = audio_play_sound(WiffPunch_snd,2,false); 
-    audio_sound_gain(sound, global.sfxvolume, 0); 
+
     image_index = 0;
     fade = instance_create(x,y,Player_FistFade_obj); 
     fade.image_angle = image_angle+90; 

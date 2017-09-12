@@ -674,4 +674,3 @@ if (target != noone and target != player)
 }
 
 */
-

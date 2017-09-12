@@ -115,30 +115,19 @@ if (move = 0) { //IF I am pushing Right or Left
 }
 
 if (attack_key_tap and up_key) {
-    audio_sound_pitch(AirWiff_snd, random_range(1.5,2.5));
-    var sound = audio_play_sound(AirWiff_snd, 2, false);
-    audio_sound_gain(sound, global.sfxvolume, 0);
+    
     image_index = 0; 
     mState = UAirAtk_state; 
 }
 if (attack_key_tap and down_key) {
-    audio_sound_pitch(AirWiff_snd, random_range(1.5,2.5));
-    var sound = audio_play_sound(AirWiff_snd, 2, false);
-    audio_sound_gain(sound, global.sfxvolume, 0);
     image_index = 0; 
     mState = DAirAtk_state; 
 }
 if (attack_key_tap and right_key) {
-    audio_sound_pitch(AirWiff_snd, random_range(1.5,2.5));
-    var sound = audio_play_sound(AirWiff_snd, 2, false);
-    audio_sound_gain(sound, global.sfxvolume, 0);
     image_index = 0;
     mState = RAirAtk_state;
 }
 if (attack_key_tap and left_key) {
-    audio_sound_pitch(AirWiff_snd, random_range(1.5,2.5));
-    var sound = audio_play_sound(AirWiff_snd, 2, false);
-    audio_sound_gain(sound, global.sfxvolume, 0);
     image_index = 0; 
     mState = LAirAtk_state; 
 }

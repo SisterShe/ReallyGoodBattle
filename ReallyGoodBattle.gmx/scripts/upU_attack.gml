@@ -21,6 +21,7 @@ Line = instance_create(x,y,LazerLine);
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle+90;
+    audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
     
 } else { image_speed = .25;room_speed = 60; } 
 if (image_index >= 2 and image_index <= 4) {
@@ -37,6 +38,8 @@ if (charge >= 1) {
     hurt.creator = id;
     hurt.image_xscale = abs(image_xscale*2); 
     hurt.image_angle = image_angle+90;
+    var sfx = audio_play_sound_volume(sfx_punch, 10, false, global.sfxvolume);
+    audio_sound_pitch(sfx, random_range(1.5,2.5));
 }
 }
 
@@ -76,6 +79,7 @@ if (charge >= 1) {
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle+90;
+    audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
 } else { image_speed = 0.25; room_speed = 60;}
 if (image_index >= 2 and image_index <= 4) {
   if (charge >= 1) {
@@ -90,6 +94,9 @@ if (image_index >= 2 and image_index <= 4) {
     hurt.creator = id;
     hurt.image_xscale = abs(image_xscale*2); 
     hurt.image_angle = image_angle+90;
+    
+    var sfx = audio_play_sound_volume(sfx_punch, 10, false, global.sfxvolume);
+    audio_sound_pitch(sfx, random_range(1.5,2.5));
 }
 }
 
@@ -124,6 +131,7 @@ if ( charge >= 1 ) {
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle+90;
+    audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
     image_speed = .15; //room_speed = 30;
 } else {image_seed = .25; room_speed = 60; }
 if (image_index >= 2 and image_index <= 4) {
@@ -137,6 +145,9 @@ if (image_index >= 2 and image_index <= 4) {
     hurt.creator = id;
     hurt.image_xscale = abs(image_xscale*2); 
     hurt.image_angle = image_angle+90;
+    
+    var sfx = audio_play_sound_volume(sfx_punch, 10, false, global.sfxvolume);
+    audio_sound_pitch(sfx, random_range(1.5,2.5));
 
 }
 }
@@ -167,6 +178,7 @@ if (charge >= 1) {
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle+90;
+    audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
     image_speed = .15; //room_speed = 30;
 } else { image_speed = .25; room_speed = 60; }
 if (image_index >= 2 and image_index <= 4) {
@@ -181,6 +193,9 @@ if (image_index >= 2 and image_index <= 4) {
     hurt.creator = id;
     hurt.image_xscale = abs(image_xscale*2); 
     hurt.image_angle = image_angle+90;
+    
+    var sfx = audio_play_sound_volume(sfx_punch, 10, false, global.sfxvolume);
+    audio_sound_pitch(sfx, random_range(1.5,2.5));
 }
 }
 

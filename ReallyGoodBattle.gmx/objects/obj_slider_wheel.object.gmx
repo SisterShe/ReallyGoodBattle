@@ -106,6 +106,7 @@ if (mouse_enabled)
     {
         //Makes wheel moveable.
         grab = true;
+        audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
     }
     
     //Check if left released while grabbing.
@@ -114,6 +115,7 @@ if (mouse_enabled)
         //Releases grab and executes code.
         grab = false;
         script_execute(script);
+        audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
     }
 }
 else
@@ -124,6 +126,7 @@ else
         //Releases grab and executes code.
         grab = false;
         script_execute(script);
+        audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
     }
     
     //Checks for selection grab.
@@ -131,6 +134,7 @@ else
     {
         //Makes wheel moveable.
         grab = true;
+        audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
     }
 }
 
@@ -139,11 +143,13 @@ if (!mouse_check_button(mb_left) and mouse_enabled and grab)
 {
     grab = false;
     script_execute(script);
+    audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
 }
 else if (!mouse_enabled and !selected and grab)
 {
     grab = false;
     script_execute(script);
+    audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
 }
 
 //Check if grabbed.
@@ -160,10 +166,12 @@ if (grab)
         if (input_check(0, key_left, key_left2, key_left3))
         {
             x = clamp(x - spd, leftLimit, rightLimit);
+            audio_play_sound_volume(sfx_rgb_down, 10, false, global.sfxvolume);
         }
         else if (input_check(0, key_right, key_right2, key_right3))
         {
             x = clamp(x + spd, leftLimit, rightLimit);
+            audio_play_sound_volume(sfx_rgb_up, 10, false, global.sfxvolume);
         }
         else
         {
@@ -174,10 +182,12 @@ if (grab)
             if (lkey)
             {
                 x = clamp(x - spd, leftLimit, rightLimit);
+                audio_play_sound_volume(sfx_rgb_down, 10, false, global.sfxvolume);
             }
             else if (rkey)
             {
                 x = clamp(x + spd, leftLimit, rightLimit);
+                audio_play_sound_volume(sfx_rgb_up, 10, false, global.sfxvolume);
             }  
         }
     }

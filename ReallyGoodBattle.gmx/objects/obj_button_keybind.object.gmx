@@ -143,6 +143,7 @@ if (input_detection)
         alarm[0] = 5;
         start_alarm = false;
         image_index = 0;
+        audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
     }
 }
 else

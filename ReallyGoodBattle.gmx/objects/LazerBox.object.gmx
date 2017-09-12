@@ -241,6 +241,9 @@ if (instance_exists(creator))
             other.alarm[3] = 8; //Death Timer
             other.can_attack = false; //Disable this to have players kill each-other.
             other.can_behit = false;
+            other.laserdeath = true;
+            audio_sound_gain(creator.laser_sound_sfx, 0, 0);
+            
             
             //Check if point capture gamemode.
             if (global.gamemode = "Captures to Win")

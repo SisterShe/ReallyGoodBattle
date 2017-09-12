@@ -55,6 +55,9 @@ alarm[2] = room_speed * 1.5; //1 second invunerability.
 //Built-In Variables
 sprite_index = spr_idle
 can_attack = true;
+laserdeath = false;
+lazer_sound = true;
+laser_sound_sfx = noone;
 
 //Check if AI
 if (global.player2_ai)
@@ -252,6 +255,22 @@ with (LazerBox)
 mask_index = spr_player_collision_mask;
 ///Handles Movement and Input
 
+//Check ambience sound stuffz.
+if (CanLazer and !lazer_sound)
+{
+    //Sound
+    laser_sound_sfx = audio_play_sound_volume(amb_laser_hum, 10, true, global.sfxvolume); 
+    lazer_sound = true;
+}
+
+//Check ambience sound stuffz.
+if (!CanLazer and lazer_sound)
+{
+    //Sound
+    audio_stop_sound(laser_sound_sfx);
+    lazer_sound = false;
+}
+
 //Check if player is AI.
 if (global.player2_ai)
 {
@@ -290,6 +309,15 @@ if (hp &lt;= 0) {
     sprite_index = spr_dead; 
     instance_create(x,y,Player2_splat_obj);
      instance_destroy(); 
+     
+     if (laserdeath)
+    {
+        var sfx = audio_play_sound_volume(sfx_lazer_death, 10, false, global.sfxvolume);
+    }
+    else
+    {
+        var sfx = audio_play_sound_volume(sfx_explode, 10, false, global.sfxvolume);
+    }    
 }
 if (SpawnLine = true) {
 Spawn = (instance_create(x+(random_range(-8,8)),y+(random_range(-8,8)),Player_Pline_obj)); 

@@ -153,6 +153,7 @@ if (mouse_enabled and highlight_boolean())
     if (input_check_pressed(0, mb_left))
     {
         script_execute(script);
+        audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
     }
 }
 
@@ -163,6 +164,7 @@ if ((selected and !mouse_enabled))
     if (input_check_pressed(0, gp_face1, vk_enter, ord("E"), ord("F")))
     {
         script_execute(script);
+        audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
     }
 }
 </string>
@@ -205,12 +207,14 @@ if (!selected)
         //Upwards tween.
         directional_tween_lower = directional_tween_y;
         directional_tween_upper = directional_tween_y - directional_tween_distance;
+        audio_play_sound_volume(sfx_menu_up, 10, false, global.sfxvolume);
     }
     else
     {
         //Downwards tween.
         directional_tween_lower = directional_tween_y;
         directional_tween_upper = directional_tween_y + directional_tween_distance;
+        audio_play_sound_volume(sfx_menu_down, 10, false, global.sfxvolume);
     }
 }
 </string>

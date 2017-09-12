@@ -43,6 +43,7 @@ Color = make_color_rgb(Red, Blue, Green);
 default_color = c_white;
 ShrineVal = 0; 
 PlayerCount = 0; 
+Last_Player_Count = 0;
 Player1 = 0; 
 Player2 = 0;
 Player3 = 0;
@@ -170,7 +171,16 @@ if (IsActive = true)
     } 
     
     //Check how many players are inside the shrine.
+    Last_Player_Count = PlayerCount;
     PlayerCount = (Player1 + Player2 + Player3 + Player4);
+    
+    
+    //Check if new player entered.
+    if (PlayerCount &gt; Last_Player_Count)
+    {
+        audio_play_sound_volume(sfx_point_enter, 10, false, global.sfxvolume);
+    }
+    
     
     //Captures the shrine if only 1 player is inside.
     if (PlayerCount = 1) 
@@ -178,6 +188,9 @@ if (IsActive = true)
         ShrineVal += 1;
         var final_color = make_color_rgb(Red, Green, Blue);
         Color = merge_colour(final_color, default_color, (capture_time - ShrineVal) / capture_time);   
+        
+        if (!audio_is_playing(sfx_point_timer_up))
+        audio_play_sound_volume(sfx_point_timer_up, 10, false, global.sfxvolume);
     } 
     else if (PlayerCount = 0)
     {
@@ -276,6 +289,8 @@ if (ShrineVal &gt;= capture_time)
     //Creates new shrine and destroys current.
     instance_create(random_range(32,room_width-32),random_range(32,room_height-32),ShrineChoice_obj);
     instance_destroy(); 
+    
+    audio_play_sound_volume(sfx_laser_get, 10, false, global.sfxvolume);
     
     //Check if point capture gamemode.
     if (global.gamemode = "Captures to Win")

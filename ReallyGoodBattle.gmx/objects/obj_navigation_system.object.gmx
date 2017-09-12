@@ -419,6 +419,7 @@ if (position &lt; 0)
     }
 }
 last_direction = "Downwards";
+audio_play_sound_volume(sfx_menu_down, 10, false, global.sfxvolume);
 event_user(0);
 </string>
           </argument>
@@ -458,6 +459,7 @@ if (position &gt; ds_list_size(widgets) - 1) //Maybe -1
     }
 }
 last_direction = "Upwards";
+audio_play_sound_volume(sfx_menu_up, 10, false, global.sfxvolume);
 event_user(0);
 </string>
           </argument>

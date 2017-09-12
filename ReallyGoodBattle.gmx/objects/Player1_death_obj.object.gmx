@@ -30,8 +30,8 @@ image_xscale = random_range(2,3);
 image_yscale = random_range(2,3); 
 image_angle = Player1_obj.image_angle; 
 image_blend = make_color_rgb(GameMaster_obj.Player1Red,GameMaster_obj.Player1Green,GameMaster_obj.Player1Blue);  
-var sound = audio_play_sound(BixExpload_snd,1,false);
-audio_sound_gain(sound, global.sfxvolume, 0);
+//var sound = audio_play_sound(BixExpload_snd,1,false);
+//audio_sound_gain(sound, global.sfxvolume, 0);
             
             instance_create(x,y,Player1_Particle_obj); 
             instance_create(x,y,Player1_Particle_obj); 

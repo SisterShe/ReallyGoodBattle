@@ -21,22 +21,50 @@
       </sounds>
     </sounds>
     <sounds name="Ambience">
-      <sound>sound\snd_placeholder_3</sound>
+      <sound>sound\amb_laser_hum</sound>
+      <sound>sound\amb_combo_up</sound>
     </sounds>
     <sounds name="SFX">
       <sounds name="Menu">
         <sound>sound\sfx_cinderfire_ignite</sound>
+        <sound>sound\sfx_menu_confirm</sound>
+        <sound>sound\sfx_menu_down</sound>
+        <sound>sound\sfx_menu_up</sound>
+        <sound>sound\sfx_ready_up</sound>
+        <sound>sound\sfx_rgb_down</sound>
+        <sound>sound\sfx_rgb_up</sound>
+        <sound>sound\sfx_score_up</sound>
+        <sound>sound\sfx_select_blue</sound>
+        <sound>sound\sfx_select_green</sound>
+        <sound>sound\sfx_select_red</sound>
       </sounds>
-      <sound>sound\Walk1_snd</sound>
-      <sound>sound\AirWiff_snd</sound>
-      <sound>sound\WiffPunch_snd</sound>
-      <sound>sound\damage_snd</sound>
-      <sound>sound\sound6</sound>
-      <sound>sound\sound4</sound>
-      <sound>sound\BixExpload_snd</sound>
-      <sound>sound\SmallExpload_snd</sound>
-      <sound>sound\Jump1_snd</sound>
-      <sound>sound\shoot_snd</sound>
+      <sounds name="Old">
+        <sound>sound\AirWiff_snd</sound>
+        <sound>sound\Walk1_snd</sound>
+        <sound>sound\damage_snd</sound>
+        <sound>sound\WiffPunch_snd</sound>
+        <sound>sound\sound4</sound>
+        <sound>sound\BixExpload_snd</sound>
+        <sound>sound\SmallExpload_snd</sound>
+        <sound>sound\Jump1_snd</sound>
+        <sound>sound\shoot_snd</sound>
+        <sound>sound\sound6</sound>
+      </sounds>
+      <sounds name="Combat">
+        <sound>sound\sfx_combo_end</sound>
+        <sound>sound\sfx_explode</sound>
+        <sound>sound\sfx_gameover</sound>
+        <sound>sound\sfx_land</sound>
+        <sound>sound\sfx_lazer_death</sound>
+        <sound>sound\sfx_lazer_fire</sound>
+        <sound>sound\sfx_laser_get</sound>
+        <sound>sound\sfx_long_jump</sound>
+        <sound>sound\sfx_point_timer_up</sound>
+        <sound>sound\sfx_point_timer_down</sound>
+        <sound>sound\sfx_point_enter</sound>
+        <sound>sound\sfx_punch</sound>
+        <sound>sound\sfx_short_jump</sound>
+      </sounds>
     </sounds>
   </sounds>
   <sprites name="sprites">

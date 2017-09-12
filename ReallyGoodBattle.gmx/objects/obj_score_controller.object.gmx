@@ -258,6 +258,8 @@ for (var i = 0; i &lt; ds_list_size(games); i++)
         winner_index = i;
         game_over = true;
     }
+    
+    audio_play_sound_volume(sfx_gameover, 10, false, global.sfxvolume);
 }
 </string>
           </argument>

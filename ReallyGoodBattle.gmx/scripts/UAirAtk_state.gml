@@ -22,6 +22,7 @@ if (image_angle = 0) {
     //room_speed = 30;
     alarm[10] = room_speed / 2 ;
      Line = instance_create(x,y-6,LazerLine); 
+     audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
      Line.creator = id;
      Line.image_xscale = abs(image_xscale*2); 
      Line.image_angle = image_angle+90;
@@ -63,6 +64,7 @@ if (PlayerNum = 1) {
     //room_speed = 30; 
      alarm[10] = room_speed / 2 ;
     Line = instance_create(x,y-6,LazerLine); 
+    audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle;
@@ -103,6 +105,7 @@ if (image_angle = 180) {
      //room_speed = 30; 
       alarm[10] = room_speed / 2 ;
       Line = instance_create(x,y-6,LazerLine); 
+      audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
       Line.creator = id;
       Line.image_xscale = abs(image_xscale*2); 
       Line.image_angle = image_angle-90
@@ -145,6 +148,7 @@ if (PlayerNum = 1) {
       //room_speed = 30;
        alarm[10] = room_speed / 2 ;
       Line = instance_create(x,y-6,LazerLine); 
+      audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle-180
@@ -157,6 +161,11 @@ if (PlayerNum = 1) {
     Lazer.image_angle = image_angle-180
     charge -= 1;
 } else { hurt = instance_create(x,y-6,Hitbox_obj); 
+
+    audio_sound_pitch(AirWiff_snd, random_range(1.5,2.5));
+    var sound = audio_play_sound(AirWiff_snd, 2, false);
+    audio_sound_gain(sound, global.sfxvolume, 0);
+    
     hurt.creator = id;
     hurt.image_xscale = abs(image_xscale*2); 
     hurt.image_angle = image_angle-180
@@ -224,6 +233,7 @@ if (image_angle = 0) {
         //room_speed = 30; 
          alarm[10] = room_speed / 2 ;
         Line = instance_create(x,y+6,LazerLine); 
+        audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
         Line.creator = id;
         Line.image_xscale = abs(image_xscale*2); 
         Line.image_angle = image_angle-90;
@@ -265,6 +275,7 @@ if (PlayerNum = 1) {
     //room_speed = 30; 
      alarm[10] = room_speed / 2 ;
     Line = instance_create(x,y+6,LazerLine); 
+    audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle - 180;
@@ -305,6 +316,7 @@ if (image_angle = 180) {
       image_speed = .15; //room_speed = 30;  
       alarm[10] = room_speed / 2 ;
      Line = instance_create(x,y+6,LazerLine); 
+     audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle+90 
@@ -345,6 +357,7 @@ if (PlayerNum = 1) {
       //room_speed = 30; 
        alarm[10] = room_speed / 2 ;
         Line = instance_create(x,y+6,LazerLine); 
+        audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
         Line.creator = id;
         Line.image_xscale = abs(image_xscale*2); 
         Line.image_angle = image_angle;
@@ -426,6 +439,7 @@ if (image_angle = 0) {
         //room_speed = 30;
          alarm[10] = room_speed / 2 ;
         Line = instance_create(x+6,y,LazerLine); 
+        audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle;
@@ -468,6 +482,7 @@ if (PlayerNum = 1) {
     //room_speed = 30;
      alarm[10] = room_speed / 2 ;
     Line = instance_create(x+6,y,LazerLine); 
+    audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle - 90;
@@ -510,6 +525,7 @@ if (image_angle = 180) {
      //room_speed = 30;  
      alarm[10] = room_speed;
      Line = instance_create(x+6,y,LazerLine); 
+     audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle-180;
@@ -550,7 +566,8 @@ if (PlayerNum = 1) {
      image_speed = .15;
      //room_speed = 30;
       alarm[10] = room_speed / 2 ;
-     Line = instance_create(x+6,y,LazerLine); 
+     Line = instance_create(x+6,y,LazerLine);
+     audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume); 
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle+90;
@@ -631,6 +648,7 @@ if (image_angle = 0) {
     //room_speed = 30;
      alarm[10] = room_speed / 2 ;
     Line = instance_create(x-6,y,LazerLine); 
+    audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle + 180;
@@ -671,6 +689,7 @@ if (PlayerNum = 1) {
      //room_speed =  30; 
       alarm[10] = room_speed / 2 ;
     Line = instance_create(x-6,y,LazerLine); 
+    audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle + 90 } else {image_speed = .25; room_speed = 60;}
@@ -711,6 +730,7 @@ if (image_angle = 180) {
     //room_speed = 30;
      alarm[10] = room_speed / 2 ;
     Line = instance_create(x-6,y,LazerLine); 
+    audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle ;
@@ -791,6 +811,7 @@ if (PlayerNum = 1) {
         //room_speed = 30; 
          alarm[10] = room_speed / 2 ;
          Line = instance_create(x-6,y,LazerLine); 
+         audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
     Line.creator = id;
     Line.image_xscale = abs(image_xscale*2); 
     Line.image_angle = image_angle-90;

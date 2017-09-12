@@ -15,6 +15,8 @@ switch (mpos) {
     }
 }
 
+audio_play_sound_volume(sfx_rgb_up, 10, false, global.sfxvolume);
+
 #define menuDown_scr
 ///menuDown_scr
 switch (mpos) {
@@ -31,3 +33,5 @@ switch (mpos) {
         break;
     }
 }
+
+audio_play_sound_volume(sfx_rgb_down, 10, false, global.sfxvolume);
