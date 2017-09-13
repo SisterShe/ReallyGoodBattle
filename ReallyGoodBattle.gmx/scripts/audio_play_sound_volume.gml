@@ -19,3 +19,5 @@ var volume = argument3;
 var snd = audio_play_sound(index, priority, loop);
 audio_sound_gain(snd, volume, 0);
 
+//Returns sound.
+return snd;

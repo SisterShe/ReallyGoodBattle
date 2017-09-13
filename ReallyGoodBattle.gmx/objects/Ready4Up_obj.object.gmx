@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>
-image_angle += 1;
 image_blend = make_color_rgb(GameMaster_obj.Player4Red,GameMaster_obj.Player4Green,GameMaster_obj.Player4Blue);  
  
  
@@ -54,6 +53,7 @@ image_blend = make_color_rgb(GameMaster_obj.Player4Red,GameMaster_obj.Player4Gre
             <kind>1</kind>
             <string>GameMaster_obj.Player4Ready = 1; 
 instance_create(x,y,Player4_death_obj);
+audio_play_sound_volume(sfx_ready_up, 10, false, global.sfxvolume);
 instance_destroy(); 
 </string>
           </argument>

@@ -50,6 +50,7 @@ Player3 = 0;
 Player4 = 0;
 IsActive = false; 
 capture_time = room_speed * 3; //Seconds to capture.
+sound = noone;
 
 //Creation Tween Variables
 step = 0;
@@ -178,7 +179,7 @@ if (IsActive = true)
     //Check if new player entered.
     if (PlayerCount &gt; Last_Player_Count)
     {
-        audio_play_sound_volume(sfx_point_enter, 10, false, global.sfxvolume);
+        //audio_play_sound_volume(sfx_point_enter, 10, false, global.sfxvolume);
     }
     
     
@@ -189,14 +190,20 @@ if (IsActive = true)
         var final_color = make_color_rgb(Red, Green, Blue);
         Color = merge_colour(final_color, default_color, (capture_time - ShrineVal) / capture_time);   
         
-        if (!audio_is_playing(sfx_point_timer_up))
-        audio_play_sound_volume(sfx_point_timer_up, 10, false, global.sfxvolume);
+        if (!audio_is_playing(amb_combo_up))
+        sound = audio_play_sound_volume(amb_combo_up, 10, false, global.sfxvolume);
+        audio_sound_gain(sound, 1 - (capture_time - ShrineVal) / capture_time, 0);
     } 
     else if (PlayerCount = 0)
     {
         //Uncaptures the shrine.
         //ShrineVal = clamp(ShrineVal - 1, 0, capture_time);
         Color = default_color; 
+        if (sound != noone)
+        {
+            audio_sound_gain(sound, 0, 30);
+            sound = noone;
+        }
     }
     
     
@@ -285,6 +292,12 @@ if (ShrineVal &gt;= capture_time)
 {
     //Adds laser to player.
     other.charge += 1; 
+    
+    if (sound != noone)
+        {
+            audio_sound_gain(sound, 0, 30);
+            sound = noone;
+        }
     
     //Creates new shrine and destroys current.
     instance_create(random_range(32,room_width-32),random_range(32,room_height-32),ShrineChoice_obj);

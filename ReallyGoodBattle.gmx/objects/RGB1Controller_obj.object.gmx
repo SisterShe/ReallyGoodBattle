@@ -152,7 +152,6 @@ if (jump_key_pressed)
      instance_create(176,48,Recolor1_obj);
      instance_create(128, 112, obj_sprite_selector_p1);
      instance_destroy()
-     audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
 }
 
 //Returns to Press X to Join 

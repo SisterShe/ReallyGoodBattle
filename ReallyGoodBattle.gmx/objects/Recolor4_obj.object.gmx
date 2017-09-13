@@ -26,8 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>image_blend = make_color_rgb(GameMaster_obj.Player4Blue,GameMaster_obj.Player4Red,GameMaster_obj.Player4Green);
-image_angle += 1;  
- 
 </string>
           </argument>
         </arguments>
@@ -55,6 +53,8 @@ GameMaster_obj.Player4Red = round(random_range(0,255));
 GameMaster_obj.Player4Green = round(random_range(0,255));
 GameMaster_obj.Player4Blue = round(random_range(0,255));
 */
+
+audio_play_sound_volume(sfx_ready_up, 10, false, global.sfxvolume);
 
 //Recreates color selection.
 instance_create(304,176,RGB4Controller_obj);

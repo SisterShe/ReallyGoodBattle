@@ -64,7 +64,6 @@ if (creator.charge &gt; 0)
     //Creates the laser hitbox.
     instance_create(x, y, LazerBox); 
 }
-
 </string>
           </argument>
         </arguments>
@@ -435,6 +434,19 @@ other.y += random_range(3,-3);
             <kind>1</kind>
             <string>///Suicides
 instance_destroy(); 
+
+//CHeck if player lives.
+if (instance_exists(creator))
+{
+    //Plays soundfile.
+    if (creator.punch_noise = false)
+    {
+        var sfx = audio_play_sound_volume(sfx_punch, 10, false, global.sfxvolume);
+        audio_sound_pitch(sfx, random_range(0.75,1.5));
+        creator.alarm[4] = room_seconds(0.4);
+        creator.punch_noise = true;
+    }
+}
 </string>
           </argument>
         </arguments>

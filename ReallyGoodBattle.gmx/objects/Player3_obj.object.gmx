@@ -58,6 +58,8 @@ can_attack = true;
 laserdeath = false;
 lazer_sound = true;
 laser_sound_sfx = noone;
+punch_noise = false;
+lazer_noise = false;
 
 //Check if AI
 if (global.player3_ai)
@@ -114,6 +116,14 @@ with (LazerBox)
     }
 }
 
+//Check ambience sound stuffz.
+if (lazer_sound)
+{
+    //Sound
+    audio_stop_sound(laser_sound_sfx);
+    lazer_sound = false;
+}
+
 </string>
           </argument>
         </arguments>
@@ -137,6 +147,31 @@ with (LazerBox)
           <argument>
             <kind>1</kind>
             <string>room_speed = 60; 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Resets attack noises.
+punch_noise = false;
+lazer_noise = false;
 </string>
           </argument>
         </arguments>
