@@ -57,6 +57,7 @@
         <sound>sound\sfx_land</sound>
         <sound>sound\sfx_lazer_death</sound>
         <sound>sound\sfx_lazer_fire</sound>
+        <sound>sound\sfx_lazer_prefire</sound>
         <sound>sound\sfx_laser_get</sound>
         <sound>sound\sfx_long_jump</sound>
         <sound>sound\sfx_point_timer_up</sound>

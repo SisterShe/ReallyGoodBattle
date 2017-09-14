@@ -86,8 +86,8 @@ room_speed = 16;
             <string>//Plays soundfile.
 if (creator.lazer_noise = false)
 {
-    var sfx = audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
-    audio_sound_pitch(sfx, random_range(1.5,2.5));
+    var sfx = audio_play_sound_volume(sfx_lazer_prefire, 10, false, global.sfxvolume);
+    //audio_sound_pitch(sfx, random_range(1.5,2.5));
     creator.alarm[4] = 90;
     creator.lazer_noise = true;
 }

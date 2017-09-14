@@ -32,6 +32,7 @@ image_alpha = .8
 damage = 1; 
 creator = noone; 
 alarm[0] = 10; 
+alarm[1] = 1;
 Growth = 2; 
 Red = 0; 
 Green = 0; 
@@ -60,6 +61,36 @@ inactive = false;
           <argument>
             <kind>1</kind>
             <string>room_speed = 60;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Plays soundfile.
+if (creator.punch_noise = false)
+{
+    var sfx = audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
+    //audio_sound_pitch(sfx, random_range(1.5,2.5));
+    creator.alarm[4] = 30;
+    creator.punch_noise = true;
+}
 </string>
           </argument>
         </arguments>

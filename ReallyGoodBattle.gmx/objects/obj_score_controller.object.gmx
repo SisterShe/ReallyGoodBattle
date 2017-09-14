@@ -374,6 +374,8 @@ else if (room != rm_pause and !obj_pause_controller.input_alarm)
     skipping = false;
     draw_skip = false;
     
+    audio_stop_sound(amb_laser_hum);
+    
     //Score List
     scores = ds_list_create();
     if (global.gamemode = "Player Lives")

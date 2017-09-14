@@ -229,6 +229,7 @@ global.player1_spriteset = 1;
 global.player2_spriteset = 1;
 global.player3_spriteset = 1;
 global.player4_spriteset = 1;
+global.respawn_timer = 1;
 
 //Artifical Intelligence
 global.player1_ai = false;
