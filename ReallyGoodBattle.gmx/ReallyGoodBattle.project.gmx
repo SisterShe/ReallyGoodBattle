@@ -129,10 +129,8 @@
         <sprite>sprites\Player2_crouch_spr</sprite>
       </sprites>
       <sprites name="Player3">
-        <sprite>sprites\Player3_Idle_spr</sprite>
         <sprite>sprites\Player3_UAirAtk_spr</sprite>
         <sprite>sprites\Player3_RAirAtk_spr</sprite>
-        <sprite>sprites\Player3_move_spr</sprite>
         <sprite>sprites\Player3_uAtk_spr</sprite>
         <sprite>sprites\Player3_nAtk_spr</sprite>
         <sprite>sprites\Player3_Airborne_spr</sprite>
@@ -141,6 +139,8 @@
         <sprite>sprites\Player3_splat_spr</sprite>
         <sprite>sprites\Player3_Particle_spr</sprite>
         <sprite>sprites\Player3_crouch_spr</sprite>
+        <sprite>sprites\Player3_move_spr</sprite>
+        <sprite>sprites\Player3_Idle_spr</sprite>
       </sprites>
       <sprites name="Player4">
         <sprite>sprites\Player4_RAirAtk_spr</sprite>
