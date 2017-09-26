@@ -27,5 +27,6 @@
     <frame index="4">images\Player2_nAtk_spr_4.png</frame>
     <frame index="5">images\Player2_nAtk_spr_5.png</frame>
     <frame index="6">images\Player2_nAtk_spr_6.png</frame>
+    <frame index="7">images\Player2_nAtk_spr_7.png</frame>
   </frames>
 </sprite>

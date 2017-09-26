@@ -22,7 +22,7 @@ Line = instance_create(x,y,LazerLine);
     Line.image_xscale = image_xscale*2; 
     Line.image_angle = image_angle;
 } else { image_speed = .25;room_speed = 60; }
-if (image_index >= 2 and image_index <= 4) {
+if (image_index >= 3 and image_index <= 4) {
     if (charge >= 1) {
     Lazer = instance_create(x,y,LazerBox); 
     Lazer.creator = id;  
@@ -39,11 +39,17 @@ if (image_index >= 2 and image_index <= 4) {
 }
 
 
-if (image_index >= 5) {
+if (image_index >= 6) {
     room_speed = 60;
     mState = up_mState; 
 }
 
+
+if (jump_key and canJump = 1) { //if I have a jump, go ahead and do the jump
+    canJump = 0;  //lose the jump
+    image_index = 0; //prepare for new animation
+    mState = crouch_state //go into the prejump state. 
+} 
 
 
 
@@ -75,7 +81,7 @@ Line = instance_create(x,y,LazerLine);
     Line.image_xscale = image_xscale*2; 
     Line.image_angle = image_angle;
 } else { image_speed = .25; room_speed = 60; } 
-if (image_index >= 2 and image_index <= 4) {
+if (image_index >= 3 and image_index <= 4) {
  if (charge >= 1 ) {
     Lazer = instance_create(x,y,LazerBox); 
     Lazer.creator = id;
@@ -90,9 +96,16 @@ if (image_index >= 2 and image_index <= 4) {
     
 }
 }
-if (image_index >= 5) {
+if (image_index >= 6) {
 room_speed = 60;
     mState = left_mState; 
+}
+
+if (jump_key and canJump = 1) {
+     canJump = 0;  
+     image_index = 0; 
+    mState = crouch_state
+    
 }
 
 
@@ -120,7 +133,7 @@ Line = instance_create(x,y,LazerLine);
     Line.image_xscale = image_xscale*2; 
     Line.image_angle = image_angle;
 } else { image_speed = .25; room_speed = 60;}
-if (image_index >= 2 and image_index <= 4) {
+if (image_index >= 3 and image_index <= 4) {
 if (charge >= 1) {
     Lazer = instance_create(x,y,LazerBox); 
     Lazer.creator = id;
@@ -135,11 +148,16 @@ if (charge >= 1) {
 }
 }
 
-if (image_index >= 5) {
+if (image_index >= 6) {
 room_speed = 60;
     mState = down_mState; 
 }
-
+if (jump_key and canJump = 1) {
+     canJump = 0;  
+     image_index = 0; 
+    mState = crouch_state
+    
+}
 
 #define rightN_attack
 ///right_attack
@@ -165,7 +183,7 @@ if (charge >= 1) {
     Line.image_xscale = image_xscale*2; 
     Line.image_angle = image_angle;
 } else { image_speed = .25; room_speed = 60; } 
-if (image_index >= 2 and image_index <= 4) {
+if (image_index >= 3 and image_index <= 4) {
    if (charge >= 1) {
    Lazer = instance_create(x,y,LazerBox); 
     Lazer.creator = id;
@@ -180,7 +198,12 @@ if (image_index >= 2 and image_index <= 4) {
 }
 }
 
-if (image_index >= 5) {
+if (image_index >= 6) {
 room_speed = 60;
     mState = right_mState; 
+}
+if (jump_key and canJump = 1) {
+   canJump = 0;  
+   image_index = 0; 
+    mState = crouch_state
 }
