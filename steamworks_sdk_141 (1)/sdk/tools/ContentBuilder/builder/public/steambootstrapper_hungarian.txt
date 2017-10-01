@@ -73,4 +73,8 @@
 "[english]SteamBootstrapper_Warning_Title"	"%appname% - Warning"
 "SteamBootstrapper_RunFromDiskImageOSX"	"Húzd be a(z) %appname% alkalmazást az Alkalmazások mappába indítás előtt."
 "[english]SteamBootstrapper_RunFromDiskImageOSX"	"Please drag %appname% into your Applications folder before launching it."
+"SteamBootstrapper_InstallDirIncompatible"	"A(z) %appname% a Windows ezen verzióján nem tud olyan mappából futni, ami nem-ASCII karaktereket tartalmazó elérési úttal rendelkezik. Kérjük, telepítsd újra a(z) %appname% alkalmazást az alapértelmezett mappába, vagy telepítsd Windows 7 vagy későbbi rendszerre."
+"[english]SteamBootstrapper_InstallDirIncompatible"	"%appname% cannot run from a folder path with non-ASCII characters on this version of Windows. Please re-install %appname% to the default folder, or install on Windows 7 or later."
+"SteamBootstrapper_AlreadyRunningError"	"A(z) %appname% egy példánya már fut ezen a számítógépen, egy másik felhasználói fiók alatt."
+"[english]SteamBootstrapper_AlreadyRunningError"	"An instance of %appname% is already running on this computer, under a different user account."
 }

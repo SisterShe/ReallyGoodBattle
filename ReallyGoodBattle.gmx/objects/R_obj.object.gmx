@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>image_alpha = 0 
 iAlpha = -2; 
+image_xscale = .3
+image_yscale = .3
 </string>
           </argument>
         </arguments>

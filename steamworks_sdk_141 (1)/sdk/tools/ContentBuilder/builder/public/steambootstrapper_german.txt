@@ -59,7 +59,7 @@
 "[english]SteamBootstrapper_MoveContentDir_DestExists"	"%appname% has changed where it stores game content from '~/Documents/Steam Content' to '~/Library/Application Support/Steam/SteamApps'.  You have game files in the original location, and %appname% was not able to move the files because files already exist at the new location.  You may need to move the files manually, or delete the old files and download your games again.  Continue anyway?"
 "SteamBootstrapper_MoveContentDir_CopyError"	"%appname% speichert Spielinhalte nicht mehr unter '~/Documents/Steam Content' sondern unter '~/Library/Application Support/Steam/SteamApps'. Es liegen noch Spieledateien im alten Speicherort, die von %appname% nicht verschoben werden konnten. Sie müssen die Dateien daher ggf. manuell verschieben oder die alten Dateien löschen und die Spiele erneut herunterladen. Trotzdem fortfahren?"
 "[english]SteamBootstrapper_MoveContentDir_CopyError"	"%appname% has changed where it stores game content from '~/Documents/Steam Content' to '~/Library/Application Support/Steam/SteamApps'.  You have game files in the original location, and %appname% was unable to move the files.  You may need to move the files manually, or delete the old files and download your games again.  Continue anyway?"
-"SteamBootstrapper_InstallDirNotASCII"	"%appname% kann nicht aus einem Pfad mit Nicht-ASCII-Zeichen gestartet werden. Bitte installieren Sie %appname% in das Standardverzeichnis neu."
+"SteamBootstrapper_InstallDirNotASCII"	"%appname% kann nicht aus einem Pfad mit Nicht-ASCII-Zeichen ausgeführt werden. Bitte installieren Sie %appname% in das Standardverzeichnis neu."
 "[english]SteamBootstrapper_InstallDirNotASCII"	"%appname% cannot run from a folder path with non-English characters. Please re-install %appname% to the default folder."
 "SteamBootstrapper_PercentComplete"	"%percent% %% abgeschlossen"
 "[english]SteamBootstrapper_PercentComplete"	"%percent%%% complete"
@@ -73,4 +73,8 @@
 "[english]SteamBootstrapper_Warning_Title"	"%appname% - Warning"
 "SteamBootstrapper_RunFromDiskImageOSX"	"Bitte ziehen Sie %appname% vor dem Start in den Ordner \"Programme\"."
 "[english]SteamBootstrapper_RunFromDiskImageOSX"	"Please drag %appname% into your Applications folder before launching it."
+"SteamBootstrapper_InstallDirIncompatible"	"%appname% kann unter dieser Version von Windows nicht aus einem Pfad mit Nicht-ASCII-Zeichen ausgeführt werden. Bitte installieren Sie %appname% in das Standardverzeichnis neu oder installieren Sie %appname% unter Windows 7 oder neuer."
+"[english]SteamBootstrapper_InstallDirIncompatible"	"%appname% cannot run from a folder path with non-ASCII characters on this version of Windows. Please re-install %appname% to the default folder, or install on Windows 7 or later."
+"SteamBootstrapper_AlreadyRunningError"	"%appname% wird auf diesem Gerät bereits unter einem anderen Benutzerkonto ausgeführt."
+"[english]SteamBootstrapper_AlreadyRunningError"	"An instance of %appname% is already running on this computer, under a different user account."
 }

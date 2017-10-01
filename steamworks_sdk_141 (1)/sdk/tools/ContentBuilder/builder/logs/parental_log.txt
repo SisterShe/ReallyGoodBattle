@@ -112,3 +112,12 @@ fig file for account ID 114344507
 [2017-08-22 15:01:15] 	Base list: 0 ()
 [2017-08-22 15:01:15] 	No custom list
 [2017-08-22 15:01:15] 	No enabled features
+
+
+[2017-09-30 19:06:47] Validating parental settings
+[2017-09-30 19:06:47] Settings dump:
+[2017-09-30 19:06:47] 	Account ID: 114344507
+[2017-09-30 19:06:47] 	Enabled: false
+[2017-09-30 19:06:47] 	Base list: 0 ()
+[2017-09-30 19:06:47] 	No custom list
+[2017-09-30 19:06:47] 	No enabled features

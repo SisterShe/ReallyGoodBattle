@@ -51,7 +51,7 @@
 "[english]SteamBootstrapper_DownloadComplete"	"Download complete."
 "SteamBootstrapper_NoNetwork"	"%appname% ต้องออนไลน์เพื่ออัปเดต  โปรดตรวจสอบการเชื่อมต่อเครือข่ายและลองอีกครั้ง"
 "[english]SteamBootstrapper_NoNetwork"	"%appname% needs to be online to update. Please confirm your network connection and try again."
-"SteamBootstrapper_FailedMkdir"	"ไม่สามารถสร้างไดเรกทอรี %dirname% เกิดข้อผิดพลาด %errno%"
+"SteamBootstrapper_FailedMkdir"	"ไม่สามารถสร้างไดเรกทอรี %dirname% ได้ ตรวจพบข้อผิดพลาด %errno%"
 "[english]SteamBootstrapper_FailedMkdir"	"Couldn't create directory %dirname%, got error %errno%"
 "SteamBootstrapper_FailedDownloadHTTPError"	"การดาวน์โหลดล้มเหลว: ข้อผิดพลาด http %errno%"
 "[english]SteamBootstrapper_FailedDownloadHTTPError"	"Download failed: http error %errno%"
@@ -73,4 +73,6 @@
 "[english]SteamBootstrapper_Warning_Title"	"%appname% - Warning"
 "SteamBootstrapper_RunFromDiskImageOSX"	"กรุณาลาก %appname% ไปยังโฟลเดอร์แอปพลิเคชันก่อนที่จะเปิด"
 "[english]SteamBootstrapper_RunFromDiskImageOSX"	"Please drag %appname% into your Applications folder before launching it."
+"SteamBootstrapper_InstallDirIncompatible"	"%appname% ไม่สามารถเริ่มเปิดจากตำแหน่งโฟลเดอร์ที่มีตัวอักษรที่ไม่ใช่ ASCII บน Windows เวอร์ชันนี้ได้ กรุณาติดตั้ง %appname% ใหม่อีกครั้งบนโฟลเดอร์เริ่มต้น หรือติดตั้งบน Windows 7 หรือใหม่กว่า"
+"[english]SteamBootstrapper_InstallDirIncompatible"	"%appname% cannot run from a folder path with non-ASCII characters on this version of Windows. Please re-install %appname% to the default folder, or install on Windows 7 or later."
 }

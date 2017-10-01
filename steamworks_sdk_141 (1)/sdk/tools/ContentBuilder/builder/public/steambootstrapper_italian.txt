@@ -73,4 +73,8 @@
 "[english]SteamBootstrapper_Warning_Title"	"%appname% - Warning"
 "SteamBootstrapper_RunFromDiskImageOSX"	"Trascina %appname% nella tua cartella delle Applicazioni prima di avviarlo."
 "[english]SteamBootstrapper_RunFromDiskImageOSX"	"Please drag %appname% into your Applications folder before launching it."
+"SteamBootstrapper_InstallDirIncompatible"	"%appname% non può essere avviato da una cartella con caratteri non ASCII su questa versione di Windows. Reinstalla %appname% nella cartella predefinita, oppure effettua l'installazione su Windows 7 o successivo."
+"[english]SteamBootstrapper_InstallDirIncompatible"	"%appname% cannot run from a folder path with non-ASCII characters on this version of Windows. Please re-install %appname% to the default folder, or install on Windows 7 or later."
+"SteamBootstrapper_AlreadyRunningError"	"Una richiesta di %appname% è già in esecuzione su questo computer con un account utente diverso."
+"[english]SteamBootstrapper_AlreadyRunningError"	"An instance of %appname% is already running on this computer, under a different user account."
 }

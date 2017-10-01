@@ -749,6 +749,8 @@
       <room>rooms\rm_level2</room>
       <room>rooms\rm_level3</room>
       <room>rooms\rm_level4</room>
+      <room>rooms\BlankRoom</room>
+      <room>rooms\rm_level5</room>
     </rooms>
     <rooms name="Test">
       <room>rooms\TestRoom2</room>

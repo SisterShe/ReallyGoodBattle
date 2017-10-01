@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>SizeVal = 3; 
+            <string>SizeVal = .1; 
 image_xscale = SizeVal; 
 image_yscale = SizeVal;
 HshakeVal = 45;
@@ -68,12 +68,12 @@ if (HshakeVal &lt;= 0.1) {
     y = iY+random_range(VshakeVal,-VshakeVal);
 }
 HshakeVal = HshakeVal/1.05; 
-if (SizeVal &lt;= 2) {
- SizeVal = 2; 
+if (SizeVal &lt;= .3) {
+ SizeVal = .3; 
 } else {
 SizeVal = SizeVal/2; 
 }
-image_blend = make_color_rgb(0,random_range(50,75),random_range(190,255)); 
+//image_blend = make_color_rgb(0,random_range(50,75),random_range(190,255)); 
 </string>
           </argument>
         </arguments>

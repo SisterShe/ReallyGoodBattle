@@ -73,4 +73,6 @@
 "[english]SteamBootstrapper_Warning_Title"	"%appname% - Warning"
 "SteamBootstrapper_RunFromDiskImageOSX"	"請在開啟 %appname% 之前將它拖曳至您的應用程式資料夾。"
 "[english]SteamBootstrapper_RunFromDiskImageOSX"	"Please drag %appname% into your Applications folder before launching it."
+"SteamBootstrapper_AlreadyRunningError"	"這台電腦已正在執行 %appname%，是由另一個使用者帳戶所使用。"
+"[english]SteamBootstrapper_AlreadyRunningError"	"An instance of %appname% is already running on this computer, under a different user account."
 }

@@ -119,3 +119,17 @@
 [2017-08-22 15:01:15] UpdatesJob: requesting 7 apps, 1 packages (meta data, 1024 prev attempts)
 [2017-08-22 15:01:16] UpdatesJob: requested 5 access tokens, 0 received, 5 denied
 [2017-08-22 15:01:16] UpdatesJob: finished OK, nAppsUpdated 0 (0 KB), nPackagesUpdated 0 (0 KB)
+
+
+[2017-09-30 19:06:47] RequestAppInfoUpdate: nNumAppIDs 1
+[2017-09-30 19:06:47] ProductInfoChanges: change number 3321964->3480514, apps: 0/0, packages: 0/0
+[2017-09-30 19:06:47] UpdatesJob: requesting 416 apps, 130 packages (meta data, 1024 prev attempts)
+[2017-09-30 19:06:48] UpdatesJob: requested 5 access tokens, 0 received, 5 denied
+[2017-09-30 19:06:48] UpdatesJob: downloaded 17 apps via HTTP, 349 KB (99 KB compressed)
+[2017-09-30 19:06:48] UpdatesJob: requesting 88 apps, 3 packages (full data, 1024 prev attempts)
+[2017-09-30 19:06:49] UpdatesJob: finished OK, nAppsUpdated 105 (699 KB), nPackagesUpdated 3 (9 KB)
+[2017-09-30 19:06:49] UpdatesJob: requesting 2 apps, 0 packages (meta data, 1024 prev attempts)
+[2017-09-30 19:06:50] UpdatesJob: requested 1 access tokens, 0 received, 1 denied
+[2017-09-30 19:06:50] UpdatesJob: requesting 1 apps, 0 packages (full data, 1024 prev attempts)
+[2017-09-30 19:06:50] UpdatesJob: finished OK, nAppsUpdated 1 (3 KB), nPackagesUpdated 0 (0 KB)
+[2017-09-30 19:06:57] Starting async write C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder/appcache/appinfo.vdf (919826 bytes)

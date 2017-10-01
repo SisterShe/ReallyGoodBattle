@@ -201,3 +201,18 @@
 [2017-08-22 15:01:21] [3,2] LogOff()
 [2017-08-22 15:01:21] [2,2] AsyncDisconnect()
 [2017-08-22 15:01:21] [2,2] Log session ended
+
+
+[2017-09-30 19:06:46] Log session started
+[2017-09-30 19:06:46] [0,0] SetSteamID( [U:1:0] )
+[2017-09-30 19:06:46] CCMInterface::OnNetworkDeviceStateChange -- Saw device up, connecting to Steam
+[2017-09-30 19:06:46] [0,0] SetSteamID( [U:1:114344507] )
+[2017-09-30 19:06:46] [0,0] SetSteamID( [U:1:114344507] )
+[2017-09-30 19:06:46] [0,0] Server says 0% of connections should be websockets, we rolled 0 - using UDP as default.
+[2017-09-30 19:06:46] [1,2] Connect() starting connection (eNetQOSLevelHigh, 155.133.254.132:27020, UDP)
+[2017-09-30 19:06:47] [1,2] ConnectionCompleted() (162.254.195.45:27018, UDP)
+[2017-09-30 19:06:47] [1,2] RecvMsgClientLogOnResponse() : [U:1:114344507] 'OK'
+[2017-09-30 19:06:57] [3,2] ResetVoiceRecording() (was recording: 0) (last get voice time: 1506816417 seconds ago)
+[2017-09-30 19:06:57] [3,2] LogOff()
+[2017-09-30 19:06:57] [2,2] AsyncDisconnect()
+[2017-09-30 19:06:57] [2,2] Log session ended

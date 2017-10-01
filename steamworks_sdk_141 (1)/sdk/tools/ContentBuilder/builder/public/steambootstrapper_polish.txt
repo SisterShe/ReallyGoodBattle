@@ -33,7 +33,7 @@
 "[english]SteamBootstrapper_UpdateFinalizeFail"	"Failed to write installation manifest."
 "SteamBootstrapper_UpdateComplete"	"Aktualizacja zakończona, uruchamianie %appname%..."
 "[english]SteamBootstrapper_UpdateComplete"	"Update complete, launching %appname%..."
-"SteamBootstrapper_UpdateChecking"	"Wyszukiwanie dostępnych uaktualnień..."
+"SteamBootstrapper_UpdateChecking"	"Wyszukiwanie dostępnych aktualizacji..."
 "[english]SteamBootstrapper_UpdateChecking"	"Checking for available updates..."
 "SteamBootstrapper_UpdatePrepare"	"Przygotowanie do aktualizacji..."
 "[english]SteamBootstrapper_UpdatePrepare"	"Preparing to update..."
@@ -73,4 +73,8 @@
 "[english]SteamBootstrapper_Warning_Title"	"%appname% - Warning"
 "SteamBootstrapper_RunFromDiskImageOSX"	"Przed uruchomieniem należy przeciągnąć %appname% do folderu Aplikacje."
 "[english]SteamBootstrapper_RunFromDiskImageOSX"	"Please drag %appname% into your Applications folder before launching it."
+"SteamBootstrapper_InstallDirIncompatible"	"Aplikacja %appname% nie może zostać uruchomiona z folderu o ścieżce posiadającej znaki spoza zakresu ASCII na tej wersji systemu Windows. Zainstaluj ponownie %appname% do domyślnego folderu lub zainstaluj na systemie Windows 7 lub nowszym."
+"[english]SteamBootstrapper_InstallDirIncompatible"	"%appname% cannot run from a folder path with non-ASCII characters on this version of Windows. Please re-install %appname% to the default folder, or install on Windows 7 or later."
+"SteamBootstrapper_AlreadyRunningError"	"Aplikacja %appname% została już uruchomiona na tym komputerze z wykorzystaniem innego konta użytkownika."
+"[english]SteamBootstrapper_AlreadyRunningError"	"An instance of %appname% is already running on this computer, under a different user account."
 }

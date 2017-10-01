@@ -73,4 +73,8 @@
 "[english]SteamBootstrapper_Warning_Title"	"%appname% - Warning"
 "SteamBootstrapper_RunFromDiskImageOSX"	"실행하기 전에 %appname%을 응용프로그램 폴더 안으로 드래그 하세요."
 "[english]SteamBootstrapper_RunFromDiskImageOSX"	"Please drag %appname% into your Applications folder before launching it."
+"SteamBootstrapper_InstallDirIncompatible"	"이 버전의 Windows에서는 비 ASCII 문자가 포함된 폴더 경로에서 %appname%을(를) 실행할 수 없습니다. %appname%을(를) 기본 폴더에 재설치하거나 Windows 7 또는 그 이후 버전의 OS를 설치하세요."
+"[english]SteamBootstrapper_InstallDirIncompatible"	"%appname% cannot run from a folder path with non-ASCII characters on this version of Windows. Please re-install %appname% to the default folder, or install on Windows 7 or later."
+"SteamBootstrapper_AlreadyRunningError"	"이 컴퓨터에서 %appname%이(가) 이미 다른 사용자 계정으로 실행 중입니다."
+"[english]SteamBootstrapper_AlreadyRunningError"	"An instance of %appname% is already running on this computer, under a different user account."
 }
