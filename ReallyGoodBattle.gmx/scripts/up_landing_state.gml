@@ -88,7 +88,7 @@ if (jump_key and canJump = 1)
     canJump = 0;  //lose the jump
     image_index = 0; //prepare for new animation
     mState = crouch_state //go into the prejump state.
-    audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume); 
+    //audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume); 
 } 
 
 Impact = (instance_create(x,y+8,Player_Llanding_obj));
@@ -97,7 +97,7 @@ Impact.image_xscale = (random_range(.75,1.5));
 if (image_index >= 7) 
 {
     mState = up_mState; 
-    audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume);
+   // audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume);
 } 
 
 if (!place_meeting(x,y+1,CollisionUnit_obj)) 
@@ -184,11 +184,11 @@ if (jump_key and canJump = 1) { //if I have a jump, go ahead and do the jump
     canJump = 0;  //lose the jump
     image_index = 0; //prepare for new animation
     mState = crouch_state //go into the prejump state. 
-    audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume);
+   // audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume);
 }
 if (image_index >= 6) {
  mState = left_mState; 
- audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume);
+ //audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume);
 } 
 
 
@@ -259,7 +259,7 @@ if (jump_key and canJump = 1) { //if I have a jump, go ahead and do the jump
     canJump = 0;  //lose the jump
     image_index = 0; //prepare for new animation
     mState = crouch_state //go into the prejump state. 
-    audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume);
+   // audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume);
 }  
 
 Impact = (instance_create(x,y-8,Player_Llanding_obj));
@@ -268,7 +268,7 @@ Impact.image_xscale = (random_range(.75,1.5));
 
 if (image_index >= 6) {
  mState = down_mState; 
- audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume);
+ //audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume);
 } 
 
 if (!place_meeting(x,y-1,CollisionUnit_obj)) {
@@ -344,9 +344,9 @@ if (jump_key and canJump = 1) { //if I have a jump, go ahead and do the jump
     canJump = 0;  //lose the jump
     image_index = 0; //prepare for new animation
     mState = crouch_state //go into the prejump state. 
-    audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume);
+    //audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume);
 }
 if (image_index >= 6) {
  mState = right_mState; 
- audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume);
+// audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume);
 } 

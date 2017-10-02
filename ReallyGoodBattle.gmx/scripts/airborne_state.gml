@@ -137,6 +137,7 @@ if (place_meeting(x,y+1,CollisionUnit_obj) and canChange = 1) {
         canChange = 0;
         image_index = 0; 
         alarm[0] = 5; 
+        audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume); 
         mState = up_landing_state; 
     }
     
@@ -144,6 +145,7 @@ if (place_meeting(x,y-1,CollisionUnit_obj) and canChange = 1) {
          canChange = 0;
          image_index = 0; 
          alarm[0] = 5;
+         audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume); 
          mState = down_landing_state;  
     }
 
@@ -151,6 +153,7 @@ if (place_meeting(x-1,y,CollisionUnit_obj) and canChange = 1) {
         canChange = 0;
         image_index = 0; 
         alarm[0] = 5;
+        audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume); 
         mState = left_landing_state; 
     }
     
@@ -158,6 +161,7 @@ if (place_meeting(x+1,y,CollisionUnit_obj) and canChange = 1) {
         canChange = 0;
         image_index = 0; 
         alarm[0] = 5;
+        audio_play_sound_volume(sfx_land, 10, false, global.sfxvolume); 
         mState = right_landing_state;  
     }
     

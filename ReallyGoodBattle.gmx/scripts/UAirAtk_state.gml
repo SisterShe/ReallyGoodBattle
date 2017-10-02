@@ -36,7 +36,7 @@ if (image_angle = 0) {
 } else {
     hurt = instance_create(x,y-6,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle+90
 }     
 }
@@ -76,7 +76,7 @@ if (PlayerNum = 1) {
     charge -= 1; 
 } else { hurt = instance_create(x,y-6,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle;
 } 
 }
@@ -118,7 +118,7 @@ if (image_angle = 180) {
 } else { 
 hurt = instance_create(x,y-6,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle-90
 } 
 }
@@ -163,7 +163,7 @@ if (PlayerNum = 1) {
     audio_sound_gain(sound, global.sfxvolume, 0);
     
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle-180
 } 
 }
@@ -243,7 +243,7 @@ if (image_angle = 0) {
 } else { 
     hurt = instance_create(x,y+6,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle-90
 }   
 }  
@@ -284,7 +284,7 @@ if (PlayerNum = 1) {
         } else {  
         hurt = instance_create(x,y+6,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle - 180
 } 
 }
@@ -324,7 +324,7 @@ if (image_angle = 180) {
 } else { 
     hurt = instance_create(x,y+6,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle+90
 } 
 }
@@ -364,7 +364,7 @@ if (PlayerNum = 1) {
 } else {
     hurt = instance_create(x,y+6,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle;
 } 
 }  
@@ -444,7 +444,7 @@ if (image_angle = 0) {
     charge -= 1; 
 } else {hurt = instance_create(x+6,y,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle;
 } 
 }  
@@ -488,7 +488,7 @@ if (PlayerNum = 1) {
 } else { 
     hurt = instance_create(x+6,y,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle - 90
 } 
 }
@@ -529,7 +529,7 @@ if (image_angle = 180) {
     } else { 
     hurt = instance_create(x+6,y,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle-180
 } 
 }
@@ -570,7 +570,7 @@ if (PlayerNum = 1) {
 } else {
     hurt = instance_create(x+6,y,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle+90
 } 
   
@@ -649,7 +649,7 @@ if (image_angle = 0) {
     charge -= 1; 
 }   else {hurt = instance_create(x-6,y,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle + 180
 }     
 }
@@ -688,7 +688,7 @@ if (PlayerNum = 1) {
     charge -= 1; } else {
     hurt = instance_create(x-6,y,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle + 90
 } 
 }
@@ -729,7 +729,7 @@ if (image_angle = 180) {
     charge -= 1; 
 }   else {hurt = instance_create(x-6,y,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle 
 }     
 }
@@ -770,7 +770,7 @@ if (charge >= 1) {
 } else {   
     hurt = instance_create(x-6,y,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle
 } 
 }
@@ -811,7 +811,7 @@ if (PlayerNum = 1) {
 } else {
     hurt = instance_create(x-6,y,Hitbox_obj); 
     hurt.creator = id;
-    hurt.image_xscale = abs(image_xscale*2); 
+    hurt.image_xscale = abs(image_xscale*1.75); 
     hurt.image_angle = image_angle-90
 } 
 }
