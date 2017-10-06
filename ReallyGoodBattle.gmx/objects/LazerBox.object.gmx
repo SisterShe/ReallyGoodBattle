@@ -84,6 +84,7 @@ inactive = false;
           <argument>
             <kind>1</kind>
             <string>//Plays soundfile.
+if (!instance_exists(creator)) exit;
 if (creator.punch_noise = false)
 {
     var sfx = audio_play_sound_volume(sfx_lazer_fire, 10, false, global.sfxvolume);
@@ -91,6 +92,8 @@ if (creator.punch_noise = false)
     creator.alarm[4] = 30;
     creator.punch_noise = true;
 }
+
+
 </string>
           </argument>
         </arguments>

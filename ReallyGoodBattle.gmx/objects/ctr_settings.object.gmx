@@ -339,6 +339,18 @@ repeat (4)
 }
 global.bindingkey = false;
 
+
+//Checks if initial settings have been made.
+ini_open("Settings");
+global.fighter_container = instance_create(x, y, obj_fighter_container);
+if (!ini_read_real("Settings", "Default", false))
+{
+    //Creates default fighter actors.
+    
+
+}
+ini_close();
+
 //Obsolete?
 global.zoom = 2; 
 </string>

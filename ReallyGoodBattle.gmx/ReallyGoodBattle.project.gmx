@@ -433,6 +433,7 @@
       <scripts name="Buttons">
         <scripts name="MainMenu">
           <script>scripts\del_btn_play.gml</script>
+          <script>scripts\del_btn_creator.gml</script>
           <script>scripts\del_btn_options.gml</script>
           <script>scripts\del_btn_exit.gml</script>
         </scripts>
@@ -485,6 +486,13 @@
           <script>scripts\del_btn_gamemode_up.gml</script>
           <script>scripts\del_btn_gamemode_down.gml</script>
           <script>scripts\del_input_start_gamemode.gml</script>
+        </scripts>
+        <scripts name="CreatorMenu">
+          <script>scripts\del_creator_menu_back.gml</script>
+          <script>scripts\del_creator_menu_new_fighter.gml</script>
+          <script>scripts\del_creator_menu_delete.gml</script>
+          <script>scripts\del_creator_menu_up.gml</script>
+          <script>scripts\del_creator_menu_down.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -636,97 +644,103 @@
       </objects>
     </objects>
     <objects name="Content">
-      <objects name="Menu">
-        <object>objects\obj_splashscreen_boxhead</object>
-        <object>objects\obj_splashscreen_cinderfire</object>
-      </objects>
-      <objects name="Gameplay">
-        <objects name="Player1">
-          <object>objects\Player1_obj</object>
-          <object>objects\Player1_death_obj</object>
-          <object>objects\Player1_Mdeath_obj</object>
-          <object>objects\Player1_splat_obj</object>
-          <object>objects\Player1_Particle_obj</object>
+      <objects name="Old Code">
+        <objects name="Gameplay">
+          <objects name="Player1">
+            <object>objects\Player1_obj</object>
+            <object>objects\Player1_death_obj</object>
+            <object>objects\Player1_Mdeath_obj</object>
+            <object>objects\Player1_splat_obj</object>
+            <object>objects\Player1_Particle_obj</object>
+          </objects>
+          <objects name="Player2">
+            <object>objects\Player2_obj</object>
+            <object>objects\Player2_splat_obj</object>
+            <object>objects\Player2_death_obj</object>
+            <object>objects\Player2_Mdeath_obj</object>
+            <object>objects\Player2_Particle_obj</object>
+          </objects>
+          <objects name="Player3">
+            <object>objects\Player3_obj</object>
+            <object>objects\Player3_splat_obj</object>
+            <object>objects\Player3_death_obj</object>
+            <object>objects\Player3_Mdeath_obj</object>
+            <object>objects\Player3_Particle_obj</object>
+          </objects>
+          <objects name="Player4">
+            <object>objects\Player4_obj</object>
+            <object>objects\Player4_splat_obj</object>
+            <object>objects\Player4_death_obj</object>
+            <object>objects\Player4_Mdeath_obj</object>
+            <object>objects\Player4_Particle_obj</object>
+          </objects>
         </objects>
-        <objects name="Player2">
-          <object>objects\Player2_obj</object>
-          <object>objects\Player2_splat_obj</object>
-          <object>objects\Player2_death_obj</object>
-          <object>objects\Player2_Mdeath_obj</object>
-          <object>objects\Player2_Particle_obj</object>
+        <objects name="Menu">
+          <object>objects\obj_splashscreen_boxhead</object>
+          <object>objects\obj_splashscreen_cinderfire</object>
         </objects>
-        <objects name="Player3">
-          <object>objects\Player3_obj</object>
-          <object>objects\Player3_splat_obj</object>
-          <object>objects\Player3_death_obj</object>
-          <object>objects\Player3_Mdeath_obj</object>
-          <object>objects\Player3_Particle_obj</object>
+        <objects name="StartScreen">
+          <objects name="Player1">
+            <object>objects\RGB1Controller_obj</object>
+            <object>objects\PressXtoPlayer1_obj</object>
+            <object>objects\Player1_StartBox_obj</object>
+            <object>objects\Player1ReadyTexts</object>
+            <object>objects\Player1Spawn_obj</object>
+            <object>objects\Ready1Up_obj</object>
+            <object>objects\Recolor1_obj</object>
+            <object>objects\obj_sprite_selector_p1</object>
+          </objects>
+          <objects name="Player2">
+            <object>objects\RGB2Controller_obj</object>
+            <object>objects\Player2_StartBox_obj</object>
+            <object>objects\PressXtoPlayer2_obj</object>
+            <object>objects\Player2Spawn_obj</object>
+            <object>objects\Ready2Up_obj</object>
+            <object>objects\Recolor2_obj</object>
+            <object>objects\Player2ReadyTexts</object>
+            <object>objects\obj_sprite_selector_p2</object>
+          </objects>
+          <objects name="Player3">
+            <object>objects\RGB3Controller_obj</object>
+            <object>objects\Player3_StartBox_obj</object>
+            <object>objects\PressXtoPlayer3_obj</object>
+            <object>objects\Ready3Up_obj</object>
+            <object>objects\Player3Spawn_obj</object>
+            <object>objects\Recolor3_obj</object>
+            <object>objects\Player3ReadyTexts</object>
+            <object>objects\obj_sprite_selector_p3</object>
+          </objects>
+          <objects name="Player4">
+            <object>objects\RGB4Controller_obj</object>
+            <object>objects\PressXtoPlayer4_obj</object>
+            <object>objects\Player4_StartBox_obj</object>
+            <object>objects\Player4Spawn_obj</object>
+            <object>objects\Ready4Up_obj</object>
+            <object>objects\Recolor4_obj</object>
+            <object>objects\Player4ReadyTexts</object>
+            <object>objects\obj_sprite_selector_p4</object>
+          </objects>
+          <object>objects\Player2Controller_obj</object>
+          <object>objects\Player3Controller_obj</object>
+          <object>objects\Player4Controller_obj</object>
+          <object>objects\AudioController_obj</object>
+          <object>objects\PressXtoStart_obj</object>
+          <object>objects\GameMaster_obj</object>
         </objects>
-        <objects name="Player4">
-          <object>objects\Player4_obj</object>
-          <object>objects\Player4_splat_obj</object>
-          <object>objects\Player4_death_obj</object>
-          <object>objects\Player4_Mdeath_obj</object>
-          <object>objects\Player4_Particle_obj</object>
+        <objects name="TitleScreenStuff">
+          <object>objects\R_obj</object>
+          <object>objects\G_obj</object>
+          <object>objects\B_obj</object>
+          <object>objects\Fist_obj</object>
+          <object>objects\MenuPunch_obj</object>
         </objects>
-      </objects>
-      <objects name="StartScreen">
-        <objects name="Player1">
-          <object>objects\RGB1Controller_obj</object>
-          <object>objects\PressXtoPlayer1_obj</object>
-          <object>objects\Player1_StartBox_obj</object>
-          <object>objects\Player1ReadyTexts</object>
-          <object>objects\Player1Spawn_obj</object>
-          <object>objects\Ready1Up_obj</object>
-          <object>objects\Recolor1_obj</object>
-          <object>objects\obj_sprite_selector_p1</object>
-        </objects>
-        <objects name="Player2">
-          <object>objects\RGB2Controller_obj</object>
-          <object>objects\Player2_StartBox_obj</object>
-          <object>objects\PressXtoPlayer2_obj</object>
-          <object>objects\Player2Spawn_obj</object>
-          <object>objects\Ready2Up_obj</object>
-          <object>objects\Recolor2_obj</object>
-          <object>objects\Player2ReadyTexts</object>
-          <object>objects\obj_sprite_selector_p2</object>
-        </objects>
-        <objects name="Player3">
-          <object>objects\RGB3Controller_obj</object>
-          <object>objects\Player3_StartBox_obj</object>
-          <object>objects\PressXtoPlayer3_obj</object>
-          <object>objects\Ready3Up_obj</object>
-          <object>objects\Player3Spawn_obj</object>
-          <object>objects\Recolor3_obj</object>
-          <object>objects\Player3ReadyTexts</object>
-          <object>objects\obj_sprite_selector_p3</object>
-        </objects>
-        <objects name="Player4">
-          <object>objects\RGB4Controller_obj</object>
-          <object>objects\PressXtoPlayer4_obj</object>
-          <object>objects\Player4_StartBox_obj</object>
-          <object>objects\Player4Spawn_obj</object>
-          <object>objects\Ready4Up_obj</object>
-          <object>objects\Recolor4_obj</object>
-          <object>objects\Player4ReadyTexts</object>
-          <object>objects\obj_sprite_selector_p4</object>
-        </objects>
-        <object>objects\Player2Controller_obj</object>
-        <object>objects\Player3Controller_obj</object>
-        <object>objects\Player4Controller_obj</object>
-        <object>objects\AudioController_obj</object>
-        <object>objects\PressXtoStart_obj</object>
-        <object>objects\GameMaster_obj</object>
-      </objects>
-      <objects name="TitleScreenStuff">
-        <object>objects\R_obj</object>
-        <object>objects\G_obj</object>
-        <object>objects\B_obj</object>
-        <object>objects\Fist_obj</object>
-        <object>objects\MenuPunch_obj</object>
       </objects>
       <objects name="Tweens">
         <object>objects\obj_tween_slowmotion</object>
+      </objects>
+      <objects name="Container">
+        <object>objects\obj_fighter_container</object>
+        <object>objects\obj_fighter_data</object>
       </objects>
     </objects>
   </objects>
@@ -737,6 +751,8 @@
       <room>rooms\rm_splashscreen_2</room>
       <room>rooms\rm_titlescreen</room>
       <room>rooms\rm_mainmenu</room>
+      <room>rooms\rm_creator_menu</room>
+      <room>rooms\rm_fighter_creator</room>
       <room>rooms\rm_options</room>
       <room>rooms\rm_keybindings</room>
       <room>rooms\rm_gamemode</room>

@@ -84,6 +84,7 @@ room_speed = 16;
           <argument>
             <kind>1</kind>
             <string>//Plays soundfile.
+if (!instance_exists(creator)) exit;
 if (creator.lazer_noise = false)
 {
     var sfx = audio_play_sound_volume(sfx_lazer_prefire, 10, false, global.sfxvolume);
