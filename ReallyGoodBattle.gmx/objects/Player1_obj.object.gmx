@@ -69,7 +69,7 @@ if (global.player1_ai)
 }
 
 //Built-In Variables
-sprite_index = spr_idle
+sprite_index = spr_idle;
 
 //Alarms
 alarm[2] = room_speed * 1.5; //1 second invunerability.
@@ -295,10 +295,11 @@ canChange = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_alpha = 1; 
+            <string>///Handles Movement and Input
+
+//Built-In Variables
+image_alpha = 1; 
 mask_index = spr_player_collision_mask;
-///Handles Movement and Input
- 
 
 //Check ambience sound stuffz.
 if (CanLazer and !lazer_sound)
@@ -350,8 +351,6 @@ image_speed = .3;
 script_execute(mState); 
 //Detects collision.
 Collision_Script();
-
-
 
 //Detects death.
 if (hp &lt;= 0) 

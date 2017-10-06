@@ -190,6 +190,7 @@
         <sprite>sprites\flash_spr</sprite>
         <sprite>sprites\BoxheadSpalsh</sprite>
         <sprite>sprites\ScoreBoard_spr</sprite>
+        <sprite>sprites\spr_fighter_creator_frame</sprite>
       </sprites>
       <sprites name="Widgets">
         <sprite>sprites\spr_button</sprite>
@@ -490,9 +491,17 @@
         <scripts name="CreatorMenu">
           <script>scripts\del_creator_menu_back.gml</script>
           <script>scripts\del_creator_menu_new_fighter.gml</script>
+          <script>scripts\del_creator_menu_update.gml</script>
           <script>scripts\del_creator_menu_delete.gml</script>
           <script>scripts\del_creator_menu_up.gml</script>
           <script>scripts\del_creator_menu_down.gml</script>
+          <script>scripts\del_creator_tab_update.gml</script>
+        </scripts>
+        <scripts name="FighterMenu">
+          <script>scripts\del_fighter_menu_back.gml</script>
+          <script>scripts\del_fighter_menu_model.gml</script>
+          <script>scripts\del_fighter_menu_color.gml</script>
+          <script>scripts\del_fighter_menu_name.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -741,6 +750,12 @@
       <objects name="Container">
         <object>objects\obj_fighter_container</object>
         <object>objects\obj_fighter_data</object>
+      </objects>
+      <objects name="Interface">
+        <object>objects\obj_fighter_frame</object>
+        <object>objects\obj_fighter_frame_fighter</object>
+        <object>objects\obj_fighter_color_selector</object>
+        <object>objects\obj_fighter_name_selector</object>
       </objects>
     </objects>
   </objects>
