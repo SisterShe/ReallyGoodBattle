@@ -50,10 +50,8 @@ charge = 0;
 CanLazer = false; 
 //Updates sprite set.
 sprite_set = global.player2_spriteset;
-event_user(0);
 alarm[2] = room_speed * 1.5; //1 second invunerability.
 //Built-In Variables
-sprite_index = spr_idle
 can_attack = true;
 laserdeath = false;
 lazer_sound = true;

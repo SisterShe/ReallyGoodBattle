@@ -89,9 +89,12 @@ for (var i = 0; i &lt; 4; i++)
 }
 
 //Loads Fighters
-suicide(global.fighter_container);
-global.fighter_container = instance_create(x, y, obj_fighter_container);
-global.fighter_count = ini_read_real("Fighters", "Count", 5);
+for (var i = 0; i &lt; ds_list_size(obj_fighter_container.list); i++)
+{
+    suicide(ds_list_find_value(obj_fighter_container.list, i));
+}
+ds_list_clear(obj_fighter_container.list);
+global.fighter_count = ini_read_real("Fighters", "Count", 4);
 for (var i = 0; i &lt; global.fighter_count; i++)
 {
     //Creates fighter.
@@ -111,9 +114,7 @@ for (var i = 0; i &lt; global.fighter_count; i++)
 ini_close();
 
 //Sets game resolution.
-//surface_resize(application_surface, global.gameWidth, global.gameHeight);
 window_set_fullscreen(global.fullscreen);
-//display_reset(0, false);
 
 //Goes to splashscreen.
 room_goto(rm_splashscreen_1);
@@ -203,7 +204,6 @@ if (!ini_read_real("Settings", "Default", false))
     }  
     
     //Creates fighters.
-    global.fighter_count = 4;
    
     //Fighter 1:
     var fighter = instance_create(x, y, obj_fighter_data);
@@ -252,26 +252,27 @@ if (!ini_read_real("Settings", "Default", false))
         model = 3;
     }
     ds_list_add(obj_fighter_container.list, fighter);
-}
     
-//Saves Fighters.
-global.fighter_count = ds_list_size(obj_fighter_container.list);
-ini_write_real("Fighters", "Count", global.fighter_count);
-for (var i = 0; i &lt; global.fighter_count; i++)
-{
-    with (obj_fighter_container)
+    //Saves Fighters.
+    global.fighter_count = ds_list_size(obj_fighter_container.list);
+    ini_write_real("Fighters", "Count", global.fighter_count);
+    for (var i = 0; i &lt; global.fighter_count; i++)
     {
-        var fighter = ds_list_find_value(list, i);
-        with (fighter)
+        with (obj_fighter_container)
         {
-            ini_write_string("Fighters", "Name_" + string(i), name);
-            ini_write_real("Fighters", "Red_" + string(i), red);
-            ini_write_real("Fighters", "Green_" + string(i), green);
-            ini_write_real("Fighters", "Blue_" + string(i), blue);
-            ini_write_real("Fighters", "Model_" + string(i), model);
+            var fighter = ds_list_find_value(list, i);
+            with (fighter)
+            {
+                ini_write_string("Fighters", "Name_" + string(i), name);
+                ini_write_real("Fighters", "Red_" + string(i), red);
+                ini_write_real("Fighters", "Green_" + string(i), green);
+                ini_write_real("Fighters", "Blue_" + string(i), blue);
+                ini_write_real("Fighters", "Model_" + string(i), model);
+            }
         }
-    }
+    }    
 }
+
 
 //Closes the settings file.
 ini_close();
@@ -320,6 +321,7 @@ global.player3_spriteset = 1;
 global.player4_spriteset = 1;
 global.respawn_timer = 1;
 global.fighter_container = instance_create(x, y, obj_fighter_container);
+global.fighter_count = 4;
 
 //Artifical Intelligence
 global.player1_ai = false;

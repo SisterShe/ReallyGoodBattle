@@ -46,9 +46,6 @@ canDash = true;
 PlayerScore = 0; 
 Combo = 0; 
 SpawnLine = false;  
-//Updates sprite set.
-sprite_set = global.player1_spriteset;
-event_user(0);
 NewColor = make_color_rgb(0,0,0); 
 can_behit = false;
 charge = 0; 
@@ -59,6 +56,7 @@ lazer_sound = true;
 laser_sound_sfx = noone;
 punch_noise = false;
 lazer_noise = false;
+sprite_set = global.player1_spriteset;
 
 //Check if AI
 if (global.player1_ai)
@@ -69,7 +67,7 @@ if (global.player1_ai)
 }
 
 //Built-In Variables
-sprite_index = spr_idle;
+//sprite_index = spr_idle;
 
 //Alarms
 alarm[2] = room_speed * 1.5; //1 second invunerability.

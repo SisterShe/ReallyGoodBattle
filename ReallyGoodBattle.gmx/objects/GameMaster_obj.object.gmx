@@ -35,6 +35,7 @@ Player1Red = 255;
 Player1Green = 100;
 Player1Blue = 255;
 Player1Respawn = true;
+Player1Fighter = 0;
 
 //Player 2
 Player2Score = 0;
@@ -44,6 +45,7 @@ Player2Red = 255;
 Player2Green = 100;
 Player2Blue = 50;
 Player2Respawn = true;
+Player2Fighter = 0;
 
 //Player 3
 Player3Score = 0;
@@ -53,6 +55,7 @@ Player3Red = 50;
 Player3Green = 255;
 Player3Blue = 255;
 Player3Respawn = true;
+Player3Fighter = 0;
 
 //Player 4
 Player4Score = 0;
@@ -62,11 +65,12 @@ Player4Red = 255;
 Player4Green = 255;
 Player4Blue = 50;
 Player4Respawn = true;
+Player4Fighter = 0;
 
 //Instance Variables
 ActivePlayers = 0;
 ReadyPlayers = 0; 
-RespawnTimer = room_seconds(1.5);
+RespawnTimer = room_seconds(1);
 pause_room = false;
 </string>
           </argument>
@@ -98,14 +102,26 @@ if (global.gamemode = "Player Lives")
     //Check if player is alive.
     if (ds_list_find_value(obj_score_controller.scores, 3) &gt; 0)
     {
-        instance_create(Player4Spawn_obj.x,Player4Spawn_obj.y,Player4_obj);
+        var player = instance_create(Player4Spawn_obj.x,Player4Spawn_obj.y,Player4_obj);
         Player4Respawn = true;
+        with (player)
+        {
+            fighter_index = ds_list_find_index(obj_fighter_container.list, other.Player4Fighter);
+            fighter = other.Player4Fighter;
+            event_user(0);
+        }
     }
 }
 else
 {
-    instance_create(Player4Spawn_obj.x,Player4Spawn_obj.y,Player4_obj);
+    var player = instance_create(Player4Spawn_obj.x,Player4Spawn_obj.y,Player4_obj);
     Player4Respawn = true;
+    with (player)
+    {
+        fighter_index = ds_list_find_index(obj_fighter_container.list, other.Player4Fighter);
+        fighter = other.Player4Fighter;
+        event_user(0);
+    }
 }
 </string>
           </argument>
@@ -137,14 +153,26 @@ if (global.gamemode = "Player Lives")
     //Check if player is alive.
     if (ds_list_find_value(obj_score_controller.scores, 2) &gt; 0)
     {
-        instance_create(Player3Spawn_obj.x,Player3Spawn_obj.y,Player3_obj);
+        var player = instance_create(Player3Spawn_obj.x,Player3Spawn_obj.y,Player3_obj);
         Player3Respawn = true;
+        with (player)
+        {
+            fighter_index = ds_list_find_index(obj_fighter_container.list, other.Player3Fighter);
+            fighter = other.Player3Fighter;
+            event_user(0);
+        }
     }
 }
 else
 {
-    instance_create(Player3Spawn_obj.x,Player3Spawn_obj.y,Player3_obj);
+    var player = instance_create(Player3Spawn_obj.x,Player3Spawn_obj.y,Player3_obj);
     Player3Respawn = true;
+    with (player)
+        {
+            fighter_index = ds_list_find_index(obj_fighter_container.list, other.Player3Fighter);
+            fighter = other.Player3Fighter;
+            event_user(0);
+        }
 }
 </string>
           </argument>
@@ -176,14 +204,26 @@ if (global.gamemode = "Player Lives")
     //Check if player is alive.
     if (ds_list_find_value(obj_score_controller.scores, 1) &gt; 0)
     {
-        instance_create(Player2Spawn_obj.x,Player2Spawn_obj.y,Player2_obj);
+        var player = instance_create(Player2Spawn_obj.x,Player2Spawn_obj.y,Player2_obj);
         Player2Respawn = true;
+        with (player)
+        {
+            fighter_index = ds_list_find_index(obj_fighter_container.list, other.Player2Fighter);
+            fighter = other.Player2Fighter;
+            event_user(0);
+        }
     }
 }
 else
 {
-    instance_create(Player2Spawn_obj.x,Player2Spawn_obj.y,Player2_obj);
+    var player = instance_create(Player2Spawn_obj.x,Player2Spawn_obj.y,Player2_obj);
     Player2Respawn = true;
+    with (player)
+        {
+            fighter_index = ds_list_find_index(obj_fighter_container.list, other.Player2Fighter);
+            fighter = other.Player2Fighter;
+            event_user(0);
+        }
 }
 </string>
           </argument>
@@ -215,14 +255,26 @@ if (global.gamemode = "Player Lives")
     //Check if player is alive.
     if (ds_list_find_value(obj_score_controller.scores, 0) &gt; 0)
     {
-        instance_create(Player1Spawn_obj.x,Player1Spawn_obj.y,Player1_obj);
+        var player = instance_create(Player1Spawn_obj.x,Player1Spawn_obj.y,Player1_obj);
         Player1Respawn = true;
+        with (player)
+        {
+            fighter_index = ds_list_find_index(obj_fighter_container.list, other.Player1Fighter);
+            fighter = other.Player1Fighter;
+            event_user(0);
+        }
     }
 }
 else
 {
-    instance_create(Player1Spawn_obj.x,Player1Spawn_obj.y,Player1_obj);
+    var player = instance_create(Player1Spawn_obj.x,Player1Spawn_obj.y,Player1_obj);
     Player1Respawn = true;
+    with (player)
+    {
+        fighter_index = ds_list_find_index(obj_fighter_container.list, other.Player1Fighter);
+        fighter = other.Player1Fighter;
+        event_user(0);
+    }
 }
 </string>
           </argument>

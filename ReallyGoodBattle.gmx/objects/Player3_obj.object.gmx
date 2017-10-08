@@ -50,10 +50,8 @@ can_behit = false;
 CanLazer = false; 
 //Updates sprite set.
 sprite_set = global.player3_spriteset;
-event_user(0);
 alarm[2] = room_speed * 1.5; //1 second invunerability.
 //Built-In Variables
-sprite_index = spr_idle;
 can_attack = true;
 laserdeath = false;
 lazer_sound = true;

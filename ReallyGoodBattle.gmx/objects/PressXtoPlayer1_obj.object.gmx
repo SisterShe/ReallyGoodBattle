@@ -42,6 +42,7 @@ key1 = ds_list_find_value(global.keybindings, index).jump_key1_keyboard;
 key2 = ds_list_find_value(global.keybindings, index).jump_key1_gamepad;
 key3 = ds_list_find_value(global.keybindings, index).jump_key2_keyboard;
 key4 = ds_list_find_value(global.keybindings, index).jump_key2_gamepad;
+
 </string>
           </argument>
         </arguments>
@@ -69,29 +70,30 @@ key4 = ds_list_find_value(global.keybindings, index).jump_key2_gamepad;
 //Check if disabled.
 if (disabled) exit;
 
-/* Old Code
-timer = timer + 1; 
-if (timer &lt; 60) {
-   Color = choose(c_red,c_green,c_blue); 
-   alpha = 1; 
-}
-
-if (timer &gt; 60) {
-    alpha = 1;  
-}
-
-if (timer &gt;= 160) {
-    timer = 1;
-}
-*/
-
 //Check for Join input.
 if (input_check_pressed(index, key1, key2, key3, key4)) 
 {
-    
-    instance_create(48,48,RGB1Controller_obj);
-    audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
-    instance_destroy();  
+     instance_create(Player1Spawn_obj.x,Player1Spawn_obj.y,Player1_obj);
+     with (Player1_obj)
+     {
+        self.fighter_index = irandom_range(0, ds_list_size(obj_fighter_container.list) - 1);
+        self.fighter = ds_list_find_value(obj_fighter_container.list, self.fighter_index);
+        event_user(0);
+        with (GameMaster_obj)
+        {
+           Player1Red = other.fighter.red;
+           Player1Green = other.fighter.green;
+           Player1Blue = other.fighter.blue;
+           Player1Fighter = other.fighter;
+           Player1Active = 1;
+           Player1Ready = 0;
+        }
+     }
+     instance_create(165,75,Player1ReadyTexts); 
+     instance_create(80,110,Ready1Up_obj); 
+     instance_create(176,110,Recolor1_obj);
+     instance_destroy();
+     audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume); 
 }
 
 //Check for AI input.
@@ -101,6 +103,15 @@ if (input_check_pressed(index, ord("1")))
     disabled = true;
     global.player1_ai = true;
     audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
+    var fighter_index = irandom_range(0, ds_list_size(obj_fighter_container.list) - 1);
+    var fighter = ds_list_find_value(obj_fighter_container.list, fighter_index);
+    with (GameMaster_obj)
+    {
+       Player1Red = fighter.red;
+       Player1Green = fighter.green;
+       Player1Blue = fighter.blue;
+       Player1Fighter = fighter;
+    }
 }
 </string>
           </argument>

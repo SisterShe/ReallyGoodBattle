@@ -27,6 +27,10 @@
             <kind>1</kind>
             <string>///Creation Code
 
+//Instance Variables.
+fighter = noone;
+fighter_index = 0;
+
 //Sets default input values.
 left_key = false;
 right_key = false;
@@ -72,7 +76,7 @@ four_key = false;
           <argument>
             <kind>1</kind>
             <string>///Updates player sprite set.
-switch (sprite_set)
+switch (fighter.model)
 {
     //Player 1 Sprites
     case 1:
@@ -110,6 +114,9 @@ switch (sprite_set)
     PlayerNum = 4;
     break;
 }
+
+//ggeasi.
+sprite_index = spr_idle;
 </string>
           </argument>
         </arguments>

@@ -94,56 +94,6 @@ if (inactive) exit;
 //Check if owner can attack.
 if (!creator.can_attack) exit;
 
-/*
-//Updates the tiles color.
-if (instance_exists(creator)) 
-{
-    //Player 1
-    if (instance_exists(Player1_obj)) 
-    {
-        if (creator.id == Player1_obj.id) 
-        {
-            TileParent_obj.Red = GameMaster_obj.Player1Red;
-            TileParent_obj.Green = GameMaster_obj.Player1Green;
-            TileParent_obj.Blue = GameMaster_obj.Player1Blue; 
-        }
-    }
-    
-    //Player 2
-    if (instance_exists(Player2_obj)) 
-    {
-        if (creator.id == Player2_obj.id) 
-        {
-            TileParent_obj.Red = GameMaster_obj.Player2Red;
-            TileParent_obj.Green = GameMaster_obj.Player2Green;
-            TileParent_obj.Blue = GameMaster_obj.Player2Blue; 
-        }
-    }
-    
-    //Player 3
-    if (instance_exists(Player3_obj)) 
-    {
-        if (creator.id == Player3_obj.id) 
-        {
-            TileParent_obj.Red = GameMaster_obj.Player3Red;
-            TileParent_obj.Green = GameMaster_obj.Player3Green;
-            TileParent_obj.Blue = GameMaster_obj.Player3Blue; 
-        }
-    }
-    
-    //Player 4
-    if (instance_exists(Player4_obj)) 
-    {
-        if (creator.id == Player4_obj.id) 
-        {
-            TileParent_obj.Red = GameMaster_obj.Player4Red;
-            TileParent_obj.Green = GameMaster_obj.Player4Green;
-            TileParent_obj.Blue = GameMaster_obj.Player4Blue; 
-        }
-    }
-}
-*/
-
 //Confirms collision.
 if (instance_exists(creator)) 
 { 

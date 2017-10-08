@@ -488,32 +488,53 @@ if (global.gamemode = "Kills to Win" or global.gamemode = "Captures to Win")
             switch (player_text)
             {
                 case "Player 1":
-                color = make_color_rgb(GameMaster_obj.Player1Red,
-                GameMaster_obj.Player1Green,
-                GameMaster_obj.Player1Blue);
+                if (GameMaster_obj.Player1Active or global.player1_ai)
+                {
+                    //Draws Text for Player    
+                    color = make_color_rgb(GameMaster_obj.Player1Red, GameMaster_obj.Player1Green, GameMaster_obj.Player1Blue);
+                    text = string_replace(text, "Player 1", GameMaster_obj.Player1Fighter.name);     
+                    draw_set_color(color);
+                    draw_text(xx, yy, text);
+                    yy += sep;
+                }
                 break;
                 
                 case "Player 2":
-                color = make_color_rgb(GameMaster_obj.Player2Red,
-                GameMaster_obj.Player2Green,
-                GameMaster_obj.Player2Blue);
+                if (GameMaster_obj.Player2Active or global.player2_ai)
+                {
+                    //Draws Text for Player    
+                    color = make_color_rgb(GameMaster_obj.Player2Red, GameMaster_obj.Player2Green, GameMaster_obj.Player2Blue);
+                    text = string_replace(text, "Player 2", GameMaster_obj.Player2Fighter.name);     
+                    draw_set_color(color);
+                    draw_text(xx, yy, text);
+                    yy += sep;
+                }
                 break;
                 
                 case "Player 3":
-                color = make_color_rgb(GameMaster_obj.Player3Red,
-                GameMaster_obj.Player3Green,
-                GameMaster_obj.Player3Blue);
+                if (GameMaster_obj.Player3Active or global.player3_ai)
+                {
+                    //Draws Text for Player  
+                    color = make_color_rgb(GameMaster_obj.Player3Red, GameMaster_obj.Player3Green, GameMaster_obj.Player3Blue);
+                    text = string_replace(text, "Player 3", GameMaster_obj.Player3Fighter.name);       
+                    draw_set_color(color);
+                    draw_text(xx, yy, text);
+                    yy += sep;
+                }
                 break;
                 
                 case "Player 4":
-                color = make_color_rgb(GameMaster_obj.Player4Red,
-                GameMaster_obj.Player4Green,
-                GameMaster_obj.Player4Blue);
+                if (GameMaster_obj.Player4Active or global.player4_ai)
+                {
+                    //Draws Text for Player   
+                    color = make_color_rgb(GameMaster_obj.Player4Red, GameMaster_obj.Player4Green, GameMaster_obj.Player4Blue);
+                    text = string_replace(text, "Player 4", GameMaster_obj.Player4Fighter.name);      
+                    draw_set_color(color);
+                    draw_text(xx, yy, text);
+                    yy += sep;
+                }
                 break;
-            }
-            draw_set_color(color);
-            draw_text(xx, yy, text);
-            yy += sep;
+            } 
         }
         
         //Clean-Up Leaks

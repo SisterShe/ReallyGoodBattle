@@ -8,6 +8,56 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Creation Code
+
+//Instance Variables
+can_behit = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Activates can be hit.
+can_behit = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,7 +75,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>///Updates color.
 image_blend = make_color_rgb(GameMaster_obj.Player1Blue,GameMaster_obj.Player1Red,GameMaster_obj.Player1Green);
  
  
@@ -51,23 +101,41 @@ image_blend = make_color_rgb(GameMaster_obj.Player1Blue,GameMaster_obj.Player1Re
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
-GameMaster_obj.Player1Red = round(random_range(0,255)); 
-GameMaster_obj.Player1Green = round(random_range(0,255));
-GameMaster_obj.Player1Blue = round(random_range(0,255));
-*/
+            <string>///Handles collision.
 
-audio_play_sound_volume(sfx_ready_up, 10, false, global.sfxvolume);
-
-//Recreates color selection.
-instance_create(48,48,RGB1Controller_obj);
-
-//Destroy instances.
-suicide(Ready1Up_obj);
-suicide(Player1ReadyTexts);
-suicide(obj_sprite_selector_p1);
-suicide(Player1_obj);
-suicide();
+//Check if can be hit.
+if (can_behit)
+{
+    can_behit = false;
+    alarm[0] = room_seconds(0.5);
+    audio_play_sound_volume(sfx_ready_up, 10, false, global.sfxvolume);
+    
+    //Recreates color selection.
+    with (Player1_obj)
+    {
+        //Updates fighter for player.
+        fighter_index += 1;
+        if (fighter_index &gt; ds_list_size(obj_fighter_container.list) - 1)
+        {
+            fighter_index = 0;
+        }
+        fighter = ds_list_find_value(obj_fighter_container.list, fighter_index);
+        event_user(0);
+        with (GameMaster_obj)
+        {
+           Player1Red = other.fighter.red;
+           Player1Green = other.fighter.green;
+           Player1Blue = other.fighter.blue;
+           Player1Fighter = other.fighter;
+        }
+        
+        var name = fighter.name;
+    }
+    
+    //Plays popup animation for name.
+    animation_text_popup(-100, 1, 0.02, fnt_joystix_8, fa_center,
+    fa_top, x, y, name, 16, 100, room_seconds(2), 30, 90, c_white, c_white);
+}
 </string>
           </argument>
         </arguments>
