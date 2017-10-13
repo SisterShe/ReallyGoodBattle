@@ -7,10 +7,10 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>5</bbox_left>
-  <bbox_right>45</bbox_right>
-  <bbox_top>14</bbox_top>
-  <bbox_bottom>30</bbox_bottom>
+  <bbox_left>3</bbox_left>
+  <bbox_right>43</bbox_right>
+  <bbox_top>16</bbox_top>
+  <bbox_bottom>32</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -26,5 +26,6 @@
     <frame index="3">images\Player3_RAirAtk_spr_3.png</frame>
     <frame index="4">images\Player3_RAirAtk_spr_4.png</frame>
     <frame index="5">images\Player3_RAirAtk_spr_5.png</frame>
+    <frame index="6">images\Player3_RAirAtk_spr_6.png</frame>
   </frames>
 </sprite>
