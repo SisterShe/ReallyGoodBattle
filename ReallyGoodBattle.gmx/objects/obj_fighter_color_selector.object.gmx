@@ -115,15 +115,15 @@ if (move != 0 and !input_delay)
     //Check for color
     switch (mpos) {
         case 0: {
-            audio_play_sound_volume(sfx_select_red, 10, false, global.sfxvolume);
+            audio_play_sound_volume(sfx_rgb_up, 10, false, global.sfxvolume);
             break;
         }
          case 1: {
-            audio_play_sound_volume(sfx_select_green, 10, false, global.sfxvolume);
+            audio_play_sound_volume(sfx_rgb_up, 10, false, global.sfxvolume);
             break;
         }
          case 2: {
-            audio_play_sound_volume(sfx_select_blue, 10, false, global.sfxvolume);
+            audio_play_sound_volume(sfx_rgb_up, 10, false, global.sfxvolume);
             break;
         }
     }  

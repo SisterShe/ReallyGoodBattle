@@ -158,9 +158,7 @@ if (PlayerNum = 1) {
     charge -= 1;
 } else { hurt = instance_create(x,y-6,Hitbox_obj); 
 
-    audio_sound_pitch(AirWiff_snd, random_range(1.5,2.5));
-    var sound = audio_play_sound(AirWiff_snd, 2, false);
-    audio_sound_gain(sound, global.sfxvolume, 0);
+    
     
     hurt.creator = id;
     hurt.image_xscale = abs(image_xscale*1.75); 

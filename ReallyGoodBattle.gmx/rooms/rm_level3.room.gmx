@@ -12,7 +12,7 @@
   <showcolour>-1</showcolour>
   <code>instance_create(random_range(32,room_width-32),random_range(32,room_height-32),ShrineChoice_obj);
 room_speed = 60;</code>
-  <enableViews>0</enableViews>
+  <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
@@ -42,7 +42,7 @@ room_speed = 60;</code>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
   </backgrounds>
   <views>
-    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="-1" objName="&lt;undefined&gt;" xview="0" yview="0" wview="512" hview="288" xport="0" yport="0" wport="512" hport="288" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
@@ -216,7 +216,6 @@ room_speed = 60;</code>
     <instance objName="Corner_obj" x="98" y="98" name="inst_05B2686D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="180"/>
     <instance objName="Blackbox_obj" x="-24" y="-30" name="inst_EB866BB5" locked="0" code="" scaleX="1" scaleY="11" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="0" y="282" name="inst_EF6113B9" locked="0" code="" scaleX="17" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Blackbox_obj" x="505" y="-32" name="inst_A0AA5929" locked="0" code="" scaleX="1" scaleY="10.5" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="1" y="-26" name="inst_D3721D9A" locked="0" code="" scaleX="16" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="58" y="202" name="inst_3CE70030" locked="0" code="" scaleX="0.875" scaleY="0.3125" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="56" y="74" name="inst_E6006212" locked="0" code="" scaleX="0.96875" scaleY="0.375" colour="4294967295" rotation="0"/>

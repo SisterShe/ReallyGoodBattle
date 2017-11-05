@@ -50,6 +50,7 @@ stick_delay_passed = true;
 last_direction = "Upwards";
 disabled = false;
 stored_selection = noone;
+pitch_factor = 1;
 </string>
           </argument>
         </arguments>
@@ -419,7 +420,13 @@ if (position &lt; 0)
     }
 }
 last_direction = "Downwards";
-audio_play_sound_volume(sfx_menu_down, 10, false, global.sfxvolume);
+var sfx = audio_play_sound_volume(sfx_menu_down, 10, false, global.sfxvolume);
+if (pitch_factor &gt; 1)
+{
+    pitch_factor = 1;
+}
+audio_sound_pitch(sfx, pitch_factor);
+pitch_factor -= 0.2;
 event_user(0);
 </string>
           </argument>
@@ -459,7 +466,13 @@ if (position &gt; ds_list_size(widgets) - 1) //Maybe -1
     }
 }
 last_direction = "Upwards";
-audio_play_sound_volume(sfx_menu_up, 10, false, global.sfxvolume);
+var sfx = audio_play_sound_volume(sfx_menu_up, 10, false, global.sfxvolume);
+if (pitch_factor &lt; 1)
+{
+    pitch_factor = 1;
+}
+audio_sound_pitch(sfx, pitch_factor);
+pitch_factor += 0.2;
 event_user(0);
 </string>
           </argument>

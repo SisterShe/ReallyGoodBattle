@@ -308,6 +308,10 @@ global.fullscreen = false;
 global.musicvolume = 1;
 global.sfxvolume = 1;
 
+//Misc
+global.music = noone;
+global.camera_index = 0;
+
 //Gameplay
 global.score_label = noone;
 global.game_label = noone;
