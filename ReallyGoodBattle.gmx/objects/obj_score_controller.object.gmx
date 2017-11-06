@@ -215,7 +215,7 @@ if (can_skip and input_check_pressed(0, gp_start, vk_escape))
         //Goes to next level.
         while (true)
         {
-            new_room = choose(rm_level1, rm_level2, rm_level3, rm_level4,rm_level5,rm_level6);
+            new_room = choose(rm_level1, rm_level2, rm_level3, rm_level4);
             if (new_room != room)
             {
                 room_cfade(new_room, room_seconds(1), c_black);

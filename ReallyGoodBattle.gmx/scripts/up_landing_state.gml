@@ -23,7 +23,7 @@ if (PlayerNum = 4)
 //Updates image variables.
 image_speed = .55
 image_angle = 0; 
-image_xscale = 1; 
+//image_xscale = 1; 
 image_yscale = 1; 
 
 
@@ -127,7 +127,7 @@ if (PlayerNum = 4) {
 image_speed = .55
 image_angle = 270; 
 image_xscale = 1; 
-image_yscale = 1; 
+//image_yscale = 1; 
 if (down_key_pressed and canDash = true) {
     canDash = false; 
     vspeed += 3 ; 
@@ -209,7 +209,7 @@ if (PlayerNum = 4) {
     } 
 image_speed = .55
 image_angle = 180; 
-image_xscale = 1; 
+//image_xscale = 1; 
 image_yscale = 1; 
 if (right_key_pressed and canDash = true) {
     canDash = false; 
@@ -291,7 +291,7 @@ if (PlayerNum = 4) {
 image_speed = .55;  
 image_angle = 90; 
 image_xscale = 1; 
-image_yscale = 1; 
+//image_yscale = 1; 
 Impact = (instance_create(x+8,y,Player_Llanding_obj));
 Impact.image_angle = image_angle; 
 Impact.image_xscale = (random_range(.75,1.5)); 
