@@ -59,7 +59,7 @@
     <instance objName="Player3Spawn_obj" x="120" y="200" name="inst_82B4F4E0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Player4_StartBox_obj" x="384" y="208" name="inst_0E013E66" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Player4Spawn_obj" x="376" y="200" name="inst_468796EB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="GameMaster_obj" x="240" y="0" name="inst_09A79C0A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="GameMaster_obj" x="192" y="64" name="inst_09A79C0A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="TileUp_obj" x="32" y="127" name="inst_116B119C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="TileUp_obj" x="48" y="127" name="inst_2B2B180A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="TileUp_obj" x="64" y="127" name="inst_684762D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -374,8 +374,8 @@
     <instance objName="Blackbox_obj" x="128" y="0" name="inst_962F1615" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="160" y="0" name="inst_55FD3E42" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="192" y="0" name="inst_FBC9F8C1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Blackbox_obj" x="224" y="0" name="inst_F1C0BE74" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Blackbox_obj" x="256" y="0" name="inst_B2F28D08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Blackbox_obj" x="256" y="0" name="inst_F1C0BE74" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Blackbox_obj" x="224" y="0" name="inst_B2F28D08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="288" y="0" name="inst_DD2F5666" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="320" y="0" name="inst_65D76402" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="352" y="0" name="inst_7107F30F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

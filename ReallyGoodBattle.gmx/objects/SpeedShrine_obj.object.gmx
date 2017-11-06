@@ -90,11 +90,7 @@ border.creator = id;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (sound != noone)
-{
-    audio_sound_gain(sound, 0, 0);
-}
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -141,6 +137,9 @@ IsActive = true;
           <argument>
             <kind>1</kind>
             <string>///Handles Capturing of Shrine
+
+//Check if score is drawing.
+if (obj_score_controller.draw_score) exit;
 
 //Check if shrine is active.
 if (IsActive = true) 
@@ -368,6 +367,9 @@ if (ShrineVal &gt;= capture_time)
         //Runs code from score controller.
         with (obj_score_controller)
         {
+            //Stops music slowly.
+            audio_sound_gain(global.music, 0, room_seconds(3));
+            
             //Updates player score.
             var player_score = ds_list_find_value(scores, i);
             player_score += 1;
@@ -389,6 +391,7 @@ if (ShrineVal &gt;= capture_time)
                 
                 //Scorescreen alarm.
                 alarm[0] = 30;
+                
                 
                 //Disables pause.
                 with (obj_pause_controller)
@@ -428,7 +431,11 @@ if (ShrineVal &gt;= capture_time)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>suicide();
+            <string>if (sound != noone)
+{
+    audio_sound_gain(sound, 0, 0);
+    sound = noone;
+}
 </string>
           </argument>
         </arguments>

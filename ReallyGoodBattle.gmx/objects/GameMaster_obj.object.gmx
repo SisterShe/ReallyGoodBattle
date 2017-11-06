@@ -412,6 +412,9 @@ if (room = rm_gamesetup and ActivePlayers = ReadyPlayers and ActivePlayers &gt; 
 if (room = rm_gamesetup and input_check_pressed(0, gp_start, gp_select, vk_escape))
 {
     room_goto(rm_mainmenu);
+    audio_play_sound_volume(sfx_exit, 10, false, global.sfxvolume);
+    
+    
 }
 </string>
           </argument>
