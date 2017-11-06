@@ -214,15 +214,16 @@ room_speed = 60;</code>
     <instance objName="Corner_obj" x="466" y="98" name="inst_F6F2B881" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="180"/>
     <instance objName="Corner_obj" x="466" y="226" name="inst_062164BD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="180"/>
     <instance objName="Corner_obj" x="98" y="98" name="inst_05B2686D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="180"/>
-    <instance objName="Blackbox_obj" x="-24" y="-30" name="inst_EB866BB5" locked="0" code="" scaleX="1" scaleY="11" colour="4294967295" rotation="0"/>
-    <instance objName="Blackbox_obj" x="0" y="282" name="inst_EF6113B9" locked="0" code="" scaleX="17" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Blackbox_obj" x="505" y="-32" name="inst_A0AA5929" locked="0" code="" scaleX="1" scaleY="10.5" colour="4294967295" rotation="0"/>
-    <instance objName="Blackbox_obj" x="1" y="-26" name="inst_D3721D9A" locked="0" code="" scaleX="16" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Blackbox_obj" x="-20" y="-30" name="inst_EB866BB5" locked="0" code="" scaleX="1" scaleY="11" colour="4294967295" rotation="0"/>
+    <instance objName="Blackbox_obj" x="0" y="276" name="inst_EF6113B9" locked="0" code="" scaleX="17" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Blackbox_obj" x="500" y="-33" name="inst_A0AA5929" locked="0" code="" scaleX="1" scaleY="10.5" colour="4294967295" rotation="0"/>
+    <instance objName="Blackbox_obj" x="0" y="-20" name="inst_D3721D9A" locked="0" code="" scaleX="16" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="58" y="202" name="inst_3CE70030" locked="0" code="" scaleX="0.875" scaleY="0.3125" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="56" y="74" name="inst_E6006212" locked="0" code="" scaleX="0.96875" scaleY="0.375" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="136" y="135" name="inst_B4D8F297" locked="0" code="" scaleX="7.3125" scaleY="0.53125" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="427" y="73" name="inst_05BF4ED2" locked="0" code="" scaleX="0.8125" scaleY="0.409999996423721" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="426" y="201" name="inst_767F8563" locked="0" code="" scaleX="0.875" scaleY="0.40625" colour="4294967295" rotation="0"/>
+    <instance objName="Blackbox_obj" x="-19" y="275" name="inst_5D12BE1A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tile_FrontBrick" x="496" y="272" w="16" h="16" xo="80" yo="32" id="10001275" name="inst_3560B102" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

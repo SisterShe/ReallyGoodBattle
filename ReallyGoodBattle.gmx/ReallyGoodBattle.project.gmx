@@ -8,6 +8,7 @@
     <extension index="0">extensions\Simple 3D Anaglyph</extension>
     <extension index="1">extensions\Smooth Noise Generator</extension>
     <extension index="2">extensions\Widgets</extension>
+    <extension index="3">extensions\Bloom shader</extension>
   </NewExtensions>
   <sounds name="sound">
     <sounds name="Dialog">
@@ -227,6 +228,7 @@
     <backgrounds name="Tiles">
       <background>background\tile_FrontBrick</background>
     </backgrounds>
+    <background>background\background0_new</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -505,6 +507,9 @@
       </scripts>
     </scripts>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\shdr_bloom.shader</shader>
+  </shaders>
   <fonts name="fonts">
     <fonts name="Normal">
       <font>fonts\fnt_joystix_8</font>
@@ -620,6 +625,7 @@
         <object>objects\StealthCornerUnit_obj</object>
         <object>objects\FX_obj</object>
         <object>objects\Player_Bullet_Effect</object>
+        <object>objects\ShaderController_obj</object>
       </objects>
       <objects name="Cinderfire">
         <object>objects\obj_score_controller</object>
@@ -757,6 +763,7 @@
         <object>objects\obj_fighter_name_selector</object>
       </objects>
     </objects>
+    <object>objects\object0</object>
   </objects>
   <rooms name="rooms">
     <rooms name="Menu">
@@ -780,12 +787,14 @@
       <room>rooms\rm_level3</room>
       <room>rooms\rm_level4</room>
       <room>rooms\BlankRoom</room>
+      <room>rooms\rm_level6</room>
       <room>rooms\rm_level5</room>
     </rooms>
     <rooms name="Test">
       <room>rooms\TestRoom2</room>
       <room>rooms\TestRoom3</room>
     </rooms>
+    <room>rooms\room0</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
