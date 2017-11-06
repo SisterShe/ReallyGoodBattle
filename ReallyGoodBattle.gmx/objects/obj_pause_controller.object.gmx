@@ -64,8 +64,6 @@ save_alarm_4 = -1;
             <string>///Pause Exit Persistence
 room_persistent = false;
 room_goto(rm_pause);
-
-
 </string>
           </argument>
         </arguments>
@@ -153,7 +151,7 @@ if (input_check_pressed(0, gp_start, vk_escape) and !paused)
 {
     //Pause
     event_user(0);
-    audio_play_sound_volume(sfx_select_red, 10, false, global.sfxvolume);
+    audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
 }
 
 //Check for resume input.
@@ -161,7 +159,7 @@ else if (input_check_pressed(0, key_jump1, key_jump2, gp_start, vk_enter) and pa
 {
     //Resumes
     event_user(1);
-    audio_play_sound_volume(sfx_exit, 10, false, global.sfxvolume);
+    audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
 }
 
 //Check for exit input.
@@ -173,7 +171,7 @@ else if (input_check_pressed(0, key_attack1, key_attack2, gp_select, vk_escape) 
     
     //Goes to main menu.
     room_cfade(rm_mainmenu, room_seconds(1), c_white);
-    audio_play_sound_volume(sfx_exit, 10, false, global.sfxvolume);
+    audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
 }
 </string>
           </argument>
@@ -206,9 +204,6 @@ screenshot = noone;
 //Switches room back.
 room_goto(save_room);
 alarm[1] = 1; //Persistence alarm.
-
-//Resumes Music
-audio_resume_sound(global.music);
 
 //Unpause respawn alarms.
 with (GameMaster_obj)
@@ -262,9 +257,6 @@ with (GameMaster_obj)
     alarm[2] = -1;
     alarm[3] = -1;
 }
-
-//Pauses Music
-audio_pause_sound(global.music);
 
 //Takes screenshot.
 var width = surface_get_width(application_surface);

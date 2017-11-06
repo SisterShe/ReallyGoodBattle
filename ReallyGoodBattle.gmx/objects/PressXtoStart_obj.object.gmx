@@ -31,10 +31,6 @@
 Color = choose(c_red,c_green,c_blue); 
 timer = 0
 alpha = 0; 
-
-
-//Plays music.
-global.music = audio_play_sound_volume(Song1, 5, true, global.musicvolume);
 </string>
           </argument>
         </arguments>
@@ -79,14 +75,7 @@ if (timer &gt;= 160) {
 if (input_check_pressed(0, gp_face1, vk_enter, ord("E"), vk_escape, vk_space)) 
 {
     room_cfade(rm_mainmenu, room_seconds(0.5), c_black);
-    
-    //stops music.
-    audio_sound_gain(global.music, 0, room_seconds(0.5));
-    
-    //Sets music for menu.
-    global.music = audio_play_sound_volume(msi_menu, 5, true, global.musicvolume);
-    
-    audio_play_sound_volume(sfx_ready_up, 10, false, global.sfxvolume);
+    audio_play_sound_volume(sfx_menu_confirm, 10, false, global.sfxvolume);
 }
 </string>
           </argument>

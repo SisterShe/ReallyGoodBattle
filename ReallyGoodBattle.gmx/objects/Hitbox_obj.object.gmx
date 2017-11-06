@@ -114,8 +114,6 @@ if (instance_exists(creator))
             other.can_behit = false;
             other.laserdeath = false;
             
-            camera_shake(2, room_seconds(0.2), false);  
-            
             //Check if point capture gamemode.
             if (global.gamemode = "Captures to Win")
             {
@@ -295,10 +293,6 @@ if (instance_exists(creator))
                         //Start slowmotion tween.
                         instance_create(x, y, obj_tween_slowmotion);
                         instance_create(other.x,other.y,BlackOut_obj); 
-                        camera_shake(2, room_seconds(1), false);  
-                        
-                        //Stops music slowly.
-                        audio_sound_gain(global.music, 0, room_seconds(3));
                         
                         //Scorescreen alarm.
                         alarm[0] = 30;
@@ -337,10 +331,6 @@ if (instance_exists(creator))
                         //Start slowmotion tween.
                         instance_create(x, y, obj_tween_slowmotion);
                         instance_create(other.x,other.y,BlackOut_obj); 
-                        camera_shake(2, room_seconds(1), false);  
-                        
-                        //Stops music slowly.
-                        audio_sound_gain(global.music, 0, room_seconds(3));
                         
                         //Scorescreen alarm.
                         alarm[0] = 30;

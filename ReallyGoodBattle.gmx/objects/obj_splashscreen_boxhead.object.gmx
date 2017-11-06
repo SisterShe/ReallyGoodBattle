@@ -98,7 +98,7 @@ if (image_alpha &lt;= 0)
     {
         //Room transition.
         transition = true;
-        room_cfade(rm_splashscreen_2, room_seconds(2), c_black);
+        room_cfade(rm_splashscreen_2, room_seconds(1), c_black);
     }
 }
 

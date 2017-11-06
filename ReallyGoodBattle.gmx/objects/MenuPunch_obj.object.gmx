@@ -55,7 +55,9 @@ Timer = 0;
             <kind>1</kind>
             <string>Timer += 1; 
 
-if (Timer &gt;= 100) {
+
+
+if (Timer &gt;= 180) {
 image_alpha = .7
 image_yscale = 4;
 image_xscale = 6; 
