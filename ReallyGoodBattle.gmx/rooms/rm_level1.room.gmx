@@ -216,6 +216,7 @@ room_speed = 60;</code>
     <instance objName="Blackbox_obj" x="1" y="11" name="inst_773A2BA6" locked="0" code="" scaleX="17" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="200" y="136" name="inst_0BE7D117" locked="0" code="" scaleX="3.5" scaleY="0.5" colour="4294967295" rotation="0"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
     <instance objName="Blackbox_obj" x="-19" y="259" name="inst_CF4A449F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -267,6 +268,8 @@ room_speed = 60;</code>
     <instance objName="Blackbox_obj" x="504" y="200" name="inst_B865E2D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
 >>>>>>> 6e5e6f4d2f37281d9c79cef09f129606a22b82c8
 >>>>>>> parent of 561ac1e... Revert "Merge branch 'master' of https://github.com/SisterShe/ReallyGoodBattle"
+=======
+>>>>>>> parent of 993e975... Added new rooms
   </instances>
   <tiles>
     <tile bgName="tile_FrontBrick" x="0" y="256" w="16" h="16" xo="48" yo="32" id="10001251" name="inst_47B55A15" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

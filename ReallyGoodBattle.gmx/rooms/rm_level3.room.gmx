@@ -215,10 +215,14 @@ room_speed = 60;</code>
     <instance objName="Corner_obj" x="466" y="226" name="inst_062164BD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="180"/>
     <instance objName="Corner_obj" x="98" y="98" name="inst_05B2686D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="180"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 993e975... Added new rooms
     <instance objName="Blackbox_obj" x="-24" y="-30" name="inst_EB866BB5" locked="0" code="" scaleX="1" scaleY="11" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="0" y="282" name="inst_EF6113B9" locked="0" code="" scaleX="17" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="505" y="-32" name="inst_A0AA5929" locked="0" code="" scaleX="1" scaleY="10.5" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="1" y="-26" name="inst_D3721D9A" locked="0" code="" scaleX="16" scaleY="1" colour="4294967295" rotation="0"/>
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
     <instance objName="Blackbox_obj" x="-20" y="-30" name="inst_EB866BB5" locked="0" code="" scaleX="1" scaleY="11" colour="4294967295" rotation="0"/>
@@ -231,6 +235,8 @@ room_speed = 60;</code>
     <instance objName="Blackbox_obj" x="1" y="-26" name="inst_D3721D9A" locked="0" code="" scaleX="16" scaleY="1" colour="4294967295" rotation="0"/>
 >>>>>>> 6e5e6f4d2f37281d9c79cef09f129606a22b82c8
 >>>>>>> parent of 561ac1e... Revert "Merge branch 'master' of https://github.com/SisterShe/ReallyGoodBattle"
+=======
+>>>>>>> parent of 993e975... Added new rooms
     <instance objName="Blackbox_obj" x="58" y="202" name="inst_3CE70030" locked="0" code="" scaleX="0.875" scaleY="0.3125" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="56" y="74" name="inst_E6006212" locked="0" code="" scaleX="0.96875" scaleY="0.375" colour="4294967295" rotation="0"/>
     <instance objName="Blackbox_obj" x="136" y="135" name="inst_B4D8F297" locked="0" code="" scaleX="7.3125" scaleY="0.53125" colour="4294967295" rotation="0"/>
