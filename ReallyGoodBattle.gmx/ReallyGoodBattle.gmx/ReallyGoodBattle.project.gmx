@@ -241,6 +241,7 @@
         <script>scripts\draw_text_shadow.gml</script>
         <script>scripts\draw_text_shadow_ext.gml</script>
         <script>scripts\draw_text_outline.gml</script>
+        <script>scripts\draw_text_outline_transformed.gml</script>
         <script>scripts\draw_text_outline_ext.gml</script>
         <script>scripts\draw_grid.gml</script>
         <script>scripts\draw_message.gml</script>
@@ -325,6 +326,7 @@
         <script>scripts\camera_move.gml</script>
         <script>scripts\camera_shake.gml</script>
         <script>scripts\camera_follow.gml</script>
+        <script>scripts\camera_tween.gml</script>
       </scripts>
       <scripts name="View">
         <script>scripts\view_position_x.gml</script>
@@ -491,6 +493,7 @@
           <script>scripts\del_btn_gamemode_up.gml</script>
           <script>scripts\del_btn_gamemode_down.gml</script>
           <script>scripts\del_input_start_gamemode.gml</script>
+          <script>scripts\del_input_back_gamemode.gml</script>
         </scripts>
         <scripts name="CreatorMenu">
           <script>scripts\del_creator_menu_back.gml</script>
@@ -510,6 +513,7 @@
       </scripts>
     </scripts>
   </scripts>
+  <shaders name="shaders"/>
   <fonts name="fonts">
     <fonts name="Normal">
       <font>fonts\fnt_joystix_8</font>
@@ -544,6 +548,7 @@
         <object>objects\eng_camera_zoom</object>
         <object>objects\eng_camera_move</object>
         <object>objects\eng_camera_shake</object>
+        <object>objects\eng_camera_tween</object>
         <object>objects\eng_camera_follow</object>
       </objects>
       <objects name="Room">

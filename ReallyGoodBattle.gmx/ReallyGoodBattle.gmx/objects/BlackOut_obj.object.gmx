@@ -27,14 +27,18 @@
             <kind>1</kind>
             <string>image_speed = 0; 
 room_speed = 60; 
-if (instance_exists(LazerBox)) {
+if (instance_exists(LazerBox)) 
+{
     image_index = 1; 
     image_angle = LazerBox.image_angle; 
     image_xscale = sign(LazerBox.image_xscale); 
-} else {
-image_index = 0; 
-image_angle = 0; 
-
+} 
+else 
+{
+    image_index = 0; 
+    image_angle = 0; 
+    image_angle = Hitbox_obj.image_angle; 
+    image_xscale = sign(Hitbox_obj.image_xscale); 
 }
 </string>
           </argument>

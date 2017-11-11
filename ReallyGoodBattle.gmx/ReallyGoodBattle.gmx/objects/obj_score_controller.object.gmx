@@ -34,6 +34,7 @@ game_over = false;
 kill_self = false;
 skipping = false;
 draw_skip = false;
+round_over = false;
 surface = noone;
 
 //Score List
@@ -226,6 +227,7 @@ if (can_skip and input_check_pressed(0, gp_start, vk_escape))
             if (new_room != room)
             {
                 room_cfade(new_room, room_seconds(1), c_black);
+                audio_play_sound_volume(sfx_exit, 10, false, global.sfxvolume);
                 //room_goto(new_room);
                 break;
             }
@@ -396,6 +398,7 @@ else if (room != rm_pause and !obj_pause_controller.input_alarm)
     game_over = false;
     skipping = false;
     draw_skip = false;
+    round_over = false;
     
     audio_stop_sound(amb_laser_hum);
     
@@ -470,7 +473,8 @@ if (global.gamemode = "Kills to Win" or global.gamemode = "Captures to Win")
         var xx = room_width / 2;
         var yy = 25;
         var sep = 25;
-        draw_text(xx, yy, "Scoreboard");
+        draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), "Scoreboard", view_scale_x(0), view_scale_y(0), 0);
+        //draw_text(xx, yy, "Scoreboard");
         yy += sep * 2;
         
         //Reorders players based on performance.
@@ -517,7 +521,8 @@ if (global.gamemode = "Kills to Win" or global.gamemode = "Captures to Win")
                     color = make_color_rgb(GameMaster_obj.Player1Red, GameMaster_obj.Player1Green, GameMaster_obj.Player1Blue);
                     text = string_replace(text, "Player 1", GameMaster_obj.Player1Fighter.name);     
                     draw_set_color(color);
-                    draw_text(xx, yy, text);
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), text, view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, text);
                     yy += sep;
                 }
                 break;
@@ -527,9 +532,10 @@ if (global.gamemode = "Kills to Win" or global.gamemode = "Captures to Win")
                 {
                     //Draws Text for Player    
                     color = make_color_rgb(GameMaster_obj.Player2Red, GameMaster_obj.Player2Green, GameMaster_obj.Player2Blue);
-                    text = string_replace(text, "Player 2", GameMaster_obj.Player2Fighter.name);     
-                    draw_set_color(color);
-                    draw_text(xx, yy, text);
+                    text = string_replace(text, "Player 2", GameMaster_obj.Player2Fighter.name);   
+                    draw_set_color(color);  
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), text, view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, text);
                     yy += sep;
                 }
                 break;
@@ -541,7 +547,8 @@ if (global.gamemode = "Kills to Win" or global.gamemode = "Captures to Win")
                     color = make_color_rgb(GameMaster_obj.Player3Red, GameMaster_obj.Player3Green, GameMaster_obj.Player3Blue);
                     text = string_replace(text, "Player 3", GameMaster_obj.Player3Fighter.name);       
                     draw_set_color(color);
-                    draw_text(xx, yy, text);
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), text, view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, text);
                     yy += sep;
                 }
                 break;
@@ -553,7 +560,8 @@ if (global.gamemode = "Kills to Win" or global.gamemode = "Captures to Win")
                     color = make_color_rgb(GameMaster_obj.Player4Red, GameMaster_obj.Player4Green, GameMaster_obj.Player4Blue);
                     text = string_replace(text, "Player 4", GameMaster_obj.Player4Fighter.name);      
                     draw_set_color(color);
-                    draw_text(xx, yy, text);
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), text, view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, text);
                     yy += sep;
                 }
                 break;
@@ -573,11 +581,13 @@ if (global.gamemode = "Kills to Win" or global.gamemode = "Captures to Win")
                 //Check if gamepad is connected.
                 if (gamepad_is_connected(0))
                 {
-                    draw_text(xx, yy, "Press Start to End");
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), "Press Start to End", view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, "Press Start to End");
                 }
                 else
                 {
-                    draw_text(xx, yy, "Press Escape to End");
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), "Press Escape to End", view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, "Press Escape to End");
                 }
             }
             else
@@ -585,11 +595,13 @@ if (global.gamemode = "Kills to Win" or global.gamemode = "Captures to Win")
                 //Check if gamepad is connected.
                 if (gamepad_is_connected(0))
                 {
-                    draw_text(xx, yy, "Press Start to Continue");
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), "Press Start to Continue", view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, "Press Start to Continue");
                 }
                 else
                 {
-                    draw_text(xx, yy, "Press Escape to Continue");
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), "Press Escape to Continue", view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, "Press Escape to Continue");
                 }
             }
         }
@@ -645,7 +657,8 @@ if (global.gamemode = "Kills to Win" or global.gamemode = "Captures to Win")
             var total_score = global.score_max;
             var text = string(player_score) + "/" + string(total_score);    
             draw_set_color(color);
-            draw_text_outline(text, thickness, xx, yy);
+            //draw_text_outline(text, thickness, xx, yy);
+            draw_text_outline_transformed(text, thickness, view_position_x(xx, 0), view_position_y(yy, 0), view_scale_x(0), view_scale_y(0), 0);
         }
         
         //Draws games for player 2.
@@ -674,7 +687,8 @@ if (global.gamemode = "Kills to Win" or global.gamemode = "Captures to Win")
             var total_score = global.score_max;
             var text = string(player_score) + "/" + string(total_score);
             draw_set_color(color);
-            draw_text_outline(text, thickness, xx, yy);
+            //draw_text_outline(text, thickness, xx, yy);
+            draw_text_outline_transformed(text, thickness, view_position_x(xx, 0), view_position_y(yy, 0), view_scale_x(0), view_scale_y(0), 0);
         }
         
         //Draws games for player 3.
@@ -710,7 +724,8 @@ if (global.gamemode = "Kills to Win" or global.gamemode = "Captures to Win")
             var total_score = global.score_max;
             var text = string(player_score) + "/" + string(total_score);
             draw_set_color(color);
-            draw_text_outline(text, thickness, xx, yy);
+            //draw_text_outline(text, thickness, xx, yy);
+            draw_text_outline_transformed(text, thickness, view_position_x(xx, 0), view_position_y(yy, 0), view_scale_x(0), view_scale_y(0), 0);
         }
         
         //Draws games for player 4.
@@ -739,7 +754,8 @@ if (global.gamemode = "Kills to Win" or global.gamemode = "Captures to Win")
             var total_score = global.score_max;
             var text = string(player_score) + "/" + string(total_score);
             draw_set_color(color);
-            draw_text_outline(text, thickness, xx, yy);
+            //draw_text_outline(text, thickness, xx, yy);
+            draw_text_outline_transformed(text, thickness, view_position_x(xx, 0), view_position_y(yy, 0), view_scale_x(0), view_scale_y(0), 0);
         }
     }
 }
@@ -763,7 +779,8 @@ else if (global.gamemode = "Player Lives")
         var xx = room_width / 2;
         var yy = 25;
         var sep = 25;
-        draw_text(xx, yy, "Scoreboard");
+        draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), "Scoreboard", view_scale_x(0), view_scale_y(0), 0);
+        //draw_text(xx, yy, "Scoreboard");
         yy += sep * 2;
         
         //Reorders players based on performance.
@@ -810,7 +827,8 @@ else if (global.gamemode = "Player Lives")
                     color = make_color_rgb(GameMaster_obj.Player1Red, GameMaster_obj.Player1Green, GameMaster_obj.Player1Blue);
                     text = string_replace(text, "Player 1", GameMaster_obj.Player1Fighter.name);     
                     draw_set_color(color);
-                    draw_text(xx, yy, text);
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), text, view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, text);
                     yy += sep;
                 }
                 break;
@@ -820,9 +838,10 @@ else if (global.gamemode = "Player Lives")
                 {
                     //Draws Text for Player    
                     color = make_color_rgb(GameMaster_obj.Player2Red, GameMaster_obj.Player2Green, GameMaster_obj.Player2Blue);
-                    text = string_replace(text, "Player 2", GameMaster_obj.Player2Fighter.name);     
-                    draw_set_color(color);
-                    draw_text(xx, yy, text);
+                    text = string_replace(text, "Player 2", GameMaster_obj.Player2Fighter.name);    
+                    draw_set_color(color); 
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), text, view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, text);
                     yy += sep;
                 }
                 break;
@@ -834,7 +853,8 @@ else if (global.gamemode = "Player Lives")
                     color = make_color_rgb(GameMaster_obj.Player3Red, GameMaster_obj.Player3Green, GameMaster_obj.Player3Blue);
                     text = string_replace(text, "Player 3", GameMaster_obj.Player3Fighter.name);       
                     draw_set_color(color);
-                    draw_text(xx, yy, text);
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), text, view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, text);
                     yy += sep;
                 }
                 break;
@@ -846,7 +866,8 @@ else if (global.gamemode = "Player Lives")
                     color = make_color_rgb(GameMaster_obj.Player4Red, GameMaster_obj.Player4Green, GameMaster_obj.Player4Blue);
                     text = string_replace(text, "Player 4", GameMaster_obj.Player4Fighter.name);      
                     draw_set_color(color);
-                    draw_text(xx, yy, text);
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), text, view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, text);
                     yy += sep;
                 }
                 break;
@@ -866,11 +887,13 @@ else if (global.gamemode = "Player Lives")
                 //Check if gamepad is connected.
                 if (gamepad_is_connected(0))
                 {
-                    draw_text(xx, yy, "Press Start to End");
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), "Press Start to End", view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, "Press Start to End");
                 }
                 else
                 {
-                    draw_text(xx, yy, "Press Escape to End");
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), "Press Escape to End", view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, "Press Escape to End");
                 }
             }
             else
@@ -878,11 +901,13 @@ else if (global.gamemode = "Player Lives")
                 //Check if gamepad is connected.
                 if (gamepad_is_connected(0))
                 {
-                    draw_text(xx, yy, "Press Start to Continue");
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), "Press Start to Continue", view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, "Press Start to Continue");
                 }
                 else
                 {
-                    draw_text(xx, yy, "Press Escape to Continue");
+                    draw_text_transformed(view_position_x(xx, 0), view_position_y(yy, 0), "Press Escape to Continue", view_scale_x(0), view_scale_y(0), 0);
+                    //draw_text(xx, yy, "Press Escape to Continue");
                 }
             }
         }
@@ -938,7 +963,8 @@ else if (global.gamemode = "Player Lives")
             var total_score = global.score_max;
             var text = string(player_score) + "/" + string(total_score);    
             draw_set_color(color);
-            draw_text_outline(text, thickness, xx, yy);
+            //draw_text_outline(text, thickness, xx, yy);
+            draw_text_outline_transformed(text, thickness, view_position_x(xx, 0), view_position_y(yy, 0), view_scale_x(0), view_scale_y(0), 0);
         }
         
         //Draws games for player 2.
@@ -967,7 +993,8 @@ else if (global.gamemode = "Player Lives")
             var total_score = global.score_max;
             var text = string(player_score) + "/" + string(total_score);
             draw_set_color(color);
-            draw_text_outline(text, thickness, xx, yy);
+            //draw_text_outline(text, thickness, xx, yy);
+            draw_text_outline_transformed(text, thickness, view_position_x(xx, 0), view_position_y(yy, 0), view_scale_x(0), view_scale_y(0), 0);
         }
         
         //Draws games for player 3.
@@ -1003,7 +1030,8 @@ else if (global.gamemode = "Player Lives")
             var total_score = global.score_max;
             var text = string(player_score) + "/" + string(total_score);
             draw_set_color(color);
-            draw_text_outline(text, thickness, xx, yy);
+            //draw_text_outline(text, thickness, xx, yy);
+            draw_text_outline_transformed(text, thickness, view_position_x(xx, 0), view_position_y(yy, 0), view_scale_x(0), view_scale_y(0), 0);
         }
         
         //Draws games for player 4.
@@ -1032,7 +1060,8 @@ else if (global.gamemode = "Player Lives")
             var total_score = global.score_max;
             var text = string(player_score) + "/" + string(total_score);
             draw_set_color(color);
-            draw_text_outline(text, thickness, xx, yy);
+            //draw_text_outline(text, thickness, xx, yy);
+            draw_text_outline_transformed(text, thickness, view_position_x(xx, 0), view_position_y(yy, 0), view_scale_x(0), view_scale_y(0), 0);
         }
     }
 }

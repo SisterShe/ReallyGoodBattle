@@ -63,6 +63,7 @@ if (creator.charge &gt; 0)
 {
     //Creates the laser hitbox.
     instance_create(x, y, LazerBox); 
+    room_speed = 16;
 }
 </string>
           </argument>
@@ -295,12 +296,15 @@ if (instance_exists(creator))
                         //Start slowmotion tween.
                         instance_create(x, y, obj_tween_slowmotion);
                         instance_create(other.x,other.y,BlackOut_obj); 
-                        camera_shake(2, room_seconds(1), false);  
+                        camera_shake(5, room_seconds(1), false);  
+                        camera_tween(player_hit_instance.x, player_hit_instance.y, 512/3, 288/3, 512, 288, 0, true,
+                        true, tween_linear, room_seconds(0.3));
                         
                         //Stops music slowly.
                         audio_sound_gain(global.music, 0, room_seconds(3));
                         
                         //Scorescreen alarm.
+                        round_over = true;
                         alarm[0] = 30;
                         
                         //Disables pause.
@@ -337,12 +341,15 @@ if (instance_exists(creator))
                         //Start slowmotion tween.
                         instance_create(x, y, obj_tween_slowmotion);
                         instance_create(other.x,other.y,BlackOut_obj); 
-                        camera_shake(2, room_seconds(1), false);  
+                        camera_shake(5, room_seconds(1), false);  
+                        camera_tween(player_hit_instance.x, player_hit_instance.y, 512/3, 288/3, 512, 288, 0, true,
+                        true, tween_linear, room_seconds(0.3));
                         
                         //Stops music slowly.
                         audio_sound_gain(global.music, 0, room_seconds(3));
                         
                         //Scorescreen alarm.
+                        round_over = true;
                         alarm[0] = 30;
                         
                         //Disables pause.

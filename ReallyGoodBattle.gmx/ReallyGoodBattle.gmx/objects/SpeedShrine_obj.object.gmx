@@ -139,7 +139,16 @@ IsActive = true;
             <string>///Handles Capturing of Shrine
 
 //Check if score is drawing.
-if (obj_score_controller.draw_score) exit;
+if (obj_score_controller.round_over) 
+{
+    //Check if sound is playing.
+    if (sound != noone)
+    {
+        audio_sound_gain(sound, 0, 0);
+        sound = noone;
+    }
+    exit;
+}
 
 //Check if shrine is active.
 if (IsActive = true) 
@@ -390,8 +399,11 @@ if (ShrineVal &gt;= capture_time)
                 instance_create(other.x,other.y,BlackOut_obj); 
                 
                 //Scorescreen alarm.
+                round_over = true;
                 alarm[0] = 30;
                 
+                //Yaih.
+                camera_tween(player_instance.x, player_instance.y, 512/3, 288/3, 512, 288, 0, true, true, tween_linear, room_seconds(0.3));
                 
                 //Disables pause.
                 with (obj_pause_controller)
