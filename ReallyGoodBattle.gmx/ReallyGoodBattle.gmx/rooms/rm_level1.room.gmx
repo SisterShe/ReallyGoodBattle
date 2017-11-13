@@ -262,6 +262,8 @@ room_speed = 60;</code>
   <tiles>
     <tile bgName="tile_FrontBrick" x="0" y="256" w="16" h="16" xo="48" yo="32" id="10001251" name="inst_47B55A15" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tile_FrontBrick" x="496" y="256" w="16" h="16" xo="80" yo="32" id="10001263" name="inst_7F91224E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tile_FrontBrick" x="0" y="16" w="16" h="16" xo="48" yo="0" id="10001306" name="inst_924ACD6A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tile_FrontBrick" x="496" y="16" w="16" h="16" xo="80" yo="0" id="10001308" name="inst_AFA7CB68" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
