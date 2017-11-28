@@ -173,6 +173,8 @@
         <sprite>sprites\Tile_Right</sprite>
         <sprite>sprites\Tile_Corner</sprite>
       </sprites>
+      <sprite>sprites\spr_blackbox_radius</sprite>
+      <sprite>sprites\spr_blackbox_tile</sprite>
     </sprites>
     <sprites name="Interface">
       <sprites name="UI">
@@ -621,6 +623,8 @@
         <object>objects\Scoreboard_obj</object>
         <object>objects\StealthCollisionUnit_obj</object>
         <object>objects\BlackOut_obj</object>
+        <object>objects\obj_blackbox_radius</object>
+        <object>objects\obj_blackbox_tile</object>
       </objects>
       <objects name="Effects">
         <object>objects\FX2_obj</object>

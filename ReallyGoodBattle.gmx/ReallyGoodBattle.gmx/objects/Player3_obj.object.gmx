@@ -285,7 +285,11 @@ lazer_noise = false;
           <argument>
             <kind>1</kind>
             <string>//Check if score is drawing.
-if (room != rm_gamesetup and obj_score_controller.draw_score) exit;
+if (room != rm_gamesetup and obj_score_controller.draw_score) 
+{
+    Collision_Script();
+    exit;
+}
 
 image_alpha = 1; 
 mask_index = spr_player_collision_mask;

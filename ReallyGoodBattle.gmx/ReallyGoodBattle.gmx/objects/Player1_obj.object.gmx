@@ -296,7 +296,11 @@ canChange = 1;
             <string>///Handles Movement and Input
 
 //Check if score is drawing.
-if (room != rm_gamesetup and obj_score_controller.draw_score) exit;
+if (room != rm_gamesetup and obj_score_controller.draw_score) 
+{
+    Collision_Script();
+    exit;
+}
 
 //Built-In Variables
 image_alpha = 1; 

@@ -2,7 +2,7 @@
 <object>
   <spriteName>BlackOut_spr</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>-10000000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -25,7 +25,77 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0; 
+            <string>///Creation Code
+
+//Instance Variables
+target1 = noone;
+target2 = noone;
+target3 = noone;
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Delayed Creation Code
+
+//Local Variables
+var i, i2;
+
+//Enters a drawing loop.
+for (i=0; i &lt; room_width; i+=5)
+{
+    for (i2=0; i2 &lt; room_height; i2+=5)
+    {
+        var tile = instance_create(i, i2, obj_blackbox_tile);
+        tile.target = target1;
+        tile.target2 = target2;
+        tile.target3 = target3;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Backup Code
+/*  Old Code - Obsolete
+image_speed = 0; 
 room_speed = 60; 
 if (instance_exists(LazerBox)) 
 {
@@ -33,12 +103,56 @@ if (instance_exists(LazerBox))
     image_angle = LazerBox.image_angle; 
     image_xscale = sign(LazerBox.image_xscale); 
 } 
-else 
+else if (instance_exists(Hitbox_obj)) 
 {
     image_index = 0; 
     image_angle = 0; 
     image_angle = Hitbox_obj.image_angle; 
     image_xscale = sign(Hitbox_obj.image_xscale); 
+}
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Handles Drawing
+
+/*
+
+//Setups drawing.
+draw_set_color(c_black);
+var i, i2;
+
+//Enters a drawing loop.
+for (i=0; i &lt; room_width; i++)
+{
+    for (i2=0; i2 &lt; room_height; i2++)
+    {
+        //Check if close to target.
+        if (!collision_point(i, i2, obj_blackbox_radius, true, true))
+        {
+            draw_rectangle(i-1, i2-1, i+1, i2+1, false);
+            //draw_point(i, i2);
+        }
+    }
 }
 </string>
           </argument>
