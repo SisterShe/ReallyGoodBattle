@@ -396,7 +396,15 @@ if (ShrineVal &gt;= capture_time)
                 
                 //Start slowmotion tween.
                 instance_create(x, y, obj_tween_slowmotion);
-                instance_create(other.x,other.y,BlackOut_obj); 
+                var blackout = instance_create(other.x, other.y, BlackOut_obj); 
+                var blackout1 = instance_create(player_hit_instance.x, player_hit_instance.y, obj_blackbox_radius);
+                var blackout2 = instance_create(other.creator.x, other.creator.y, obj_blackbox_radius);
+                blackout1.target = player_hit_instance;
+                blackout2.target = other.creator;
+                blackout.target1 = blackout1;
+                blackout.target2 = other;
+                blackout.target3 = blackout2;
+                event_user_ext(blackout, 1);
                 
                 //Scorescreen alarm.
                 round_over = true;
