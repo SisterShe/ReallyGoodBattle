@@ -792,7 +792,9 @@
       <room>rooms\rm_level6</room>
       <room>rooms\rm_level7</room>
       <room>rooms\rm_level8</room>
+      <room>rooms\rm_level9</room>
       <room>rooms\BlankRoom</room>
+      <room>rooms\rm_</room>
     </rooms>
     <rooms name="Test">
       <room>rooms\TestRoom2</room>
