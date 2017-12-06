@@ -374,7 +374,7 @@ else if (room != rm_pause and !obj_pause_controller.input_alarm)
     audio_sound_gain(global.music, 0, room_seconds(1));
     while (true)
     {
-        var song = choose(msi_fight_1, Song1);
+        var song = choose(msi_track_1, msi_track_2, msi_track_3, msi_track_4, msi_track_5, msi_track_6, msi_track_7, msi_track_8);
         var sound_index = asset_get_index(audio_get_name(global.music));
         if (song != sound_index)
         {

@@ -21,6 +21,14 @@
       </sounds>
       <sound>sound\msi_menu</sound>
       <sound>sound\msi_fight_1</sound>
+      <sound>sound\msi_track_1</sound>
+      <sound>sound\msi_track_2</sound>
+      <sound>sound\msi_track_3</sound>
+      <sound>sound\msi_track_4</sound>
+      <sound>sound\msi_track_5</sound>
+      <sound>sound\msi_track_6</sound>
+      <sound>sound\msi_track_7</sound>
+      <sound>sound\msi_track_8</sound>
     </sounds>
     <sounds name="Ambience">
       <sound>sound\amb_laser_hum</sound>
