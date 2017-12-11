@@ -67,6 +67,40 @@ key4 = ds_list_find_value(global.keybindings, index).jump_key2_gamepad;
             <kind>1</kind>
             <string>///Handles Input
 
+//Check if disabled and ai.
+if (disabled and global.player1_ai)
+{
+    if (input_check_pressed(index, ord("1")))
+    {
+        //Updates ai fighter.
+        with (Player1_obj)
+        {
+            //Updates fighter for player.
+            self.fighter_index += 1;
+            if (self.fighter_index &gt; ds_list_size(obj_fighter_container.list) - 1)
+            {
+                self.fighter_index = 0;
+            }
+            self.fighter = ds_list_find_value(obj_fighter_container.list, self.fighter_index);
+            event_user(0);
+            
+            //Updates game master.
+            with (GameMaster_obj)
+            {
+               Player1Red = other.fighter.red;
+               Player1Green = other.fighter.green;
+               Player1Blue = other.fighter.blue;
+               Player1Fighter = other.fighter;
+            }
+            
+            //Plays popup animation for name.
+            var name = self.fighter.name;
+            animation_text_popup(-100, 1, 0.02, fnt_joystix_8, fa_center,
+            fa_top, x, y, name, 16, 100, room_seconds(2), 30, 90, c_white, c_white);
+        }
+    }
+}
+
 //Check if disabled.
 if (disabled) exit;
 
@@ -112,6 +146,13 @@ if (input_check_pressed(index, ord("1")))
        Player1Blue = fighter.blue;
        Player1Fighter = fighter;
     }
+    var ai = instance_create(Player1Spawn_obj.x, Player1Spawn_obj.y, Player1_obj);
+    with (ai)
+    {
+        self.fighter_index = fighter_index;
+        self.fighter = fighter;
+        event_user(0);
+    }
 }
 </string>
           </argument>
@@ -147,7 +188,7 @@ draw_set_halign(fa_middle);
 if (disabled)
 {
     //Draws AI Text
-    draw_text(x,y-5,"AI Player 1"); 
+    draw_text(x,y-15,"AI Player 1#Press 1 to Update"); 
 }
 else
 {

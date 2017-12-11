@@ -43,6 +43,7 @@ input_down_3 = vk_down;
 //Instance Variables
 widgets = ds_list_create();
 custom_inputs = ds_list_create();
+custom_inputs_stick_horizontal = ds_list_create();
 selected = noone;
 position = 0;
 stick_delay = room_seconds(0.25);
@@ -51,6 +52,7 @@ last_direction = "Upwards";
 disabled = false;
 stored_selection = noone;
 pitch_factor = 1;
+
 </string>
           </argument>
         </arguments>
@@ -76,6 +78,7 @@ pitch_factor = 1;
             <string>///Cleans-Up Leaks
 ds_list_destroy(widgets);
 ds_list_destroy(custom_inputs);
+ds_list_destroy(custom_inputs_stick_horizontal);
 </string>
           </argument>
         </arguments>
@@ -168,6 +171,8 @@ if (left_stick)
         gamepad_set_axis_deadzone(0, 0.5);
         var ukey = (gamepad_axis_value(0, gp_axislv) &lt; 0);
         var dkey = (gamepad_axis_value(0, gp_axislv) &gt; 0);
+        var lkey = (gamepad_axis_value(0, gp_axislh) &lt; 0);
+        var rkey = (gamepad_axis_value(0, gp_axislh) &gt; 0);
         
         //Check if upwards.
         if (ukey)
@@ -179,6 +184,18 @@ if (left_stick)
         else if (dkey)
         {
             event_user(2);
+        }
+        
+        //Check if left.
+        else if (lkey)
+        {
+            event_user(7);
+        }
+        
+        //Check if right.
+        else if (rkey)
+        {
+            event_user(7);
         }
         else
         {
@@ -201,6 +218,8 @@ if (right_stick)
         gamepad_set_axis_deadzone(0, 0.5);
         var ukey = (gamepad_axis_value(0, gp_axisrv) &lt; 0);
         var dkey = (gamepad_axis_value(0, gp_axisrv) &gt; 0);
+        var lkey = (gamepad_axis_value(0, gp_axislh) &lt; 0);
+        var rkey = (gamepad_axis_value(0, gp_axislh) &gt; 0);
         
         //Check if upwards.
         if (ukey)
@@ -212,6 +231,18 @@ if (right_stick)
         else if (dkey)
         {
             event_user(2);
+        }
+        
+        //Check if left.
+        else if (lkey)
+        {
+            event_user(8);
+        }
+        
+        //Check if right.
+        else if (rkey)
+        {
+            event_user(8);
         }
         else
         {
@@ -241,6 +272,110 @@ for (var i=0; i &lt; ds_list_size(custom_inputs); i++)
                 script_execute(script);
             }            
         }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="18">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Custom horizontal left stick input.
+var lkey = (gamepad_axis_value(0, gp_axislh) &lt; 0);
+var rkey = (gamepad_axis_value(0, gp_axislh) &gt; 0);
+for (var i=0; i &lt; ds_list_size(custom_inputs_stick_horizontal); i++)
+{
+    //Finds input data.
+    var data = ds_list_find_value(custom_inputs_stick_horizontal, i);
+    with (data)
+    {
+        //Check if input valid.
+        if (rstick = true)
+        {
+            //Check if left or right
+            if ((lkey and left) or (rkey and right))
+            {
+                //Runs script if first time or repetable.
+                if (once and !haverun)
+                {            
+                    //Check if boolean matches.
+                    script_execute(script);
+                    havrun = true;
+                }
+                else if (!once)
+                {
+                    script_execute(script);
+                }   
+            }
+        }         
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="17">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Custom horizontal left stick input.
+var lkey = (gamepad_axis_value(0, gp_axislh) &lt; 0);
+var rkey = (gamepad_axis_value(0, gp_axislh) &gt; 0);
+for (var i=0; i &lt; ds_list_size(custom_inputs_stick_horizontal); i++)
+{
+    //Finds input data.
+    var data = ds_list_find_value(custom_inputs_stick_horizontal, i);
+    with (data)
+    {
+        //Check if input valid.
+        if (lstick = true)
+        {
+            //Check if left or right
+            if ((lkey and left) or (rkey and right))
+            {
+                //Runs script if first time or repetable.
+                if (once and !haverun)
+                {            
+                    //Check if boolean matches.
+                    script_execute(script);
+                    havrun = true;
+                }
+                else if (!once)
+                {
+                    script_execute(script);
+                }   
+            }
+        }         
     }
 }
 </string>

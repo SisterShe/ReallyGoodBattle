@@ -403,7 +403,9 @@
           <script>scripts\widget_navigation_setup.gml</script>
           <script>scripts\widget_navigation_add.gml</script>
           <script>scripts\widget_navigation_select.gml</script>
+          <script>scripts\widget_navigation_select_position.gml</script>
           <script>scripts\widget_navigation_input.gml</script>
+          <script>scripts\widget_navigation_input_stick_horizontal.gml</script>
           <script>scripts\widget_navigation_tab.gml</script>
         </scripts>
       </scripts>
@@ -497,7 +499,8 @@
           <script>scripts\del_btn_score_down.gml</script>
           <script>scripts\del_btn_games_up.gml</script>
           <script>scripts\del_input_start_gamesetup.gml</script>
-          <script>scripts\del_input_tab_update.gml</script>
+          <script>scripts\del_input_tab_update_left.gml</script>
+          <script>scripts\del_input_tab_update_right.gml</script>
         </scripts>
         <scripts name="GamemodeMenu">
           <script>scripts\del_btn_gamemode_up.gml</script>
@@ -512,7 +515,8 @@
           <script>scripts\del_creator_menu_delete.gml</script>
           <script>scripts\del_creator_menu_up.gml</script>
           <script>scripts\del_creator_menu_down.gml</script>
-          <script>scripts\del_creator_tab_update.gml</script>
+          <script>scripts\del_creator_tab_update_left.gml</script>
+          <script>scripts\del_creator_tab_update_right.gml</script>
         </scripts>
         <scripts name="FighterMenu">
           <script>scripts\del_fighter_menu_back.gml</script>

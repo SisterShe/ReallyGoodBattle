@@ -286,6 +286,12 @@ if (instance_exists(creator))
                 exit;
             }
             
+            //Check if player have already won.
+            if (obj_score_controller.round_over)
+            {
+                exit;
+            }
+            
             //Slows down room.
             room_speed = 16; 
             
