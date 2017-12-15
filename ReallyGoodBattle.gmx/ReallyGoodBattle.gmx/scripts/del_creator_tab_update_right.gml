@@ -22,4 +22,3 @@ if (nav2.disabled)
     //Plays audio clip.
     audio_play_sound_volume(sfx_select_green, 10, false, global.sfxvolume);
 }
-

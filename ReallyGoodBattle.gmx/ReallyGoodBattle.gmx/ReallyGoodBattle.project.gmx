@@ -469,7 +469,8 @@
           <script>scripts\del_btn_update_keybinds.gml</script>
           <script>scripts\del_btn_keybindings_back.gml</script>
           <script>scripts\del_btn_keybind_toggle.gml</script>
-          <script>scripts\del_keybind_navigate.gml</script>
+          <script>scripts\del_keybind_navigate_left.gml</script>
+          <script>scripts\del_keybind_navigate_right.gml</script>
           <scripts name="Keybindings">
             <scripts name="Gamepad">
               <script>scripts\del_keybind_gamepad_left.gml</script>
