@@ -401,7 +401,7 @@ ReadyPlayers = (Player1Ready + Player2Ready + Player3Ready + Player4Ready);
 if (room = rm_gamesetup and ActivePlayers = ReadyPlayers and ActivePlayers &gt; 0) 
 {    
     //Changes to game room.
-    room_goto(choose(rm_level1, rm_level2, rm_level3, rm_level4, rm_level5, rm_level6, rm_level7, rm_level8));
+    room_goto(choose(rm_level1, rm_level2, rm_level3, rm_level4, rm_level5, rm_level7, rm_level9));
     
     //Creates game controllers.
     instance_create(x, y, obj_score_controller);
