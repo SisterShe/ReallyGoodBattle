@@ -69,12 +69,12 @@ or attack_key_released or attack_key_tap or fullscreen_key or one_key or two_key
 
 //Gamepad Inputs.
 if (gamepad_is_connected(device))
-{
+{    
     //Detects movement with sticks.
     var axisdir = point_direction(0,0,gamepad_axis_value(device,gp_axislh),gamepad_axis_value(device,gp_axislv));
     axisdir += 45;
     axisdir = axisdir%360;
-    axisdir = floor(axisdir/90);
+    axisdir = floor(axisdir/90);    
     left_key = 0;
     right_key = 0;
     up_key=0;
@@ -97,6 +97,12 @@ if (gamepad_is_connected(device))
                 break;
         }
     }
+    
+    //Check if input not detected.
+    if (left_key = 0) left_key = gamepad_button_check(device, left_key_gamepad);
+    if (right_key = 0) right_key = gamepad_button_check(device, right_key_gamepad);
+    if (up_key = 0) up_key =  gamepad_button_check(device, up_key_gamepad);
+    if (down_key = 0) down_key =  gamepad_button_check(device, down_key_gamepad);
     
     //Detects button presses.
     left_key_pressed = (gamepad_axis_value(device,gp_axislh) < -0.95) or gamepad_button_check_pressed(device, left_key_gamepad); 
