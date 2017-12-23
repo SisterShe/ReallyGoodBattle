@@ -298,6 +298,8 @@ canChange = 1;
 //Check if score is drawing.
 if (room != rm_gamesetup and obj_score_controller.draw_score) 
 {
+    Input_False();
+    script_execute(mState); 
     Collision_Script();
     exit;
 }
@@ -363,7 +365,7 @@ if (hp &lt;= 0)
     instance_create(x,y,Player1_death_obj);
     sprite_index = spr_dead;
     instance_create(x,y,Player1_splat_obj);
-    instance_destroy();
+    instance_destroy();   
     
     if (laserdeath)
     {
@@ -372,7 +374,7 @@ if (hp &lt;= 0)
     else
     {
         var sfx = audio_play_sound_volume(sfx_explode, 10, false, global.sfxvolume);
-    }    
+    }
 }
 if (SpawnLine = true) {
 Spawn = (instance_create(x+(random_range(-8,8)),y+(random_range(-8,8)),Player_Pline_obj)); 

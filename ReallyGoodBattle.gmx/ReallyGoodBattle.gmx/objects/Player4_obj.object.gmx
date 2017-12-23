@@ -288,6 +288,8 @@ lazer_noise = false;
             <string>//Check if score is drawing.
 if (room != rm_gamesetup and obj_score_controller.draw_score) 
 {
+    Input_False();
+    script_execute(mState); 
     Collision_Script();
     exit;
 }

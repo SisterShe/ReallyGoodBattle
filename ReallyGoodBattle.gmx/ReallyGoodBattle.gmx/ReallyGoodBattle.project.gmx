@@ -419,6 +419,7 @@
       <scripts name="System">
         <script>scripts\Screen_Res_Script.gml</script>
         <script>scripts\Input_Script.gml</script>
+        <script>scripts\Input_False.gml</script>
         <script>scripts\Collision_Script.gml</script>
       </scripts>
       <scripts name="Combat">

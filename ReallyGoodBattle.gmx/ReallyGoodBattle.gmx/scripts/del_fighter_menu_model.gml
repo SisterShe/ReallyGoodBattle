@@ -4,7 +4,7 @@
 with (obj_fighter_container.selected)
 {
     model += 1;
-    if (model > 4)
+    if (model > 3)
     {
         model = 1;
     }

@@ -21,16 +21,12 @@ if (PlayerNum = 4)
     sprite_index = Player4_Airborne_spr; 
 }
  
-
-
+//On Ground
 if (image_angle = 0) {  
    if (image_index >= 3 and jump_key) //fullhop
    { 
         vspeed = -spd*1.75; 
-        //audio_sound_pitch(Jump1_snd, random_range(.9,1.1));
-        //var sound = audio_play_sound(Jump1_snd,1,false); 
-        //audio_sound_gain(sound, global.sfxvolume, 0);
-         Hsmoke = instance_create(x,y+8,Player_HSmoke_obj); 
+        Hsmoke = instance_create(x,y+8,Player_HSmoke_obj); 
             Hsmoke.creator = id; 
             Hsmoke.image_angle = image_angle;
             Hsmoke.image_yscale = random_range(.75,1.5); 
@@ -40,9 +36,7 @@ if (image_angle = 0) {
    if (image_index >= 3 and !jump_key) //short hopping
    { 
         vspeed = -spd; 
-        //var sound = audio_play_sound(Jump1_snd,1,false); 
-        //audio_sound_gain(sound, global.sfxvolume, 0);
-         Lsmoke = instance_create(x,y+8,Player_LSmoke_obj); 
+        Lsmoke = instance_create(x,y+8,Player_LSmoke_obj); 
             Lsmoke.creator = id; 
             Lsmoke.image_angle = image_angle;
             Lsmoke.image_yscale = random_range(.75,1.5); 
@@ -51,14 +45,12 @@ if (image_angle = 0) {
    }
 }
 
-
+//On Right Wall
 if (image_angle = 90) 
 {
     if (image_index >= 3 and jump_key) 
     { 
         hspeed = -spd*1.75; 
-        //var sound = audio_play_sound(Jump1_snd,1,false); 
-        //audio_sound_gain(sound, global.sfxvolume, 0);
         Hsmoke = instance_create(x+8,y,Player_HSmoke_obj); 
             Hsmoke.creator = id; 
             Hsmoke.image_angle = image_angle;
@@ -69,8 +61,6 @@ if (image_angle = 90)
     if (image_index >= 3 and !jump_key) 
     { 
         hspeed = -spd; 
-        //var sound = audio_play_sound(Jump1_snd,1,false); 
-        //audio_sound_gain(sound, global.sfxvolume, 0);
          Lsmoke = instance_create(x+8,y,Player_LSmoke_obj); 
             Lsmoke.creator = id; 
             Lsmoke.image_angle = image_angle;
@@ -80,15 +70,12 @@ if (image_angle = 90)
     }
 }
 
-
-
+// On Ceiling
 if (image_angle = 180) 
 {
    if (image_index >= 3 and jump_key) 
    { 
        vspeed = spd*1.75; 
-       //var sound = audio_play_sound(Jump1_snd,1,false); 
-        //audio_sound_gain(sound, global.sfxvolume, 0);
         Hsmoke = instance_create(x,y-8,Player_HSmoke_obj); 
             Hsmoke.creator = id; 
             Hsmoke.image_angle = image_angle;
@@ -99,8 +86,6 @@ if (image_angle = 180)
    if (image_index >= 3 and !jump_key) 
    { 
        vspeed = spd; 
-       //var sound = audio_play_sound(Jump1_snd,1,false); 
-       //audio_sound_gain(sound, global.sfxvolume, 0);
         Lsmoke = instance_create(x,y-8,Player_LSmoke_obj); 
             Lsmoke.creator = id; 
             Lsmoke.image_angle = image_angle;
@@ -110,15 +95,12 @@ if (image_angle = 180)
    }
 }
 
-
-
+// On Left Wall
 if (image_angle = 270) 
 {
     if (image_index >= 3 and jump_key) 
     { 
         hspeed = spd*1.75;  
-        //var sound = audio_play_sound(Jump1_snd,1,false); 
-        //audio_sound_gain(sound, global.sfxvolume, 0);
         Hsmoke = instance_create(x-8,y,Player_HSmoke_obj); 
             Hsmoke.creator = id; 
             Hsmoke.image_angle = image_angle;
@@ -130,8 +112,6 @@ if (image_angle = 270)
     if (image_index >= 3 and !jump_key) 
     { 
         hspeed = spd; 
-        //var sound = audio_play_sound(Jump1_snd,1,false); 
-        //audio_sound_gain(sound, global.sfxvolume, 0);
          Lsmoke = instance_create(x-8,y,Player_LSmoke_obj); 
             Lsmoke.creator = id; 
             Lsmoke.image_angle = image_angle;

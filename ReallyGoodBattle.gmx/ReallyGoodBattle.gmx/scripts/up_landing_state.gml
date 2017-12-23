@@ -21,7 +21,7 @@ if (PlayerNum = 4)
     sprite_index = Player4_Landing_spr; 
 } 
 //Updates image variables.
-image_speed = .55
+image_speed = .55;
 image_angle = 0; 
 //image_xscale = 1; 
 image_yscale = 1; 
@@ -53,13 +53,14 @@ else
 
 if (hspeed >= 5) 
 {
-    hspeed = 4 // this is a speed limit
+    hspeed = 4; // this is a speed limit
 }  
 
 if (hspeed <= -5)
 {
     hspeed = -4; // this is a speed limi
 } 
+
 
 //if Im going to touch the ground
 if (place_meeting(x, y+1, CollisionUnit_obj)) 
@@ -72,6 +73,8 @@ else
     //if I am not on the ground I should be in the airbore state, this does that. 
     mState = airborne_state;
 } 
+
+
 if (attack_key_tap) { //if I push the attack button. 
     
     image_index = 0; //prerare for animation changes
