@@ -246,6 +246,24 @@ else
 scale = animation_tween_step(id, grab, tween_quintic_out, scale, steps, scale_lower, scale_upper);
 image_xscale = scale;
 image_yscale = scale;
+
+//Disable nav system for tabs while grabbing.
+var is_there_grab = false;
+with (obj_slider_wheel)
+{
+    if (grab = true)
+    {
+        is_there_grab = true;
+    }
+}
+if (is_there_grab = true)
+{
+    event_user_ext(global.nav_system_tabs, 3);
+}
+else
+{
+    event_user_ext(global.nav_system_tabs, 4);
+}
 </string>
           </argument>
         </arguments>

@@ -214,6 +214,7 @@
         <sprite>sprites\spr_button_score_down</sprite>
         <sprite>sprites\spr_textfield</sprite>
         <sprite>sprites\spr_slider_bar</sprite>
+        <sprite>sprites\spr_slider_bar_backup</sprite>
         <sprite>sprites\spr_slider_wheel</sprite>
         <sprite>sprites\spr_checkbox</sprite>
       </sprites>
@@ -462,8 +463,11 @@
           <script>scripts\del_btn_options_back.gml</script>
           <script>scripts\del_btn_fullscreen.gml</script>
           <script>scripts\del_btn_keybinds.gml</script>
+          <script>scripts\del_btn_default.gml</script>
           <script>scripts\del_sfx_slider.gml</script>
           <script>scripts\del_music_slider.gml</script>
+          <script>scripts\del_options_tab_update_left.gml</script>
+          <script>scripts\del_options_tab_update_right.gml</script>
         </scripts>
         <scripts name="KeybindingsMenu">
           <script>scripts\del_btn_player_up.gml</script>
