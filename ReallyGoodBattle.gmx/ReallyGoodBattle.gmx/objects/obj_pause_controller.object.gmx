@@ -33,6 +33,7 @@ screenshot = noone;
 save_room = noone;
 input_alarm = false;
 disabled = false;
+pause_music = noone;
 
 //Save Alarms
 save_alarm_1 = -1;
@@ -209,6 +210,7 @@ alarm[1] = 1; //Persistence alarm.
 
 //Resumes Music
 audio_resume_sound(global.music);
+audio_sound_gain(pause_music, 0, 0);
 
 //Unpause respawn alarms.
 with (GameMaster_obj)
@@ -266,6 +268,9 @@ with (GameMaster_obj)
 //Pauses Music
 audio_pause_sound(global.music);
 
+//Pause Music
+pause_music = audio_play_sound_volume(msi_pause, 5, true, global.musicvolume);
+
 //Takes screenshot.
 var width = surface_get_width(application_surface);
 var height = surface_get_height(application_surface);
@@ -305,6 +310,7 @@ paused = true;
 //Detects if room is main menu.
 if (room = rm_mainmenu)
 {
+    audio_sound_gain(pause_music, 0, 0);
     instance_destroy();
 }
 </string>

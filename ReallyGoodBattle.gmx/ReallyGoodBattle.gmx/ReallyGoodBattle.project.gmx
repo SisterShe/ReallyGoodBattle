@@ -20,6 +20,7 @@
         <sound>sound\Song3</sound>
       </sounds>
       <sound>sound\msi_menu</sound>
+      <sound>sound\msi_pause</sound>
       <sound>sound\msi_fight_1</sound>
       <sound>sound\msi_track_1</sound>
       <sound>sound\msi_track_2</sound>
