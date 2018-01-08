@@ -199,6 +199,7 @@
         <sprites name="CharacterSelectSCreen">
           <sprite>sprites\SelectBox_spr</sprite>
           <sprite>sprites\ReadyUp_spr</sprite>
+          <sprite>sprites\Change_spr</sprite>
         </sprites>
         <sprite>sprites\Cursor_spr</sprite>
         <sprite>sprites\Bullethit_spr</sprite>
