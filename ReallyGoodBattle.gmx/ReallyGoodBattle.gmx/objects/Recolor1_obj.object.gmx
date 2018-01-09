@@ -29,13 +29,10 @@
 
 //Instance Variables
 can_behit = true;
-rot = 1; 
-Val = 1;
-spd = .1; 
-Limit = 5; 
+
 scale = 1; 
 GS = 1; 
-image_angle = 1; 
+
 </string>
           </argument>
         </arguments>
@@ -94,7 +91,7 @@ if (place_meeting(x,y,Player1_obj)) {
 GS = max(1.25,GS/1.01); 
 image_xscale += (scale - image_xscale) * 0.1
 image_yscale += (scale - image_yscale) * 0.1
-image_angle += angle_difference(rot,image_angle) * 0.1; 
+
 </string>
           </argument>
         </arguments>
