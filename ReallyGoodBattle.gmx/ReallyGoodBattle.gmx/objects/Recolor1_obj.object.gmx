@@ -115,7 +115,7 @@ image_yscale += (scale - image_yscale) * 0.1
           <argument>
             <kind>1</kind>
             <string>///Handles collision.
-GS += .1; 
+GS += .2; 
 //spd += 2;
 //Limit += 45; 
 //Check if can be hit.

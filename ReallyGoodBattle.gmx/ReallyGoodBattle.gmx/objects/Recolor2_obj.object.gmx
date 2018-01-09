@@ -31,6 +31,8 @@
 can_behit = true;
 GS = 1; 
 scale = 1; 
+
+
 </string>
           </argument>
         </arguments>
@@ -112,7 +114,7 @@ image_yscale += (scale - image_yscale) * 0.1
           <argument>
             <kind>1</kind>
             <string>///Handles collision.
-
+GS += .2;
 //Check if can be hit.
 if (can_behit)
 {
