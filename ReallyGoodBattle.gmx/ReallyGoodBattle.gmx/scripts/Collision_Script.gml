@@ -3,6 +3,43 @@
 //Check if stuck
 if (place_meeting(x, y, CollisionUnit_obj))
 {
+    //Enters a loop until free.
+    var i = false;
+    while (true)
+    {
+        //Check if free to the left.
+        if (!place_meeting(x-i, y, CollisionUnit_obj)) 
+        {
+            x -= i;
+            break;
+        }
+        
+        //Check if free to the right.
+        if (!place_meeting(x+i, y, CollisionUnit_obj)) 
+        {
+            x += i;
+            break;
+        }
+        
+        //Check if free to the top.
+        if (!place_meeting(x, y-i, CollisionUnit_obj)) 
+        {
+            y -= i;
+            break;
+        }
+        
+        //Check if free to the bottom.
+        if (!place_meeting(x, y+i, CollisionUnit_obj)) 
+        {
+            y += i;
+            break;
+        }
+        
+        //Incremnt loop.
+        i++;
+    }
+        
+    /*
     //Check for horizontal speed.
     switch (image_angle)
     {
@@ -26,6 +63,7 @@ if (place_meeting(x, y, CollisionUnit_obj))
         x -= 1;
         break;
     }
+    */
 }
 
 //horizontal collision 

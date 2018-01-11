@@ -76,16 +76,19 @@ if (timer &gt;= 160) {
 }
 
 //Goes to main menu.
+if (input_check_pressed(0, gp_face4, ord("T"))) 
+{
+    room_cfade(rm_credits, room_seconds(0.5), c_black);
+    audio_sound_gain(global.music, 0, room_seconds(0.5));
+    audio_play_sound_volume(sfx_ready_up, 10, false, global.sfxvolume);
+}
+
+//Goes to main menu.
 if (input_check_pressed(0, gp_face1, vk_enter, ord("E"), vk_escape, vk_space)) 
 {
     room_cfade(rm_mainmenu, room_seconds(0.5), c_black);
-    
-    //stops music.
     audio_sound_gain(global.music, 0, room_seconds(0.5));
-    
-    //Sets music for menu.
     global.music = audio_play_sound_volume(msi_menu, 5, true, global.musicvolume);
-    
     audio_play_sound_volume(sfx_ready_up, 10, false, global.sfxvolume);
 }
 </string>
@@ -123,11 +126,15 @@ if (gamepad_is_connected(0))
 {
     //Draws
     draw_text(x,y,"Press A to Start"); 
+    draw_set_font(fnt_joystix_8); 
+    draw_text(x,y+32,"Press Y for Credits"); 
 }
 else
 {
     //Draws
     draw_text(x,y,"Press E to Start"); 
+    draw_set_font(fnt_joystix_8); 
+    draw_text(x,y+32,"Press T for Credits"); 
 }
 
 //Resets Alpha

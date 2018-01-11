@@ -448,6 +448,9 @@
           <script>scripts\AI_Dodge_Laser.gml</script>
         </scripts>
       </scripts>
+      <scripts name="Credits">
+        <script>scripts\scr_add_credits.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Delegate">
       <scripts name="Defaults">
@@ -535,6 +538,7 @@
       </scripts>
     </scripts>
   </scripts>
+  <shaders name="shaders"/>
   <fonts name="fonts">
     <fonts name="Normal">
       <font>fonts\fnt_joystix_8</font>
@@ -666,6 +670,7 @@
     <objects name="System">
       <object>objects\ctr_generic</object>
       <object>objects\ctr_settings</object>
+      <object>objects\ctr_credits</object>
       <objects name="Widgets">
         <objects name="Widgets">
           <object>objects\obj_widget_parent</object>
@@ -798,6 +803,7 @@
       <room>rooms\rm_splashscreen_2</room>
       <room>rooms\rm_titlescreen</room>
       <room>rooms\rm_mainmenu</room>
+      <room>rooms\rm_credits</room>
       <room>rooms\rm_creator_menu</room>
       <room>rooms\rm_fighter_creator</room>
       <room>rooms\rm_options</room>

@@ -53,7 +53,7 @@
   <instances>
     <instance objName="R_obj" x="112" y="52" name="inst_F516D3D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="G_obj" x="256" y="52" name="inst_4A0C86BE" locked="0" code="" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
-    <instance objName="PressXtoStart_obj" x="255" y="216" name="inst_2390390B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="PressXtoStart_obj" x="255" y="200" name="inst_2390390B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MenuPunch_obj" x="400" y="52" name="inst_D292838F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="AudioController_obj" x="216" y="216" name="inst_3181FEF4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="StealthCollisionUnit_obj" x="0" y="0" name="inst_77386775" locked="0" code="" scaleX="1" scaleY="18" colour="4294967295" rotation="0"/>
