@@ -538,7 +538,6 @@
       </scripts>
     </scripts>
   </scripts>
-  <shaders name="shaders"/>
   <fonts name="fonts">
     <fonts name="Normal">
       <font>fonts\fnt_joystix_8</font>

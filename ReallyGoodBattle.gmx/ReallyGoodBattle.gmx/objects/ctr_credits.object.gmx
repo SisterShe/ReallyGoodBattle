@@ -31,9 +31,9 @@
 //global.music = audio_play_sound_volume(msi_cleanair_ending, 10, true, 1);
 
 //Instance Variables
-distance = room_height + 50;
-credit_speed = 1;
-credit_height = 250;
+distance = room_height + 10;
+credit_speed = 0.5;
+credit_height = 350;
 skip_draw = false;
 skipping = false;
 alpha = 0;
@@ -48,14 +48,27 @@ font_big = fnt_joystix_32;
 
 //Setup the credits.
 credits = ds_list_create();
-scr_add_credits("Really Good Battle", font_big, c_red);
-scr_add_credits(" ", font_medium, c_white);
-scr_add_credits(" ", font_medium, c_white);
-scr_add_credits("Programming", font_medium, c_green);
+scr_add_credits("Really Good Battle", font_medium, c_red);
 scr_add_credits(" ", font_small, c_white);
+scr_add_credits(" ", font_small, c_white);
+scr_add_credits(" ", font_small, c_white);
+scr_add_credits("Gameplay Programming", font_small, c_green);
+scr_add_credits("Art &amp; Design", font_small, c_green);
+scr_add_credits("Storm 'Boxhead' Hughes", font_small, c_white);
+scr_add_credits("@boxheadpixelart", font_small, c_white);
+scr_add_credits(" ", font_small, c_white);
+scr_add_credits(" ", font_small, c_white);
+scr_add_credits(" ", font_small, c_white);
+scr_add_credits(" ", font_small, c_white);
+scr_add_credits("Programming", font_small, c_yellow);
 scr_add_credits("Kate Sander", font_small, c_white);
 scr_add_credits(" ", font_small, c_white);
 scr_add_credits(" ", font_small, c_white);
+scr_add_credits(" ", font_small, c_white);
+scr_add_credits(" ", font_small, c_white);
+scr_add_credits("Music and Sound Design", font_small, c_blue);
+scr_add_credits("Pixel Noise", font_small, c_white);
+scr_add_credits("@PixelNoiseMusic", font_small, c_white);
 scr_add_credits(" ", font_small, c_white);
 </string>
           </argument>
