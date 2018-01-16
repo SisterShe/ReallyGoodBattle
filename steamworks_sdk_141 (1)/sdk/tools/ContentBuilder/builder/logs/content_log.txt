@@ -49,3 +49,7 @@
 
 
 [2017-09-30 19:06:46] Loaded 0 apps from install folder "C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\steamapps\appmanifest_*.acf".
+
+
+[2018-01-15 16:35:35] Loaded 0 apps from install folder "C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\steamapps\appmanifest_*.acf".
+[2018-01-15 16:35:36] Got 100 content servers from directory
