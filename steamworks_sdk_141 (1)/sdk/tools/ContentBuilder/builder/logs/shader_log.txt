@@ -85,3 +85,21 @@
 [2018-01-30 13:15:11] Creating shader cache directory: C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\shader_cache_temp_dir_gl_32
 [2018-01-30 13:15:11] Unknown shader cache type, ignoring.
 [2018-01-30 13:15:11] Found 0 current buckets:
+
+
+[2018-02-12 12:39:43] Attempting to find current bucket; temporary dir: C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\shader_cache_temp_dir_gl_64
+[2018-02-12 12:39:43] Creating shader cache directory: C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\shader_cache_temp_dir_gl_64
+[2018-02-12 12:39:43] Unknown shader cache type, ignoring.
+[2018-02-12 12:39:43] Attempting to find current bucket; temporary dir: C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\shader_cache_temp_dir_gl_32
+[2018-02-12 12:39:43] Creating shader cache directory: C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\shader_cache_temp_dir_gl_32
+[2018-02-12 12:39:43] Unknown shader cache type, ignoring.
+[2018-02-12 12:39:44] Found 0 current buckets:
+
+
+[2018-02-12 13:27:50] Attempting to find current bucket; temporary dir: C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\shader_cache_temp_dir_gl_64
+[2018-02-12 13:27:51] Creating shader cache directory: C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\shader_cache_temp_dir_gl_64
+[2018-02-12 13:27:51] Unknown shader cache type, ignoring.
+[2018-02-12 13:27:51] Attempting to find current bucket; temporary dir: C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\shader_cache_temp_dir_gl_32
+[2018-02-12 13:27:51] Creating shader cache directory: C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\builder\shader_cache_temp_dir_gl_32
+[2018-02-12 13:27:51] Unknown shader cache type, ignoring.
+[2018-02-12 13:27:52] Found 0 current buckets:

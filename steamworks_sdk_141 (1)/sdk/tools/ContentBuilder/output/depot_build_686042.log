@@ -1,33 +1,33 @@
-[2018-01-30 13:15:14]: Starting build for depot 686042, content path is "C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\content\"
-[2018-01-30 13:15:14]: Building file listing for depot 686042 ...
-[2018-01-30 13:15:14]: Found 25 files for mapping: C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\content * -> .
-[2018-01-30 13:15:14]: Found 25 files (32 MB) for depot 686042
-[2018-01-30 13:15:14]: Building depot 686042, baseline manifest 7815664866603250676 (23 files)
-[2018-01-30 13:15:17]: Found 48 new chunks (34 old ones existed) for depot 686042, took 0 minutes, 3 seconds
+[2018-02-12 13:27:52]: Starting build for depot 686042, content path is "C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\content\"
+[2018-02-12 13:27:52]: Building file listing for depot 686042 ...
+[2018-02-12 13:27:52]: Found 24 files for mapping: C:\Users\Storm Hughes\Documents\GitHub\ReallyGoodBattle\steamworks_sdk_141 (1)\sdk\tools\ContentBuilder\content * -> .
+[2018-02-12 13:27:52]: Found 24 files (32 MB) for depot 686042
+[2018-02-12 13:27:53]: Building depot 686042, baseline manifest 7815664866603250676 (23 files)
+[2018-02-12 13:27:53]: Found 49 new chunks (34 old ones existed) for depot 686042, took 0 minutes, 0 seconds
 
-[2018-01-30 13:15:17]: Changes to baseline manifest:
-[2018-01-30 13:15:17]: Changed: "amb_laser_hum.ogg" 50 kB 
-[2018-01-30 13:15:17]: Changed: "data.win" 8501 kB 
-[2018-01-30 13:15:17]: Changed: "msi_menu.ogg" 340 kB 
-[2018-01-30 13:15:17]: Changed: "msi_pause.ogg" 190 kB 
-[2018-01-30 13:15:17]: Changed: "msi_track_1.ogg" 378 kB 
-[2018-01-30 13:15:17]: Changed: "msi_track_2.ogg" 387 kB 
-[2018-01-30 13:15:17]: Changed: "msi_track_3.ogg" 428 kB 
-[2018-01-30 13:15:17]: Changed: "msi_track_4.ogg" 425 kB 
-[2018-01-30 13:15:17]: Changed: "msi_track_5.ogg" 396 kB 
-[2018-01-30 13:15:17]: Changed: "msi_track_6.ogg" 363 kB 
-[2018-01-30 13:15:17]: Changed: "msi_track_7.ogg" 387 kB 
-[2018-01-30 13:15:17]: Changed: "msi_track_8.ogg" 358 kB 
-[2018-01-30 13:15:17]: Added  : "ReallyGoodBattle" 0 kB ,Flags: 64
-[2018-01-30 13:15:17]: Changed: "ReallyGoodBattle.exe" 4053 kB 
-[2018-01-30 13:15:17]: Added  : "ReallyGoodBattle.zip" 13540 kB 
-[2018-01-30 13:15:17]: Changed: "sfx_pause.ogg" 9 kB 
-[2018-01-30 13:15:17]: Changed: "sfx_point_enter.ogg" 9 kB 
-[2018-01-30 13:15:17]: Changed: "sfx_unpause.ogg" 8 kB 
-[2018-01-30 13:15:17]: Changed: "Song1.ogg" 350 kB 
-[2018-01-30 13:15:17]: Changed: "Song2.ogg" 549 kB 
-[2018-01-30 13:15:17]: Changed: "Song3.ogg" 549 kB 
-[2018-01-30 13:15:17]: Summary: 2 files added, 19 files changed, 0 files removed
-[2018-01-30 13:15:18]: Uploading new manifest to 208.64.201.57:80 (handle 2964243665158676120, 4250 bytes).
-[2018-01-30 13:15:18]: Uploading 36 out of 36 missing chunks.
-[2018-01-30 13:15:30]: Success! New manifestID 645441977231839304 created and 36 new chunks uploaded.
+[2018-02-12 13:27:53]: Changes to baseline manifest:
+[2018-02-12 13:27:53]: Changed: "amb_laser_hum.ogg" 50 kB 
+[2018-02-12 13:27:53]: Changed: "data.win" 8502 kB 
+[2018-02-12 13:27:53]: Changed: "msi_menu.ogg" 340 kB 
+[2018-02-12 13:27:53]: Changed: "msi_pause.ogg" 190 kB 
+[2018-02-12 13:27:53]: Changed: "msi_track_1.ogg" 378 kB 
+[2018-02-12 13:27:53]: Changed: "msi_track_2.ogg" 387 kB 
+[2018-02-12 13:27:53]: Changed: "msi_track_3.ogg" 428 kB 
+[2018-02-12 13:27:53]: Changed: "msi_track_4.ogg" 425 kB 
+[2018-02-12 13:27:53]: Changed: "msi_track_5.ogg" 396 kB 
+[2018-02-12 13:27:53]: Changed: "msi_track_6.ogg" 363 kB 
+[2018-02-12 13:27:53]: Changed: "msi_track_7.ogg" 387 kB 
+[2018-02-12 13:27:53]: Changed: "msi_track_8.ogg" 358 kB 
+[2018-02-12 13:27:53]: Changed: "ReallyGoodBattle.exe" 4053 kB 
+[2018-02-12 13:27:53]: Added  : "ReallyGoodBattle.zip" 13540 kB 
+[2018-02-12 13:27:53]: Changed: "sfx_pause.ogg" 9 kB 
+[2018-02-12 13:27:53]: Changed: "sfx_point_enter.ogg" 9 kB 
+[2018-02-12 13:27:53]: Changed: "sfx_unpause.ogg" 8 kB 
+[2018-02-12 13:27:53]: Changed: "Song1.ogg" 350 kB 
+[2018-02-12 13:27:53]: Changed: "Song2.ogg" 549 kB 
+[2018-02-12 13:27:53]: Changed: "Song3.ogg" 549 kB 
+[2018-02-12 13:27:53]: Summary: 1 files added, 19 files changed, 0 files removed
+[2018-02-12 13:27:54]: Uploading new manifest to 208.64.201.57:80 (handle 8887138468952465059, 4190 bytes).
+[2018-02-12 13:27:54]: Uploading 31 out of 31 missing chunks.
+[2018-02-12 13:27:54]: ERROR! Uploading chunk size mismatch
+[2018-02-12 13:27:54]: ERROR! Failed uploading depot

@@ -25,8 +25,36 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>GS = 1; 
+            <string>//Instance Variables
+can_behit = true;
+
+
+GS = 1; 
 scale = 1; 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Activates can be hit.
+can_behit = true;
 </string>
           </argument>
         </arguments>
@@ -83,12 +111,42 @@ image_yscale += (scale - image_yscale) * 0.1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
-GameMaster_obj.Player4Red = round(random_range(0,255)); 
-GameMaster_obj.Player4Green = round(random_range(0,255));
-GameMaster_obj.Player4Blue = round(random_range(0,255));
-*/
-GS += .2;
+            <string>///Handels Collision
+
+if (can_behit)
+{
+    can_behit = false;
+    alarm[0] = room_seconds(0.5);
+    audio_play_sound_volume(sfx_ready_up, 10, false, global.sfxvolume);
+    
+    //Recreates color selection.
+    with (Player4_obj)
+    {
+        //Updates fighter for player.
+        fighter_index += 1;
+        if (fighter_index &gt; ds_list_size(obj_fighter_container.list) - 1)
+        {
+            fighter_index = 0;
+        }
+        fighter = ds_list_find_value(obj_fighter_container.list, fighter_index);
+        event_user(0);
+        with (GameMaster_obj)
+        {
+           Player4Red = other.fighter.red;
+           Player4Green = other.fighter.green;
+           Player4Blue = other.fighter.blue;
+           Player4Fighter = other.fighter;
+        }
+        
+        var name = fighter.name;
+    }
+    
+    //Plays popup animation for name.
+    animation_text_popup(-100, 1, 0.02, fnt_joystix_8, fa_center,
+    fa_top, x, y, name, 16, 100, room_seconds(2), 30, 90, c_white, c_white);
+}
+
+/*GS += .2;
 audio_play_sound_volume(sfx_ready_up, 10, false, global.sfxvolume);
 
 //Recreates color selection.
