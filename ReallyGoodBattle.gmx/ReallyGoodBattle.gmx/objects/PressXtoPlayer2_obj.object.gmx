@@ -103,7 +103,7 @@ if (disabled and global.player2_ai)
 //Check if disabled.
 if (disabled) exit;
 
-//Check for Join input.
+//Check for Join input.  
 if (input_check_pressed(index, key1, key2, key3, key4)) 
 {
      instance_create(Player2Spawn_obj.x,Player2Spawn_obj.y,Player2_obj);
@@ -123,8 +123,8 @@ if (input_check_pressed(index, key1, key2, key3, key4))
         }
      }
      instance_create(384,75,Player2ReadyTexts); 
-     instance_create(336,110,Ready2Up_obj); 
-     instance_create(416,110,Recolor2_obj);
+     instance_create(PressXtoPlayer2_obj.x,PressXtoPlayer2_obj.y-32,Ready2Up_obj); 
+     instance_create(PressXtoPlayer2_obj.x,PressXtoPlayer2_obj.y+32,Recolor2_obj);
      instance_destroy();
      audio_play_sound_volume(sfx_rgb_up, 10, false, global.sfxvolume); 
 }
